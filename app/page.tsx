@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { useFormState, useFormStatus } from "react-dom";
+import Handlebars from "handlebars";
 
 import { getSkuData } from "@/app/actions";
 
 const initialState = {
   message: "",
-  product: {available_tags:'b'} 
+  product: {available_tags:'b',
+						meta_data:{}} 
 };
-
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -20,7 +21,6 @@ function SubmitButton() {
     </button>
   );
 }
-
 
 export default function Home() {
  
@@ -41,14 +41,21 @@ export default function Home() {
 		</p>
 	</form>
 	<aside className="fixed top-0 left-0 z-40 w-64 h-screen overflow-y-auto">
-	<div className="p-10">
+	<table className="p-10">
+
 	{Object.entries(state?.product).map(([key, value]) => (
     	<tr key={key}>
         <td>&#123;&#123;{key}&#125;&#125;</td>
     	</tr>
 	))}
-	</div>
-	</aside>	
+	{Object.entries(state?.product.meta_data).map(([key, value]) => (
+    	<tr key={key}>
+        <td>&#123;&#123;{key}&#125;&#125;</td>
+    	</tr>
+	))}
+	</table>
+	</aside>
+			<iframe src="/templates"></iframe>
     </main>
   );
 }
