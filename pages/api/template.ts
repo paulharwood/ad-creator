@@ -5,7 +5,8 @@ import handlebars from 'handlebars';
 
 // Assuming the structure of the product data
 interface ProductData {
-  title: string;
+  product_title: string;
+  product_description: string;
   // Add other product properties as needed
 }
 
@@ -13,7 +14,8 @@ interface ProductData {
 // Replace this with actual WooCommerce API call
 async function fetchProductData(): Promise<ProductData> {
   return {
-    title: "Example Product Title",
+    product_title: "Example Product Title",
+    product_description: "This is a product description"
     // Populate with actual data fetched from WooCommerce
   };
 }
@@ -24,29 +26,36 @@ const Template = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const productData = await fetchProductData(); // Fetch product data
 
+    // genrate the 3D canvas models 
+
+
     // Resolve paths to the template
-    const templateDir = resolve(process.cwd(), './templates');
+    const templateDir = resolve(process.cwd(), `./templates/${templateName}/`);
     const templatePath = join(templateDir, `${templateName}.hbs`);
 
     // Read and compile the Handlebars template
     const templateSource = await fs.readFile(templatePath, 'utf8');
     const template = handlebars.compile(templateSource);
 
-    // Render the template with the product data
-    const finalHTML = template(productData);
-
     // Define the path for the output HTML file
-    const outputDir = resolve(process.cwd(), './output');
-    const outputPath = join(outputDir, `${templateName}.html`);
-
+    const outputDir = resolve(process.cwd(), `./output/${templateName}`);
     // Ensure the output directory exists
     await fs.mkdir(outputDir, { recursive: true });
+
+    // set the source image path 
+    const imgDir = templateDir + '/images/';
+    // copy the images directory over
+    await fs.cp(imgDir, outputDir + '/images/', {recursive: true});
+
+    // Render the template with the product data and save it to the output folder
+    const finalHTML = template(productData);
+    const outputPath = join(outputDir, `${templateName}.html`);
 
     // Write the rendered HTML to a file
     await fs.writeFile(outputPath, finalHTML, 'utf8');
 
     // Respond to the request indicating success
-    res.status(200).json({ message: 'Template rendered and saved to disk', outputPath });
+    res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error rendering template' });
