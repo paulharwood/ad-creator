@@ -37,22 +37,22 @@ const Template = async (req: NextApiRequest, res: NextApiResponse) => {
     const templateSource = await fs.readFile(templatePath, 'utf8');
     const template = handlebars.compile(templateSource);
 
-    // Define the path for the output HTML file
-    const outputDir = resolve(process.cwd(), `./output/${templateName}`);
-    // Ensure the output directory exists
-    await fs.mkdir(outputDir, { recursive: true });
+    // Define the path for the public HTML file
+    const publicDir = resolve(process.cwd(), `./public/${templateName}`);
+    // Ensure the public directory exists
+    await fs.mkdir(publicDir, { recursive: true });
 
     // set the source image path 
     const imgDir = templateDir + '/images/';
     // copy the images directory over
-    await fs.cp(imgDir, outputDir + '/images/', {recursive: true});
+    await fs.cp(imgDir, publicDir + '/images/', {recursive: true});
 
-    // Render the template with the product data and save it to the output folder
+    // Render the template with the product data and save it to the public folder
     const finalHTML = template(productData);
-    const outputPath = join(outputDir, `${templateName}.html`);
+    const publicPath = join(publicDir, `${templateName}.html`);
 
     // Write the rendered HTML to a file
-    await fs.writeFile(outputPath, finalHTML, 'utf8');
+    await fs.writeFile(publicPath, finalHTML, 'utf8');
 
     // Respond to the request indicating success
     res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });

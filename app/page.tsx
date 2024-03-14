@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from 'next/router';
 import { useFormState, useFormStatus } from "react-dom";
 import Handlebars from "handlebars";
 
@@ -10,7 +11,10 @@ const initialState = {
   message: "",
   product: {available_tags:'b',
 						meta_data:{}} 
+						
 };
+
+
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -24,6 +28,9 @@ function SubmitButton() {
 
 export default function Home() {
  
+const router = useRouter();
+// const { paramName } = router.query;
+
   const [state, formAction] = useFormState(getSkuData, initialState)
 
   return (
@@ -31,6 +38,7 @@ export default function Home() {
 	<h1>
 	  AdCreator
 	</h1>
+	 {/* <p>Parameter value: {paramName}</p> */}
         <form action={formAction}>
 		<label htmlFor="sku">Enter SKU</label>
 		<input type="text" id="sku" name="sku" className="border p-2 bg-black" required />
@@ -55,7 +63,7 @@ export default function Home() {
 	))}
 	</table>
 	</aside>
-			<iframe src="/templates"></iframe>
+			<iframe className="w-full h-dvh" src="/rs_ads/rs_ads.html"></iframe>
     </main>
   );
 }
