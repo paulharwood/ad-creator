@@ -1,0 +1,415 @@
+font-face {
+  font-family: "alte haas grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: local("alte haas grotesk"), url(/wp-content/themes/storefront/fonts/AlteHaasGroteskRegular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "new order semibold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("new order semibold"), url(/wp-content/themes/storefront/fonts/NewOrderSemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "new order medium";
+  font-style: normal;
+  font-weight: 700;
+  src: local("new order medium"), url(/wp-content/themes/storefront/fonts/NewOrderMedium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "neue haas grotesk display pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("neue haas grotesk display pro"), url(/wp-content/themes/storefront/fonts/NeueHaasDisplay-Mediu.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "neue haas grotesk display pro light";
+  font-style: normal;
+  font-weight: 300;
+  src: local("neue haas grotesk display pro light"), url(/wp-content/themes/storefront/fonts/NeueHaasDisplay-Light.ttf) format("truetype");
+}
+
+@page {
+  margin: 0;
+  size: auto;
+  size: portrait;
+  size: 130mm 225mm;
+}
+
+body {
+  margin: 0;
+  padding: 0px
+}
+
+body {
+  font-size: 11.5px;
+  padding: 0;
+  font-family: "new order medium";
+  font-weight: 700;
+  font-style: normal;
+}
+
+.front,
+.back {
+  position: relative;
+  height: 99.6%;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+
+.keyword_title {
+  font-family: "new order semibold";
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: 700;
+  position: absolute;
+  bottom: 56mm;
+  left: 36mm;
+  height: 22mm;
+  width: 110mm;
+  line-height: 0.85;
+  font-size: ' . $keyword_title_size . ' pt;
+  letter-spacing: -0.03em;
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+}
+
+.nrv_table {
+  width: 100%;
+}
+
+.nrv_table td {
+  border-bottom: 1px solid #000;
+}
+
+.title {
+  font-family: "new order semibold";
+  text-transform: capitalize;
+  font-style: normal;
+  font-weight: 700;
+  position: absolute;
+  bottom: 60mm;
+  right: 23mm;
+  width: 12em;
+  line-height: 0.85;
+  font-size: 14pt;
+  letter-spacing: -0.03em;
+}
+
+.title_header {
+  text-transform: capitalize;
+  font-family: "new order medium";
+  font-weight: 700;
+  position: absolute;
+  bottom: 56mm;
+  right: 58mm;
+}
+
+.header {
+  position: absolute;
+  height: 11.775mm;
+  width: auto;
+  top: 8mm;
+  left: 7mm;
+  right: 7mm;
+  border: 1px dashed #000;
+  border-radius: 30px;
+  font-size: 0.6em;
+
+}
+
+.header div {
+  margin: 2mm 9mm;
+  text-align: right;
+}
+
+.header_back {
+  position: absolute;
+  height: 13.775mm;
+  width: auto;
+  top: 4mm;
+  left: 7mm;
+  right: 7mm;
+}
+
+.motif {
+  position: absolute;
+  top: 40mm;
+  right: 12mm;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  top: 85mm;
+  left: 10mm;
+  z-index: -2;
+  background: ' . $brand_colour . ';
+  overflow: hidden;
+  width: 86mm;
+  height: 86mm;
+
+}
+
+.circle img {
+  margin: -5px -5px -5px -5px;
+}
+
+.fitnesshealth-small-logo {
+  position: absolute;
+  top: 46.4mm;
+  right: 16mm;
+  z-index: 1;
+}
+
+.hole-punch {
+  position: absolute;
+  top: 10mm;
+  left: 9.5mm;
+  z-index: 1;
+}
+
+
+.ingredients {
+  border: 1px solid #1d1d1d;
+  font-size: 0.68em;
+  margin: 0 20px 1em;
+  width: 55mm;
+  border-radius: 3mm;
+  position: absolute;
+  top: 42mm;
+  left: 2mm;
+  padding: 3mm 2mm 4mm;
+}
+
+.ingredients div {
+  text-transform: capitalize;
+  font-size: 0.9em;
+  line-height: 0.8;
+  margin-top: 0.3em;
+}
+
+.contains {}
+
+.left_panel,
+.right_panel {
+  width: 45mm;
+  font-size: 0.65em;
+  line-height: 0.8;
+}
+
+.left_panel h2,
+.right_panel h2,
+.ingredients h2 {
+  font-family: "new order semibold";
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 0.7;
+  padding: 0;
+  margin: 0;
+}
+
+.left_panel p,
+.right_panel p {
+  padding-top: 0;
+  margin-top: 0.2em;
+}
+
+.left_panel {
+  position: absolute;
+  top: 32mm;
+  left: 8mm;
+}
+
+.right_panel {
+  position: absolute;
+  top: 42mm;
+  right: 11mm;
+}
+
+.bottom_panel {
+  position: absolute;
+  bottom: 42mm;
+  right: 11mm;
+  left: 11mm;
+}
+
+.bottom_logo {
+  position: absolute;
+  bottom: 12mm;
+  right: 12mm;
+}
+
+.units_in_pack {
+  position: absolute;
+  text-transform: capitalize;
+  bottom: 18mm;
+  right: 10mm;
+  letter-spacing: -0.03em;
+  font-size: 0.9em;
+  border: 1px solid #1b1b1b;
+  border-radius: 5mm;
+  padding: 0 10px 4px 6px;
+  text-align: right;
+  width: 28mm;
+  font-family: "new order medium";
+  font-weight: 700;
+}
+
+.batch_number {
+  position: absolute;
+  bottom: 7mm;
+  right: 11mm;
+  font-size: 1em;
+  text-align: right;
+}
+
+.use_by_date,
+.sku {
+  border-radius: 4mm;
+  border: 1px solid #1b1b1b;
+  padding: 1px 9px 3px;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+.sku {
+  right: 0
+}
+
+.instructions {
+  font-size: 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  bottom: 70px;
+  right: 20px;
+  width: 50%;
+  text-align: right;
+}
+
+.v_symbol {
+  position: absolute;
+  right: 20px;
+  bottom: 135px;
+  width: 40px;
+}
+
+.logos {
+  border: 0.75px solid #000;
+  border-radius: 100px;
+  bottom: 40px;
+  left: 30px;
+  position: absolute;
+  padding: 4mm 3mm;
+  height: 5mm;
+}
+
+.logos img {
+  display: block;
+  margin-left: 0mm;
+  margin-right: 0mm;
+}
+
+.logos img.middle {
+  margin-left: 5mm;
+  margin-right: 5mm;
+}
+
+.feature_image {
+  position: absolute;
+  bottom: 85mm;
+  right: 35mm;
+  height: 61mm;
+  width: 61mm;
+}
+
+.fitnesshealth_logo {
+  background-color: ' . $brand_colour .  ';
+  position: absolute;
+  top: 52mm;
+  right: 0mm;
+  width: 77mm;
+  height: 77mm;
+  overflow: hidden;
+  z-index: -1;
+  display: none;
+}
+
+.fitnesshealth_logo_back {
+  right: 7mm;
+  bottom: 50mm;
+  display: none;
+}
+
+.qr_code {
+  position: absolute;
+  bottom: 50mm;
+  right: 6mm;
+  width: 60mm;
+  height: 22mm;
+  font-size: 0.8em;
+  line-height: 0.8;
+}
+
+.qr_code img {
+  width: 22mm;
+  float: right;
+}
+
+.barcode {
+  position: absolute;
+  bottom: 6mm;
+  left: 11mm;
+  width: 51mm;
+}
+
+.barcode img {
+  width: 50mm
+}
+
+.barcode div {
+  letter-spacing: 0.30em;
+  text-align: left;
+}
+
+.reorder {
+  display: none;
+  position: absolute;
+  bottom: 8mm;
+  right: 25mm;
+  width: 30mm;
+  font-size: 0.75em;
+}
+
+
+.footer_text {
+  line-height: 0.9;
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 11mm;
+  right: 10mm;
+  text-align: right;
+}
+
+.footer_text span {
+  font-family: "new order semibold";
+  font-weight: 700;
+}
+
+.footer_text_back {
+  bottom: 42mm;
+  right: 9mm;
+}
+

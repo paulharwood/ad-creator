@@ -4,8 +4,6 @@ import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-
-
 export async function getSkuData(
   prevState: {
     message: string;
@@ -35,11 +33,13 @@ export async function getSkuData(
   console.log("products/?sku="+data.sku);
 
   try {
-     const response = await api.get("products/?sku="+data.sku);
-     const product = response.data[0];
-     console.log(product);
-    revalidatePath("/");
-    return { message: `Fetched SKU: ${product.sku}`, product: product };
+      const response = await api.get("products/?sku="+data.sku);
+      const product = response.data[0];
+      console.log(product);
+      const template = product.sku.split("_")
+    
+      revalidatePath("/");
+    return { message: `Fetched SKU: ${product.sku}`, product: product, template: template[0] };
   } catch (e) {
     console.log(e);
     return { message: "Failed to create sku" };
