@@ -11,13 +11,36 @@
   size: portrait;
   size: 130mm 225mm;
 }
-
 body {
-  margin: 0;
-  padding: 0px
+  display: flex;
+}
+
+.labels {
+    width: 30%;
+    padding: 1rem;
+}
+
+.label {
+  width: 130mm;
+  height: 225mm;
+  margin: 2em;
+}
+.advert {
+  width:2000px;
+  height:2000px;
+  margin:2em;
+  background-color: #fff;
+}
+.aplus {
+  width: 3000px;
+  height: 2000px;
+  margin: 2em;
+  background-color: #fff;
 }
 
 body {
+  margin: 0;
+  padding: 0px;
   font-size: 11.5px;
   padding: 0;
   font-family: "alte haas grotesk";
@@ -28,17 +51,41 @@ body {
 
 .front,
 .back {
-  background-color: #fff;
   position: relative;
   width:135mm;
   height:225mm;
-  -webkit-transform-origin: 50% 50%;
+  /* -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
+  -ms-transform: rotate(180deg); */
 
+}
+
+.front {
+  background-color: rgba(255,255,255, 0.1);
+}
+
+.back {
+  background-color: #fff;
+}
+
+.label_background_top {
+  background-color: #fff;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:96mm;
+}
+.label_background_bottom {
+  background-color: #fff;
+  position: absolute;
+  top: 170mm;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .title {
@@ -90,9 +137,8 @@ body {
   right: 7mm;
   font-size: 1.3em;
   letter-spacing: 0.1em;
-  background-color: ' . $brand_colour .  ';
+  background-color: #eeeeee;
   padding: 0.5mm 3mm;
-  z-index: -1;
   height: 30px;
 }
 
@@ -104,7 +150,7 @@ body {
   top: 36mm;
   right: 6mm;
   overflow: hidden;
-  background-color: ' . $brand_colour .  ';
+  background-color: #eeeeee;
 }
 
 .header_back {
@@ -114,7 +160,7 @@ body {
   left: 7mm;
   right: 7mm;
   height: 7mm;
-  background-color: ' . $brand_colour .  ';
+  background-color: #eeeeee;
   text-align: right;
   padding-top: 6px;
 }
@@ -142,7 +188,6 @@ body {
   border-right: 0;
   border-left: 0;
   border-top: 0;
-  z-index: -1;
 }
 
 
@@ -316,7 +361,6 @@ body {
   width: 70mm;
   height: 20mm;
   line-height: 0.8;
-  z-index: -1;
 }
 
 .qr_code img {
@@ -342,7 +386,7 @@ body {
 }
 
 .bottom_bar {
-  background-color: ' . $brand_colour .  ';
+  background-color: #eeeeee;
   height: 10px;
   position: absolute;
   bottom: 41mm;
@@ -352,7 +396,6 @@ body {
 }
 
 .footer_text {
-  z-index: -1;
   line-height: 0.9;
   font-size: 0.8em;
   position: absolute;

@@ -25,14 +25,11 @@ export default function Home() {
 
 	let product_template = '/templates/' + state?.product.template + '_template.html';
 
-	
+
 
   return (
 		<>
 			<main className="flex min-h-screen flex-col items-center p-24">
-				{/* <button type="button" onClick={() => router.push('/dashboard')}>
-      		Dashboard
-    		</button> */}
 				<form action={formAction}>
 					<label htmlFor="sku">Enter SKU</label>
 					<input type="text" id="sku" name="sku" className="border p-2 bg-black" required />
