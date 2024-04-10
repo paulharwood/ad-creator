@@ -4,36 +4,32 @@
   font-weight: 300;
   src: local("neue haas grotesk display pro light"), url(/fonts/NeueHaasDisplay-Light.ttf) format("truetype");
 }
-
-@page {
-  margin: 0;
-  size: auto;
-  size: portrait;
-  size: 130mm 225mm;
+@font-face {
+  font-family: "neue haas grotesk display pro";
+  font-style: normal;
+  font-weight: 300;
+  src: local("neue haas grotesk display pro"), url(/fonts/NeueHaasDisplay-Medium.ttf) format("truetype");
 }
-body {
-  display: flex;
-}
-
 .labels {
     width: 30%;
     padding: 1rem;
 }
-
 .label {
   width: 130mm;
   height: 225mm;
-  margin: 2em;
+  color: #1d1d1d;
+  background-color: transparent;
 }
 .advert {
-  width:2000px;
-  height:2000px;
+  width:1000px;
+  height:1000px;
   margin:2em;
   background-color: #fff;
+  color: #1d1d1d;
 }
 .aplus {
-  width: 3000px;
-  height: 2000px;
+  width: 2000px;
+  height: 1000px;
   margin: 2em;
   background-color: #fff;
 }
@@ -46,7 +42,9 @@ body {
   font-family: "alte haas grotesk";
   font-weight: 400;
   font-style: normal;
-  background-color: #1d1d1d;
+  display: flex;
+  color: #fff;
+  background-color: transparent;
 }
 
 .front,
@@ -64,7 +62,7 @@ body {
 }
 
 .front {
-  background-color: rgba(255,255,255, 0.1);
+  background-color: rgba(255,255,255,0.06);
 }
 
 .back {

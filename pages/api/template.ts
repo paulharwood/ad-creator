@@ -75,20 +75,27 @@ async function fetchSkuData(sku: string): Promise<SkuData> {
 
 
 const Template = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { templateName = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
+  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
-  
+  const { tpl, sku } = req.query;
+
+  if (!sku || typeof sku !== 'string') {
+      return res.status(400).json({ message: 'Invalid SKU parameter.' });
+  }
+  if (!tpl || typeof tpl !== 'string') {
+      return res.status(400).json({ message: 'Invalid Template.' });
+  }
 
   try {
-    const wcData = await fetchSkuData("S_RASP-KET-CP_1000MG_120_80G_M"); // Fetch product data
+    const wcData = await fetchSkuData(sku); // Fetch product data
 
     console.log(wcData);
 
     if (wcData.product.meta_data) {
       const metaData = wcData.product.meta_data;
       // // Resolve paths to the template
-      const templateDir = resolve(process.cwd(), `./templates/${templateName}/`);
-      const templatePath = join(templateDir, `${templateName}_template.html`);
+      const templateDir = resolve(process.cwd(), `./templates/${tpl}/`);
+      const templatePath = join(templateDir, `${tpl}_template.html`);
 
       // // Read and compile the Handlebars template
       const templateSource = await fs.readFile(templatePath, 'utf8');
