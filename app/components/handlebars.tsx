@@ -37,13 +37,12 @@ const HandlebarsComponent: React.FC = () => {
     BULLETS_FR:'BULLETS_FR',
     TITLE_FR:'TITLE_FR',
     COPY_FR:'COPY_FR',
-
   });
   
   // Load CSS
-   const [ stylePath, setStylePath ] = useState("/templates/rs_front_template.html");
+    const [ stylePath, setStylePath ] = useState("/templates/rs_front_template.html");
     const handleButtonClick = () => {
-        setStylePath({stylePath: 'style2.css'});
+        setStylePath('style2.css');
     }
       useEffect(() => {
         var head = document.head;
