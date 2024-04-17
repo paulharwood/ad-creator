@@ -93,8 +93,17 @@ const Template = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (wcData.product.meta_data) {
       const metaData = wcData.product.meta_data;
+      metaData.sku = wcData.product.sku;
+
+      const units = metaData.units_in_pack.split(" ");
+
+      // separate units_count and units_type
+      metaData.units_count= units[0];
+      metaData.units_type= units[1];
+    
+
       // // Resolve paths to the template
-      const templateDir = resolve(process.cwd(), `./templates/${tpl}/`);
+      const templateDir = resolve(process.cwd(), `./public/templates/${tpl}/`);
       const templatePath = join(templateDir, `${tpl}_template.html`);
 
       // // Read and compile the Handlebars template
