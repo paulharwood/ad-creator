@@ -11,8 +11,8 @@ export interface SkuData {
   sku?: string;
 }
 
-export async function getSkuData(state: SkuData): Promise<SkuData> {
-  const sku = state.sku;
+export async function getSkuData(wcData: SkuData): Promise<SkuData> {
+  const sku = wcData.sku;
   const schema = z.object({
     sku: z.string().min(1),
   });

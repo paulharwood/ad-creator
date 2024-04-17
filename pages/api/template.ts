@@ -45,14 +45,14 @@ interface ProductData {
 
 
 // Define an async function to fetch SKU data
-async function fetchSkuData(state: SkuData): Promise<SkuData> {
+async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
 
   type ProductData = {
   [key: string]: any;
 };
 
   try {
-    const skuData: SkuData = await getSkuData(state); // Call the getSkuData function with the SKU parameter
+    const skuData: SkuData = await getSkuData(wcData); // Call the getSkuData function with the SKU parameter
     console.log(skuData.message); // Log the message returned by the function
 
     // convert the wordpress format to k/v object
@@ -74,10 +74,19 @@ async function fetchSkuData(state: SkuData): Promise<SkuData> {
 }
 
 
-const Template = async (req: NextApiRequest, res: NextApiResponse, state: SkuData) => {
+const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuData) => {
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
+  // #TODO refactor the actions to handle this better 
   const { tpl, sku } = req.query;
+
+    // Make sure wcData is an object before attempting to set its property
+    if (!wcData) {
+        // Initialize wcData if it's not already
+        wcData = {} as SkuData; // Assuming SkuData is the type you want wcData to be
+    }
+
+  wcData.sku = Array.isArray(sku) ? sku[0] : sku;
 
   if (!sku || typeof sku !== 'string') {
       return res.status(400).json({ message: 'Invalid SKU parameter.' });
@@ -86,17 +95,14 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, state: SkuDat
       return res.status(400).json({ message: 'Invalid Template.' });
   }
 
-  // set the sku to the state
-  state.sku = sku;
-
   try {
-    const wcData = await fetchSkuData(state); // Fetch product data
+    const wcRet = await fetchSkuData(wcData); // Fetch product data
 
-    console.log(wcData);
+    console.log(wcRet);
 
-    if (wcData.product.meta_data) {
-      const metaData = wcData.product.meta_data;
-      metaData.sku = wcData.product.sku;
+    if (wcRet.product.meta_data) {
+      const metaData = wcRet.product.meta_data;
+      metaData.sku = wcRet.product.sku;
 
       const units = metaData.units_in_pack.split(" ");
 

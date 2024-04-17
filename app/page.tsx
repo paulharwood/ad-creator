@@ -25,6 +25,8 @@ export default function Home() {
 
 	let product_template = '/templates/' + state?.product.template + '_template.html';
 
+
+
   return (
 		<>
 			<main className="flex min-h-screen flex-col items-center p-24">
