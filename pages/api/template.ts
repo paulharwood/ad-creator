@@ -45,14 +45,14 @@ interface ProductData {
 
 
 // Define an async function to fetch SKU data
-async function fetchSkuData(sku: string): Promise<SkuData> {
+async function fetchSkuData(state: SkuData): Promise<SkuData> {
 
   type ProductData = {
   [key: string]: any;
 };
 
   try {
-    const skuData: SkuData = await getSkuData(sku); // Call the getSkuData function with the SKU parameter
+    const skuData: SkuData = await getSkuData(state); // Call the getSkuData function with the SKU parameter
     console.log(skuData.message); // Log the message returned by the function
 
     // convert the wordpress format to k/v object
@@ -74,7 +74,7 @@ async function fetchSkuData(sku: string): Promise<SkuData> {
 }
 
 
-const Template = async (req: NextApiRequest, res: NextApiResponse) => {
+const Template = async (req: NextApiRequest, res: NextApiResponse, state: SkuData) => {
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
   const { tpl, sku } = req.query;
@@ -86,8 +86,11 @@ const Template = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ message: 'Invalid Template.' });
   }
 
+  // set the sku to the state
+  state.sku = sku;
+
   try {
-    const wcData = await fetchSkuData(sku); // Fetch product data
+    const wcData = await fetchSkuData(state); // Fetch product data
 
     console.log(wcData);
 
