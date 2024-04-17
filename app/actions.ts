@@ -8,9 +8,11 @@ export interface SkuData {
   message: string;
   product?: any;
   template?: string;
+  sku?: string;
 }
 
-export async function getSkuData(sku: string): Promise<SkuData> {
+export async function getSkuData(state: SkuData): Promise<SkuData> {
+  const sku = state.sku;
   const schema = z.object({
     sku: z.string().min(1),
   });
