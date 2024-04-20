@@ -38,3 +38,4 @@ next-env.d.ts
 # template output
 
 /output
+/public/sku/

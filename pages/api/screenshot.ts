@@ -18,7 +18,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (labels.length > 0) {
         const label = labels[0];
-        await label.screenshot({ path: 'public/label.png', omitBackground: true });
+        await label.screenshot({  path:`public/${sku}/${sku}_label_front.png` , omitBackground: true });
     } else {
         await browser.close();
         return res.status(500).json({ message: 'No elements with the class .label were found.' });
@@ -28,7 +28,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (advert.length > 0) {
         const label = advert[0];
-        await label.screenshot({ path: 'public/advert.png' });
+        await label.screenshot({ path:`public/${sku}/${sku}_advert.png` });
     } else {
         await browser.close();
         return res.status(500).json({ message: 'No elements with the class .advert were found.' });

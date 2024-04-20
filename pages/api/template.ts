@@ -83,7 +83,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
         // Initialize wcData if it's not already
-        wcData = {} as SkuData; // Assuming SkuData is the type you want wcData to be
+        wcData = {} as SkuData; 
     }
 
   wcData.sku = Array.isArray(sku) ? sku[0] : sku;
@@ -120,7 +120,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       const template = handlebars.compile(templateSource);
 
       // // Define the path for the public HTML file
-      const publicDir = resolve(process.cwd(), `./public/${sku}`);
+      const publicDir = resolve(process.cwd(), `./public/sku/${sku}`);
       // // Ensure the public directory exists
       await fs.mkdir(publicDir, { recursive: true });
 
