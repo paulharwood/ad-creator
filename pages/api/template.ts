@@ -74,6 +74,23 @@ async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
 }
 
 
+// utility function to convert TRUE statements
+function convertTrue(obj: { [key: string]: string }): { [key: string]: string } {
+  const result: { [key: string]: string } = {};
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (obj[key] === 'TRUE') {
+        result[key] = 'block';
+      } else {
+        result[key] = obj[key];
+      }
+    }
+  }
+
+  return result;
+}
+
 const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuData) => {
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
@@ -98,18 +115,22 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   try {
     const wcRet = await fetchSkuData(wcData); // Fetch product data
 
-    console.log(wcRet);
+    
 
     if (wcRet.product.meta_data) {
-      const metaData = wcRet.product.meta_data;
+      const metaData = convertTrue(wcRet.product.meta_data);
+
+      console.log(metaData);
+      
+      // pull in some wc specifics
       metaData.sku = wcRet.product.sku;
+      metaData.product_id = wcRet.product.id;
 
       const units = metaData.units_in_pack.split(" ");
 
       // separate units_count and units_type
       metaData.units_count= units[0];
       metaData.units_type= units[1];
-    
 
       // // Resolve paths to the template
       const templateDir = resolve(process.cwd(), `./public/templates/${tpl}/`);

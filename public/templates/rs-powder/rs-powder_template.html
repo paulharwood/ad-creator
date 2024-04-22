@@ -1,8 +1,8 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="../assets/css/template_ux.css">
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
     <link rel="stylesheet" type="text/css" href="css/rs-powder.css">
-    <!-- inline styles to overrride css as branding -->
+    <!-- conditional/inline styles -->
     <style>
       .keyword_title {
         font-size:{{keyword_title_size}}pt;
@@ -10,14 +10,29 @@
       .ad1, .ap1, .ad5, .ap5 {
         background-image: url("images/{{sku}}_background.png");
       }
+      .is_vegan { display: {{is_vegan}};}
+      .is_vegetarian { display: {{is_vegetarian}};}
+      .is_halal { display: {{is_halal}};}
+      .is_kosher { display: {{is_kosher}};}
+      .is_gmo_free { display: {{is_gmo_free}};}
+      .is_organic { display: {{is_organic}};}
+      .is_gluten_free { display: {{is_gluten_free}};}
     </style>
     </head>
   <body>
     <div class="top_bar">
-      <a href="https://inentory.fitnesshealth.co/?product={{sku}}">{{sku}}</a>
+      <a href="https://inventory.fitnesshealth.co/?product={{sku}}" target="_blank">{{sku}}</a>
+      <br />
+      Edit:
+      <a href="https://inventory.fitnesshealth.co/wp-admin/post.php?post={{product_id}}&action=edit" target="_blank">{{sku}}</a>
+      Regenerate:      
+      <a href="#" onclick="fetch('http://localhost:3000/api/template?sku={{sku}}&tpl=rs-powder').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
+      Generate Images:      
+      <a href="#" onclick="fetch('http://localhost:3000/api/screenshot?sku={{sku}}').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
+
     </div>
     <h2>Labels</h2>
-    <div class="labels">
+    <div class="labels {{rs_collection}}">
       <div class="label front">
         <!-- emulate the window gap-->
         <div class="label_background_top"></div>
@@ -27,7 +42,7 @@
         <div class="tear_strip">
               <img src="images/rs-motif.svg"  width="35" height="35" />
         </div>
-        <div class="tear_strip_text"  style="background-color: {{brand_colour}};">
+        <div class="tear_strip_text">
           +++++++++++++------_____
         </div>
         <div class="header">
@@ -44,7 +59,7 @@
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 185.2 185.2" style="enable-background:new 0 0 185.2 185.2;" xml:space="preserve">
           <style type="text/css">
-            .st0{fill:{{brand_colour}};}
+            .st0{;}
           </style>
           <g>
             <polygon class="st0" points="55.7,0 185.2,129.4 185.2,125 60.2,0 	"/>
@@ -74,11 +89,11 @@
           {{label_title}}
         </div>
         <div class="units_in_pack">
-          <span>{{units_count}}</span><br />{{units_type}}
+          <span>{{units_count}}</span><small class="e_symbol">&#x212E;</small><br />{{units_type}}
         </div>
         <div class="rs_collection {{rs_collection}}">
           <img class="rs_collection_logo" src="images/rs-{{rs_collection}}-small.svg" width="20" height="20" />{{rs_collection}}</div>
-        <div class="bottom_bar" style="background-color: {{brand_colour}};"></div>
+        <div class="bottom_bar"></div>
         <div class="footer_text">
         <span>rapidstrength.co</span>
         The Science of Strength
@@ -90,7 +105,7 @@
       <div class="tear_strip">
             <img src="images/rs-motif.svg"  width="35" height="35" />
       </div>
-      <div class="tear_strip_text" style="background-color: {{brand_colour}};">
+      <div class="tear_strip_text">
       </div>
 
         <div class="ingredients">
@@ -111,7 +126,7 @@
         <p>We believe in being transparent with our customers, so we want to make it clear that this product is not intended to diagnose, treat, cure, or prevent any disease.</p>
         <p>Fitness Health Ltd.<br />Gower Road<br />Swansea.<br />SA4 4RF</p>
         </div>
-        <div class="bottom_bar" style="background-color: {{brand_colour}};"></div>
+        <div class="bottom_bar"></div>
         <div class="bottom_panel">
         <img style="float:right" src="images/fh-logo-black.svg"  width="50" height="50" />
           <div class="use_by_date">

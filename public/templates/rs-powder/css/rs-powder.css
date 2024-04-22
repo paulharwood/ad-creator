@@ -10,6 +10,31 @@
   font-weight: 300;
   src: local("neue haas grotesk display pro"), url(/fonts/NeueHaasDisplay-Medium.ttf) format("truetype");
 }
+
+/* conditionals */
+.is_vegan,
+.is_vegetarian,
+.is_halal,
+.is_kosher,
+.is_gmo_free,
+.is_organic,
+.is_gluten_free {
+  display: block;
+}
+
+/* brand colours */
+.recovery {
+  color: #cc8604;
+}
+
+.maintenance {
+  color: #19A2CC;
+}
+
+.performance {
+  color: #E20613;
+}
+
 .labels {
     width: 30%;
     padding: 1rem;
@@ -127,6 +152,15 @@ body {
   padding: 0.5mm 3mm;
   height: 30px;
 }
+.performance .tear_strip_text {
+  background-color: #E20613;
+}
+.maintenance .tear_strip_text {
+  background-color: #19A2CC;
+}
+.recovery .tear_strip_text {
+  background-color: #cc8604;
+}
 
 .header {
   color: #fff;
@@ -148,6 +182,7 @@ body {
   right: 8mm;
   letter-spacing: -0.07em;
   text-align: left;
+  padding-bottom: 12px;
 }
 .keyword_subtitle {
   position: absolute;
@@ -167,6 +202,20 @@ body {
   top: 126mm;
   right: 8mm;
 }
+
+.performance .stripes svg .st0 {
+  fill: #E20613;
+}
+
+.maintenance .stripes svg .st0 {
+  fill: #19A2CC;
+}
+
+.recovery .stripes svg .st0 {
+  fill: #cc8604;
+}
+
+
 .header_back {
   position: absolute;
   width: auto;
@@ -197,6 +246,7 @@ body {
   vertical-align: text-top;
   height: 18px;
   width: 18px;
+  padding-right: 0.2em;
   border: 1.3px solid white;
   padding-top: 1.3px;
   border-right: 0;
@@ -205,17 +255,7 @@ body {
 }
 
 
-.recovery {
-  color: #cc8604;
-}
 
-.maintenance {
-  color: #19A2CC;
-}
-
-.performance {
-  color: #E20613;
-}
 
 .ingredients {
   border: 1px solid #1d1d1d;
@@ -305,6 +345,9 @@ body {
   font-size:1.6em;
 }
 
+.units_in_pack .e_symbol {
+  font-size:1.2em;
+}
 .batch_number {
   position: absolute;
   bottom: 13mm;
@@ -412,6 +455,17 @@ body {
   left: 7mm;
   right: 7mm;
 
+}
+.performance .bottom_bar {
+  background-color: #E20613;
+}
+
+.maintenance .bottom_bar {
+  background-color: #19A2CC;
+}
+
+.recovery .bottom_bar {
+  background-color: #cc8604;
 }
 
 .footer_text {
