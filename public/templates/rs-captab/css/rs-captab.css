@@ -17,9 +17,9 @@
 .is_halal,
 .is_kosher,
 .is_gmo_free,
-.is_organic,
-.is_gluten_free 
-{ display: block;}
+  .is_organic,
+  .is_gluten_free 
+{ display: none;}
 
 /* brand colours */
 .recovery {
@@ -400,8 +400,10 @@ body {
 .logos {
   text-align: right;
   position: absolute;
-  bottom: 9mm;
+  bottom: 6mm;
   right: 10mm;
+  display:flex;
+  flex-direction:row;
 }
 
 .logos img {

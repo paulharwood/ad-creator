@@ -19,7 +19,7 @@
 .is_gmo_free,
 .is_organic,
 .is_gluten_free {
-  display: block;
+  display: none;
 }
 
 /* brand colours */
@@ -44,6 +44,7 @@
   height: 225mm;
   color: #1d1d1d;
   background-color: transparent;
+  font-family: "DIN 2014";
 }
 .advert {
   width:1000px;
@@ -112,26 +113,25 @@ body {
 }
 
 .title {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   text-transform: capitalize;
   font-style: normal;
   font-weight: 500;
   position: absolute;
-  top: 195mm;
+  top: 196.5mm;
   left: 18mm;
   width: 14em;
   line-height: 0.85;
-  font-size: 14pt;
+  font-size: 13pt;
   letter-spacing: -0.03em;
   height: 2em;
 }
 
 .title_header {
   text-transform: capitalize;
-  font-family: "neue haas grotesk display pro light";
-  font-weight: 700;
+  font-weight: 300;
   position: absolute;
-  top: 190mm;
+  top: 191mm;
   left: 18mm;
 }
 
@@ -173,9 +173,9 @@ body {
 }
 .keyword_title {
   position: absolute;
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 6em;
   bottom: 114mm;
   left: 15mm;
@@ -186,10 +186,10 @@ body {
 }
 .keyword_subtitle {
   position: absolute;
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
-  font-weight: 500;
-  font-size: 2.8em;
+font-weight: 600;
+  font-size: 2.6em;
   bottom: 108mm;
   left: 16mm;
   right: 8mm;
@@ -229,13 +229,13 @@ body {
 }
 
 .rs_collection {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
   font-weight: 500;
   text-transform: capitalize;
   position: absolute;
   top: 186mm;
-  left: 86mm;
+  left: 87mm;
   height: 7mm;
   font-size: 1.6em;
   letter-spacing: -0.04em;
@@ -273,7 +273,7 @@ body {
 .ingredients div {
   text-transform: capitalize;
   font-size: 1em;
-  line-height: 0.8;
+  line-height: 1.1;
   margin-top: 0.3em;
 }
 
@@ -281,13 +281,13 @@ body {
 .right_panel {
   width: 55mm;
   font-size: 0.75em;
-  line-height: 0.8;
+  line-height: 1.1;
 }
 
 .left_panel h2,
 .right_panel h2,
 .ingredients h2 {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1em;
   line-height: 0.7;
@@ -329,8 +329,8 @@ body {
   width:40mm;
   letter-spacing: -0.03em;
   padding: 0;
-  font-family: "neue haas grotesk display pro";
-  font-weight: 400;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
+  font-weight: 300;
   font-size: 11pt;
   text-align: left;
   border-top:1px solid #999999;
@@ -340,7 +340,7 @@ body {
 
 .units_in_pack span {
   border-top: 3px solid #999999;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0;
   font-size:1.6em;
 }
@@ -359,7 +359,7 @@ body {
 .sku {
   border-radius: 4mm;
   border: 1px solid #1b1b1b;
-  padding: 1px 9px 3px;
+  padding: 2px 9px;
   display: inline-block;
   font-size: 0.8em;
 }
@@ -388,8 +388,10 @@ body {
 .logos {
   text-align: right;
   position: absolute;
-  bottom: 9mm;
+  bottom: 6mm;
   right: 10mm;
+  display:flex;
+  flex-direction: row;
 }
 
 .logos img {
@@ -441,7 +443,7 @@ body {
 }
 
 .qr_code_text h2 {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1.2em;
   margin-bottom: 0.2em;
@@ -479,16 +481,16 @@ body {
 }
 
 .footer_text span {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1.4em;
 }
 
 .plus {
-  font-size: 4.5em;
+  font-size: 4.2em;
   position: absolute;
-  font-family: "neue haas grotesk display pro light";
-  font-weight: 700;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro light";
+  font-weight: 400;
 }
 
 .plus1 {
@@ -512,24 +514,191 @@ body {
 }
 
 
+/* ADVERTS AND APLUS */
+
+.aplus, .advert {
+  position:relative;
+}
+
+.aplus h2,
+.advert h2 {
+    font-size: 7.7em;
+    position: absolute;
+    font-family: "Helvetica Neue", "neue haas grotesk display pro";
+    font-weight: 700;
+    letter-spacing: -0.07em;
+    line-height: 0.86;
+    color:#fff;
+}
+
+.aplus h3,
+.advert h3 {
+  font-size: 2.95em;
+  position: absolute;
+  font-family: "DIN 2014", monospace;
+  font-weight: 400;
+  /* letter-spacing: -0.07em; */
+  line-height: 1.2;
+  color: #fff;
+}
+
+
+/* ADVERT 1 & APLUS 1*/
 .ad1 {
   background-image: url("../images/rs_ad1.png");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 2000px 1000px;
 }
+.ap1 {
+  background-image: url("../images/rs_aplus1.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 2000px 1000px;
+}
+.ap1 h2 {
+  left: 1069px;
+  top: 240px;
+  font-size: 11em;
+  color: #1d1d1d;
+}
 
+
+/* ADVERT 2 & APLUS 2*/
 .ad2 {
   background-image: url("../images/rs_ad2.png");
 }
+.ad2 h2 {
+  top:27px;
+  left:96px;
+}
 
+.ad2 .ad_bullets,
+.ap2 .ad_bullets {
+position: absolute;
+  top: 401px;
+  left: 170px;
+  color: #fff;
+  font-size: 35px;
+  line-height: 60px;
+  font-family: "DIN 2014";
+}
+
+
+.ad2 .ad_bullets_icons,
+.ap2 .ad_bullets_icons {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 440px;
+  left: 100px;
+}
+.ad2 .ad_bullets_icons img,
+.ap2 .ad_bullets_icons img {
+  width:50px;
+  padding-bottom:10px;
+}
+
+
+.ad2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
+.ap2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
+.ap2 {
+  background-image: url("../images/rs_aplus2.png");
+}
+
+.ap2 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+
+/* ADVERT 3 & APLUS 3*/
 .ad3 {
   background-image: url("../images/rs_ad3.png");
 }
+.ap3 {
+  background-image: url("../images/rs_aplus3.png");
+}
 
+/* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
 }
+.ad4 h2,
+.ap4 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+.ap4 h3,
+.ad4 h3 {
+  top: 401px;
+  left: 106px;
+}
+
+.ap4 {
+  background-image: url("../images/rs_aplus4.png");
+}
+
+/* ADVERT 5 & APLUS 5*/
+
+.ad5 h2,
+.ap5 h2 {
+  top: 120px;
+  left: 416px;
+  color: #1b1b1b;
+}
+
+.ap5 h2 {
+  left: 662px;
+}
+
+.ad5 .logos img,
+.ap5 .logos img{
+  margin: 0 12px;
+}
+
+.ad5 .logos {
+  top: 380px;
+  left: 440px;
+}
+.ap5 .logos {
+  top: 380px;
+  left: 680px;
+}
+
+.ad5 .ingredients,
+.ap5 .ingredients {
+    color: #1d1d1d;
+    font-size: 1.3em;
+    margin: 0 20px 1em;
+    width: 30em;
+    border-radius: 3mm;
+    position: absolute;
+    right: 2mm;
+    padding: 3mm 4mm 5mm;
+}
+.ad5 .ingredients {
+    top: 561px;
+    left: 400px;
+}
+.ap5 .ingredients {
+    top: 561px;
+    left: 640px;
+}
+
+
 
 .ad5 {
   background-image: url("../images/rs_ad5.png");
@@ -537,41 +706,6 @@ body {
   background-repeat: no-repeat;
   background-size: 3000px 1500px;
 }
-.ad6 {
-  background-image: url("../images/rs_ad6.png");
-}
-
-.ad7 {
-  background-image: url("../images/rs_ad7.png");
-}
-
-.ad8 {
-  background-image: url("../images/rs_ad8.png");
-}
-
-.ad9 {
-  background-image: url("../images/rs_ad9.png");
-}
-
-.ap1 {
-  background-image: url("../images/rs_aplus1.png");
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: 2000px 1000px;
-}
-
-.ap2 {
-  background-image: url("../images/rs_aplus2.png");
-}
-
-.ap3 {
-  background-image: url("../images/rs_aplus3.png");
-}
-
-.ap4 {
-  background-image: url("../images/rs_aplus4.png");
-}
-
 .ap5 {
   background-image: url("../images/rs_aplus5.png");
   background-repeat: no-repeat;
@@ -579,18 +713,44 @@ body {
   background-size: 4000px 2000px;
 }
 
+
+/* ADVERT 6 & APLUS 6*/
+.ad6 {
+  background-image: url("../images/rs_ad6.png");
+}
 .ap6 {
   background-image: url("../images/rs_aplus6.png");
 }
 
+
+/* ADVERT 7 & APLUS 1*/
+.ad7 {
+  background-image: url("../images/rs_ad7.png");
+}
 .ap7 {
   background-image: url("../images/rs_aplus7.png");
 }
 
+
+/* ADVERT 8 & APLUS 1*/
+.ad8 {
+  background-image: url("../images/rs_ad8.png");
+}
 .ap8 {
   background-image: url("../images/rs_aplus8.png");
+}
+
+/* 9 & APLUS 1*/
+.ad9 {
+  background-image: url("../images/rs_ad9.png");
 }
 
 .ap9 {
   background-image: url("../images/rs_aplus9.png");
 }
+
+
+
+
+
+

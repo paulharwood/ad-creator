@@ -10,16 +10,14 @@
         font-size:{{keyword_title_size}}pt;
       }
       .ad1, .ap1, .ad5, .ap5 {
-        background-image: url("images/{{sku}}_background.png");
+        background-image: url("/renders/{{sku}}_background.png");
       }
       .is_vegan { display: {{is_vegan}};}
       .is_vegetarian { display: {{is_vegetarian}};}
-      .is_halal { display: {{is_halal}};}
-      .is_kosher { display: {{is_kosher}};}
-      .is_gmo_free { display: {{is_gmo_free}};}
-      .is_organic { display: {{is_organic}};}
-      .is_gluten_free { display: {{is_gluten_free}};}
-
+      .is_halal { display: {{halal}};}
+      .is_kosher { display: {{kosher}};}
+      .is_gmo_free { display: {{gmo_free}};}
+      .is_organic { display: {{organic}};}
     </style>
     </head>
   <body>
@@ -47,7 +45,7 @@
         <div class="plus plus1">+</div>
         <div class="plus plus2">+</div>
         <div class="tear_strip">
-              <img src="images/rs-motif.svg"  width="35" height="35" />
+            <img src="images/rs-motif.svg"  width="35" height="35" />
         </div>
         <div class="tear_strip_text">
           +++++++++++++------_____
@@ -87,7 +85,11 @@
         </div>
         <div class="logos">
           <!-- conditional -->
-          <img src="images/vegan-logo.svg"  width="30" height="30" />
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="30" height="30" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="30" height="30" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="30" height="30" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="30" height="30" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="30" height="30" />
           <img src="images/fh-logo-black.svg"  width="30" height="30" />
         </div>
         <div class="title_header">
@@ -160,10 +162,9 @@
     <h2>Adverts</h2>
     <div class="advert_content">
       <div class="advert ad1">
-        ADVERT 1
       </div>
       <div class="advert ad2">
-                ADVERT 2
+        <h2>High quality<br />ingredients, safely<br />formulated</h2>
       </div>
       <div class="advert ad3">
                 ADVERT 3

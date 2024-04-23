@@ -3,7 +3,16 @@ import { promises as fs } from 'fs';
 import { resolve, join } from 'path';
 import handlebars from 'handlebars';
 import { getSkuData, SkuData } from "@/app/actions";
+// Omit this line if loading from a CDN
+import translate from "translate";
 
+translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
+translate.key = process.env.DEEPL_KEY;
+
+const text = await translate("Hello world", "es");
+
+
+console.log(text);
 
 // Assuming the structure of the product data
 interface ProductData {
@@ -74,7 +83,7 @@ async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
 }
 
 
-// utility function to convert TRUE statements
+// utility function to convert TRUE statements to display:block for CSS rules
 function convertTrue(obj: { [key: string]: string }): { [key: string]: string } {
   const result: { [key: string]: string } = {};
 
@@ -95,7 +104,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
-  const { tpl, sku } = req.query;
+  const { tpl, sku, lang } = req.query;
 
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
@@ -115,8 +124,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   try {
     const wcRet = await fetchSkuData(wcData); // Fetch product data
 
-    
-
+  
     if (wcRet.product.meta_data) {
       const metaData = convertTrue(wcRet.product.meta_data);
 
