@@ -7,12 +7,8 @@ import { getSkuData, SkuData } from "@/app/actions";
 import translate from "translate";
 
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
-translate.key = process.env.DEEPL_KEY;
-
-const text = await translate("Hello world", "es");
-
-
-console.log(text);
+// translate.key = process.env.DEEPL_KEY;
+translate.key = "6d6577df-6c4e-4e2a-924e-3d5b29c67d74:fx";
 
 // Assuming the structure of the product data
 interface ProductData {
@@ -104,7 +100,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
-  const { tpl, sku, lang } = req.query;
+  const { tpl, sku} = req.query;
 
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
@@ -124,21 +120,77 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   try {
     const wcRet = await fetchSkuData(wcData); // Fetch product data
 
-  
     if (wcRet.product.meta_data) {
-      const metaData = convertTrue(wcRet.product.meta_data);
 
-      console.log(metaData);
+      // convert TRUE to block for display:block
+      const metaData = convertTrue(wcRet.product.meta_data);
       
       // pull in some wc specifics
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
+
+      // create a metadata set for each language and translate the values.
+      // The languages we are going to translate
+      const languages = ['es','it','de','fr'];
+
+      // Define the type for langData object
+      type LangData = {
+        suggested_use: string;
+        ingredients: string;
+        label_title: string;
+        keyword_title: string;
+        AD_BULLETS: string;
+        KEY_FEATURE_TITLE: string;
+        KEY_FEATURE_COPY: string;
+        ALLERGENS_EN: string;
+        keyword_subtitle: string;
+      };
+
+      //console.log(metaData);
+      // extract the metadata we need, translatable
+      const langData = {
+        suggested_use: metaData.suggested_use,
+        ingredients: metaData.ingredients,
+        label_title: metaData.label_title,
+        keyword_title: metaData.keyword_title,
+        AD_BULLETS: metaData.AD_BULLETS,
+        KEY_FEATURE_TITLE: metaData.KEY_FEATURE_TITLE,
+        KEY_FEATURE_COPY: metaData.KEY_FEATURE_COPY,
+        ALLERGENS_EN: metaData.ALLERGENS_EN,
+        keyword_subtitle:  metaData.keyword_subtitle
+      }
+
+        // Define the type for translations object
+        type Translations = {
+          [key: string]: {
+            [key: string]: string;
+          };
+        };
+
+        const translations: Translations = {};
+        // Loop through each language in the languages array
+        for (const language of languages) {
+          translations[language] = {};
+          // Loop through each key in langData object
+          for (const key in langData) {
+            // Translate the value of each key to the current language
+            const translatedValue = await translate(langData[key as keyof LangData], { from: 'en', to: language });
+            translations[language][key] = translatedValue;
+          }
+        }
+
+      console.log(translations);
+
+      // console.log(langData);
 
       const units = metaData.units_in_pack.split(" ");
 
       // separate units_count and units_type
       metaData.units_count= units[0];
       metaData.units_type= units[1];
+
+      // translate the ingredients
+      // metaData.ingredients = await translate(metaData.ingredients, "es");
 
       // // Resolve paths to the template
       const templateDir = resolve(process.cwd(), `./public/templates/${tpl}/`);
@@ -158,17 +210,34 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // // copy the images directory over
       await fs.cp(imgDir, publicDir + '/images/', {recursive: true});
 
-          // // set the source image path 
+      // // set the source image path 
       const cssDir = templateDir + '/css/';
       // // copy the images directory over
       await fs.cp(cssDir, publicDir + '/css/', {recursive: true});  
       
-      // // Render the template with the product data and save it to the public folder
-      const finalHTML = template(metaData);
-      const publicPath = join(publicDir, `${sku}.html`);
 
-      // // Write the rendered HTML to a file
+      // Render the template with the product data and save it to the public folder
+      const finalHTML = template(metaData);
+      const publicPath = join(publicDir, `${sku}.en.html`);
+
+      // Write the rendered HTML to a file
       await fs.writeFile(publicPath, finalHTML, 'utf8');
+      
+      // then render the other language templates
+      languages.forEach( async (language) => {
+        console.log('LANGUAGE:', language);
+        // merge the language objects with the metadata
+        const outputData = { ...metaData, ...translations[language] };
+
+        console.log(outputData);
+
+        // Render the template with the product data and save it to the public folder
+        const finalHTML = template(outputData);
+        const publicPath = join(publicDir, `${sku}.${language}.html`);
+
+        // Write the rendered HTML to a file
+        await fs.writeFile(publicPath, finalHTML, 'utf8');
+      });
 
       // Respond to the request indicating success
       res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });

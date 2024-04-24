@@ -14,6 +14,7 @@
     "puppeteer": "^22.6.1",
     "react": "^18",
     "react-dom": "^18",
+    "translate": "^3.0.0",
     "ts-node": "^10.9.2",
     "zod": "^3.22.4"
   },
