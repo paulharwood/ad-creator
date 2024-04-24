@@ -5,6 +5,7 @@ import handlebars from 'handlebars';
 import { getSkuData, SkuData } from "@/app/actions";
 // Omit this line if loading from a CDN
 import translate from "translate";
+import { metadata } from '@/app/layout';
 
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
 // translate.key = process.env.DEEPL_KEY;
@@ -100,7 +101,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
-  const { tpl, sku} = req.query;
+  const { tpl, sku, multiLang} = req.query;
 
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
@@ -129,9 +130,21 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
 
+
       // create a metadata set for each language and translate the values.
       // The languages we are going to translate
-      const languages = ['es','it','de','fr'];
+      const languages = ['en', 'es','it','de','fr'];
+      
+        // Define the type for translations object
+        type Translations = {
+          [key: string]: {
+            [key: string]: string;
+          };
+        };
+
+        const translations: Translations = {};
+
+      if (multiLang) {  // multiple language templates
 
       // Define the type for langData object
       type LangData = {
@@ -160,14 +173,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
         keyword_subtitle:  metaData.keyword_subtitle
       }
 
-        // Define the type for translations object
-        type Translations = {
-          [key: string]: {
-            [key: string]: string;
-          };
-        };
-
-        const translations: Translations = {};
         // Loop through each language in the languages array
         for (const language of languages) {
           translations[language] = {};
@@ -180,8 +185,9 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
         }
 
       console.log(translations);
-
       // console.log(langData);
+
+    }
 
       const units = metaData.units_in_pack.split(" ");
 
@@ -216,29 +222,49 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       await fs.cp(cssDir, publicDir + '/css/', {recursive: true});  
       
 
-      // Render the template with the product data and save it to the public folder
-      const finalHTML = template(metaData);
-      const publicPath = join(publicDir, `${sku}.en.html`);
+      if (multiLang) {
 
-      // Write the rendered HTML to a file
-      await fs.writeFile(publicPath, finalHTML, 'utf8');
-      
-      // then render the other language templates
+        // then update the languages for items that need it.
       languages.forEach( async (language) => {
-        console.log('LANGUAGE:', language);
-        // merge the language objects with the metadata
-        const outputData = { ...metaData, ...translations[language] };
 
-        console.log(outputData);
+        // Join the ingredients and suggested_use together
+          metaData.ingredients =  metaData.ingredients + " [" + language + "]" + "(" + translations[language].label_title + ") " + translations[language].ingredients + ". ";
+          metaData.suggested_use =  metaData.suggested_use + " [" + language + "] " + translations[language].suggested_use + ". ";
+          metaData.ALLERGENS_EN = metaData.ALLERGENS_EN + " [" + language + "] " + translations[language].ALLERGENS_EN + ". ";
+      
+          console.log('LANGUAGE:', language);
+          // merge the language objects with the metadata
+          // const outputData = { ...metaData, ...translations[language] };
 
-        // Render the template with the product data and save it to the public folder
-        const finalHTML = template(outputData);
-        const publicPath = join(publicDir, `${sku}.${language}.html`);
+          metaData.AD_BULLETS = translations[language].AD_BULLETS;
+          metaData.KEY_FEATURE_TITLE = translations[language].KEY_FEATURE_TITLE;
+          metaData.KEY_FEATURE_COPY = translations[language].KEY_FEATURE_COPY;
+
+          console.log(metaData);
+
+          // Render the template with the product data and save it to the public folder
+          const finalHTML = template(metaData);
+          const publicPath = join(publicDir, `${sku}.${language}.html`);
+
+          // Write the rendered HTML to a file
+          await fs.writeFile(publicPath, finalHTML, 'utf8');
+
+        });
+
+
+      } else {
+
+      // just english
+
+        // Render the english template with the product data and save it to the public folder
+        const finalHTML = template(metaData);
+        const publicPath = join(publicDir, `${sku}.en.html`);
 
         // Write the rendered HTML to a file
         await fs.writeFile(publicPath, finalHTML, 'utf8');
-      });
 
+      }
+     
       // Respond to the request indicating success
       res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });
     } else {
