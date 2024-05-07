@@ -133,7 +133,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
       // create a metadata set for each language and translate the values.
       // The languages we are going to translate
-      const languages = ['en', 'es','it','de','fr'];
+      const languages = ['en','de','it','es','fr'];
       
         // Define the type for translations object
         type Translations = {
@@ -169,7 +169,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
         AD_BULLETS: metaData.AD_BULLETS,
         KEY_FEATURE_TITLE: metaData.KEY_FEATURE_TITLE,
         KEY_FEATURE_COPY: metaData.KEY_FEATURE_COPY,
-        ALLERGENS_EN: metaData.ALLERGENS_EN,
+        ALLERGENS_EN: metaData.ALLERGENS_EN || 'None',
         keyword_subtitle:  metaData.keyword_subtitle
       }
 
@@ -224,23 +224,32 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
       if (multiLang) {
 
-        // then update the languages for items that need it.
-      languages.forEach( async (language) => {
+        //collect the languages into one 
+        languages.forEach( async (language) => {
+         if (language !== 'en') { // dont need english
 
-        // Join the ingredients and suggested_use together
-          metaData.ingredients =  metaData.ingredients + " [" + language + "]" + "(" + translations[language].label_title + ") " + translations[language].ingredients + ". ";
-          metaData.suggested_use =  metaData.suggested_use + " [" + language + "] " + translations[language].suggested_use + ". ";
-          metaData.ALLERGENS_EN = metaData.ALLERGENS_EN + " [" + language + "] " + translations[language].ALLERGENS_EN + ". ";
-      
+            
+          // Join the ingredients and suggested_use together      
+            metaData.ingredients =  metaData.ingredients + "<br /><b>" + language.toUpperCase() + "</b> " + "(" + translations[language].keyword_title + ") " + translations[language].ingredients + " ";
+            metaData.suggested_use =  metaData.suggested_use + "<br /><b>" + language.toUpperCase() + "</b> " + translations[language].suggested_use + " ";
+            
+            if (metaData.ALLERGENS_EN == '') {metaData.ALLERGENS_EN = 'None';}
+            metaData.ALLERGENS_EN = metaData.ALLERGENS_EN + "<br /><b>" + language.toUpperCase() + "</b> " + translations[language].ALLERGENS_EN + " ";
+
+            console.log(metaData.ingredients);
+          }
           console.log('LANGUAGE:', language);
           // merge the language objects with the metadata
           // const outputData = { ...metaData, ...translations[language] };
+        });
 
+      languages.forEach( async (language) => {
+         
           metaData.AD_BULLETS = translations[language].AD_BULLETS;
           metaData.KEY_FEATURE_TITLE = translations[language].KEY_FEATURE_TITLE;
           metaData.KEY_FEATURE_COPY = translations[language].KEY_FEATURE_COPY;
 
-          console.log(metaData);
+          // console.log(metaData);
 
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);

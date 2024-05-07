@@ -49,14 +49,14 @@
 .advert {
   width:1000px;
   height:1000px;
-  margin:2em;
+  margin:0 2em;
   background-color: #fff;
   color: #1d1d1d;
 }
 .aplus {
   width: 2000px;
   height: 1000px;
-  margin: 2em;
+  margin: 0 2em;
   background-color: #fff;
 }
 
@@ -195,7 +195,25 @@ font-weight: 600;
   right: 8mm;
   letter-spacing: -0.07em;
   text-align: left;
+  border-bottom: 3px solid #eee;
+  width: fit-content;
 }
+
+.performance .keyword_subtitle {
+  color: #E20613;
+  border-color: #E20613;
+}
+
+.maintenance .keyword_subtitle {
+  color: #19A2CC;
+  border-color: #19A2CC;
+}
+
+.recovery .keyword_subtitle {
+  color: #cc8604;
+  border-color: #cc8604;
+}
+
 .stripes {
   position: absolute;
   width:150px;
@@ -256,68 +274,81 @@ font-weight: 600;
 
 
 
-
 .ingredients {
   border: 1px solid #1d1d1d;
-  font-size: 0.76em;
+font-size: 0.76em;
   margin: 0 20px 1em;
-  width: 45mm;
   border-radius: 3mm;
   position: absolute;
-  top: 50mm;
-  left: 2mm;
-  right: 2mm;
-  padding: 3mm 4mm 5mm;
+  top: 42mm;
+  left: 59mm;
+  right: 5mm;
+  padding: 1.8mm;
 }
 
 .ingredients div {
   text-transform: capitalize;
-  font-size: 1em;
-  line-height: 1.1;
+  font-size: 0.93em;
+    line-height: 1.1;
   margin-top: 0.3em;
 }
 
-.left_panel,
-.right_panel {
+
+.compliance {
+ margin: 0.4em 0;
+}
+.allergens {
+  border: 1.4px dashed;
+  padding: 0.4em;
+  border-radius: 0.7em;
+  margin-bottom: 0.3em;
+}
+
+.directions_panel {
   width: 55mm;
-  font-size: 0.75em;
+  font-size: 0.72em;
   line-height: 1.1;
 }
 
-.left_panel h2,
-.right_panel h2,
+
+.directions_panel h2,
 .ingredients h2 {
   font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1em;
-  line-height: 0.7;
+  line-height: 0.9;
   padding: 0;
   margin: 0;
 }
 
-.left_panel p,
-.right_panel p {
-  padding-top: 0;
-  margin-top: 0.2em;
+.ingredients b,
+.directions_panel b {
+  display: inline-block;
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 0 0.25em;
+  border-radius: 0.3em;
+  font-weight: normal;
 }
 
-.left_panel {
+
+.directions_panel p {
+  padding: 0;
+  margin: 0 0 0.5em;
+}
+
+
+.directions_panel {
   position: absolute;
-  top: 52mm;
+  top: 45mm;
   left: 8mm;
-}
-
-.right_panel {
-  position: absolute;
-  top: 52mm;
-  right: 8mm;
 }
 
 .bottom_panel {
   position: absolute;
   bottom: 25mm;
   right: 8mm;
-  left: 18mm;
+  left: 8mm;
 }
 
 
@@ -331,7 +362,7 @@ font-weight: 600;
   padding: 0;
   font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 300;
-  font-size: 11pt;
+  font-size: 9pt;
   text-align: left;
   border-top:1px solid #999999;
   padding-top:2px;
@@ -342,7 +373,7 @@ font-weight: 600;
   border-top: 3px solid #999999;
   font-weight: 300;
   letter-spacing: 0;
-  font-size:1.6em;
+  font-size:1.9em;
 }
 
 .units_in_pack .e_symbol {
@@ -451,13 +482,18 @@ font-weight: 600;
 
 .bottom_bar {
   background-color: #eeeeee;
-  height: 10px;
+  height: 23px;
   position: absolute;
   bottom: 41mm;
   left: 7mm;
   right: 7mm;
 
 }
+
+.back .bottom_bar {
+  right: 72mm;
+}
+
 .performance .bottom_bar {
   background-color: #E20613;
 }
@@ -544,25 +580,29 @@ font-weight: 600;
 
 
 /* ADVERT 1 & APLUS 1*/
-.ad1 {
+.ad1,
+.ad1_accent {
   background-image: url("../images/rs_ad1.png");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 2000px 1000px;
 }
-.ap1 {
+
+.ap1,
+.ap1_accent {
   background-image: url("../images/rs_aplus1.png");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 2000px 1000px;
 }
-.ap1 h2 {
+
+.ap1 h2,
+.ap1_accent h2 {
   left: 1069px;
   top: 240px;
   font-size: 11em;
   color: #1d1d1d;
 }
-
 
 /* ADVERT 2 & APLUS 2*/
 .ad2 {
@@ -655,13 +695,14 @@ position: absolute;
 
 .ad5 h2,
 .ap5 h2 {
-  top: 120px;
-  left: 416px;
+  top: -5px;
+  left: 462px;
   color: #1b1b1b;
 }
 
 .ap5 h2 {
-  left: 662px;
+  left: 1032px;
+  top: 5px;
 }
 
 .ad5 .logos img,
@@ -670,12 +711,12 @@ position: absolute;
 }
 
 .ad5 .logos {
-  top: 380px;
-  left: 440px;
-}
+  top: 800px;
+  left: 450px;
+} 
 .ap5 .logos {
-  top: 380px;
-  left: 680px;
+    top: 220px;
+    left: 1035px;
 }
 
 .ad5 .ingredients,
@@ -694,23 +735,25 @@ position: absolute;
     left: 400px;
 }
 .ap5 .ingredients {
-    top: 561px;
-    left: 640px;
+    top: 350px;
+    left: 1010px;
+    width: 40em;
+    font-size: 1.4em;
 }
 
 
 
 .ad5 {
   background-image: url("../images/rs_ad5.png");
-  background-position: -800px -500px;
+  background-position: -346px -152px;
   background-repeat: no-repeat;
   background-size: 3000px 1500px;
 }
 .ap5 {
   background-image: url("../images/rs_aplus5.png");
   background-repeat: no-repeat;
-  background-position: -953px -984px;
-  background-size: 4000px 2000px;
+  background-position: -176px -152px;
+  background-size: 3000px 1500px;
 }
 
 

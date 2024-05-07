@@ -1,16 +1,22 @@
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
     <link rel="stylesheet" type="text/css" href="css/rs-captab.css">
-
-
-    <!-- inline styles to overrride css as branding -->
+    <!-- conditional/inline styles -->
     <style>
       .keyword_title {
         font-size:{{keyword_title_size}}pt;
       }
-      .ad1, .ap1, .ad5, .ap5 {
-        background-image: url("/renders/{{sku}}_background.png");
+      .ad1, .ap1 {
+        background-image: url("/renders/{{sku}}/0000.jpg");
+      }
+      .ad1_accent, .ap1_accent {
+        background-image: url("/renders/{{sku}}/0001.jpg");
+      }
+      .ad5, .ap5  {
+        background-image: url("/renders/{{sku}}/0002.jpg");
       }
       .is_vegan { display: {{is_vegan}};}
       .is_vegetarian { display: {{is_vegetarian}};}
@@ -26,16 +32,12 @@
       <br />
       Edit:
       <a href="https://inventory.fitnesshealth.co/wp-admin/post.php?post={{product_id}}&action=edit" target="_blank">{{sku}}</a>
-      <br />      
       Regenerate:      
-      <a href="#" onclick="fetch('http://localhost:3000/api/template?sku={{sku}}&tpl=rs-captab').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
-      <br />
+      <a href="#" onclick="fetch('http://localhost:3000/api/template?sku={{sku}}&tpl=rs-captab&multiLang=true').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
       Generate Images:      
       <a href="#" onclick="fetch('http://localhost:3000/api/screenshot?sku={{sku}}').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
 
-      
     </div>
-  
     <h2>Labels</h2>
     <div class="labels {{rs_collection}}">
       <div class="label front">
@@ -45,7 +47,7 @@
         <div class="plus plus1">+</div>
         <div class="plus plus2">+</div>
         <div class="tear_strip">
-            <img src="images/rs-motif.svg"  width="35" height="35" />
+              <img src="images/rs-motif.svg"  width="35" height="35" />
         </div>
         <div class="tear_strip_text">
           +++++++++++++------_____
@@ -60,12 +62,11 @@
         <div class="keyword_subtitle">
           {{keyword_subtitle}}.
         </div>
-        
         <div class="stripes">
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 185.2 185.2" style="enable-background:new 0 0 185.2 185.2;" xml:space="preserve">
           <style type="text/css">
-            .st0{fill:{{brand_colour}};}
+            .st0{;}
           </style>
           <g>
             <polygon class="st0" points="55.7,0 185.2,129.4 185.2,125 60.2,0 	"/>
@@ -85,11 +86,11 @@
         </div>
         <div class="logos">
           <!-- conditional -->
-          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="30" height="30" />
-          <img class="is_vegan" src="images/vegan-logo.svg"  width="30" height="30" />
-          <img class="is_organic" src="images/organic-logo.svg"  width="30" height="30" />
-          <img class="is_halal" src="images/halal-logo.svg"  width="30" height="30" />
-          <img class="is_kosher" src="images/kosher-logo.svg"  width="30" height="30" />
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="30" height="49" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="30" height="49" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="30" height="49" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="30" height="49" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="30" height="49" />
           <img src="images/fh-logo-black.svg"  width="30" height="30" />
         </div>
         <div class="title_header">
@@ -99,11 +100,11 @@
           {{label_title}}
         </div>
         <div class="units_in_pack">
-          <span>{{units_count}}</span><small class="e_symbol">&#x212E;</small><br />{{units_type}} 
+          <span>{{units_count}}</span><br />{{units_type}}
         </div>
         <div class="rs_collection {{rs_collection}}">
           <img class="rs_collection_logo" src="images/rs-{{rs_collection}}-small.svg" width="20" height="20" />{{rs_collection}}</div>
-        <div class="bottom_bar" style="background-color: {{brand_colour}};"></div>
+        <div class="bottom_bar"></div>
         <div class="footer_text">
         <span>rapidstrength.co</span>
         The Science of Strength
@@ -115,28 +116,30 @@
       <div class="tear_strip">
             <img src="images/rs-motif.svg"  width="35" height="35" />
       </div>
-      <div class="tear_strip_text" style="background-color: {{brand_colour}};">
+      <div class="tear_strip_text">
       </div>
 
         <div class="ingredients">
           <h2>Ingredients</h2>
           <div>
-            {{ingredients}}
+            <b>EN</b> {{{ingredients}}}
           </div>
         </div>
-        <div class="left_panel">
+        <div class="directions_panel">
+          <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
+          <img class="compliance" src="images/compliance.svg"  height="28" />
+          <p><b>Please keep out of reach of children!</b>. Our product is intended for use by <b>adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p> 
+          <h2>Directions for Use</h2>
+          <p><b>EN</b>  {{{suggested_use}}}</p>
+          <div class="allergens">
+          <h2>Allergens / Alérgenos / Allergene / Allergènes / Allergeni</h2>
+          <p>
+            <b>EN</b> {{{ALLERGENS_EN}}}
+          </p>
+          </div>
+          <p>Packaged to HACCP standards in the UK by Fitness Health Ltd. Gower Road, Swansea.SA4 4RF. Product of U.K. </p>
         </div>
-        <div class="right_panel">
-        <h2>Directions for Use</h2>
-        <p>{{suggested_use}} Please don't exceed the recommended daily dose. Do not use if the package is damaged or the seal is broken.</p>
-        <h2>Warnings</h2>
-        <p>Our product is intended for use by adults aged 18 and above. Please keep out of reach of children.</p>
-        <p>It's always best to check with your healthcare practitioner before using this product if you're pregnant, breastfeeding, taking medication, or have a medical condition.</p>
-        <h2>Disclaimer</h2>
-        <p>We believe in being transparent with our customers, so we want to make it clear that this product is not intended to diagnose, treat, cure, or prevent any disease.</p>
-        <p>Fitness Health Ltd.<br />Gower Road<br />Swansea.<br />SA4 4RF</p>
-        </div>
-        <div class="bottom_bar" style="background-color: {{brand_colour}};"></div>
+        <div class="bottom_bar"></div>
         <div class="bottom_panel">
         <img style="float:right" src="images/fh-logo-black.svg"  width="50" height="50" />
           <div class="use_by_date">
@@ -151,6 +154,16 @@
           <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Frapidstrength.co" title="Link to Rapid Strength" />
         </div>
         <div class="batch_number">
+            <svg class="barcode"
+            jsbarcode-height="20"
+            jsbarcode-width="1"
+            jsbarcode-value="123456789012"
+            jsbarcode-textmargin="0"
+            >
+          </svg>
+          <script type="text/javascript">
+            JsBarcode(".barcode").init();
+          </script>
           BN: {{batch_number}}
         </div>
         <div class="footer_text">
@@ -162,42 +175,95 @@
     <h2>Adverts</h2>
     <div class="advert_content">
       <div class="advert ad1">
-      </div>
+      </div> 
+      <div class="advert ad1_accent">
+      </div> 
       <div class="advert ad2">
-        <h2>High quality<br />ingredients, safely<br />formulated</h2>
+        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
+        <!--  icons for features -->
+        <div class="ad_bullets_icons">
+            <img src="images/rs_icon1.svg" alt="">
+            <img src="images/rs_icon2.svg" alt="">
+            <img src="images/rs_icon3.svg" alt="">
+            <img src="images/rs_icon4.svg" alt="">
+            <img src="images/rs_icon5.svg" alt="">
+          </div>
+        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
+        <!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> -->
       </div>
       <div class="advert ad3">
-                ADVERT 3
+          <h2>Easy to swallow,<br />fast acting,<br />tasteless.</h2>
+           <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
       </div>
       <div class="advert ad4">
-                ADVERT 4
+          <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
+          <h3>Follow our simple, scientific system<br />of building strength.</h3>
       </div>
       <div class="advert ad5">
-                ADVERT 5
+        <h2>Ingredients.</h2>
+        <div class="logos">
+          <!-- conditional -->
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
+          <img src="images/fh-logo-black.svg"  width="90" height="90" />
+        </div>
       </div>
-      <div class="advert ad6">
-                ADVERT 3
-      </div>
+      <!-- <div class="advert ad6">
+      </div> -->
       <div class="advert ad7">
-                ADVERT 4
       </div>
       <div class="advert ad8">
-                ADVERT 5
       </div>
      <div class="advert ad9">
-                ADVERT 5
       </div>
     </div>
     <h2>A+ Content</h2>
     <div class="aplus_content">
       <div class="aplus ap1">
-        <h1>The Science of Strength.</h1>
+        <h2>The Science<br />of Strength.</h2>
       </div>
-      <div class="aplus ap2"></div>
+      <div class="aplus ap1_accent">
+        <h2>The Science<br />of Strength.</h2>
+      </div>
+      <div class="aplus ap2">
+        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
+                <!--  icons for features -->
+        <div class="ad_bullets_icons">
+            <img src="images/rs_icon1.svg" alt="">
+            <img src="images/rs_icon2.svg" alt="">
+            <img src="images/rs_icon3.svg" alt="">
+            <img src="images/rs_icon4.svg" alt="">
+            <img src="images/rs_icon5.svg" alt="">
+          </div>
+        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
+      </div>
       <div class="aplus ap3"></div>
-      <div class="aplus ap4"></div>
-      <div class="aplus ap5"></div>
-      <div class="aplus ap6"></div>
+      <div class="aplus ap4">
+        <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
+        <h3>Follow our simple, scientific system<br />of building strength.</h3>
+      </div>
+      <div class="aplus ap5">
+        <h2>Ingredients.</h2>
+        <div class="logos">
+          <!-- conditional -->
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
+          <img src="images/fh-logo-black.svg"  width="90" height="90" />
+        </div>
+          <div class="ingredients">
+            <div>
+                {{ingredients}}
+            </div>
+          </div>
+      </div>
+      <!-- <div class="aplus ap6"></div> -->
       <div class="aplus ap7"></div>
       <div class="aplus ap8"></div>
       <div class="aplus ap9"></div>

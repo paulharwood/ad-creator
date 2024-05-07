@@ -1,5 +1,7 @@
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
     <link rel="stylesheet" type="text/css" href="css/rs-powder.css">
     <!-- conditional/inline styles -->
@@ -7,8 +9,14 @@
       .keyword_title {
         font-size:{{keyword_title_size}}pt;
       }
-      .ad1, .ap1, .ad5, .ap5 {
-        background-image: url("/renders/{{sku}}_background.png");
+       .ad1, .ap1 {
+        background-image: url("/renders/{{sku}}/0000.jpg");
+      }
+      .ad1_accent, .ap1_accent {
+        background-image: url("/renders/{{sku}}/0001.jpg");
+      }
+      .ad5, .ap5  {
+        background-image: url("/renders/{{sku}}/0002.jpg");
       }
       .is_vegan { display: {{is_vegan}};}
       .is_vegetarian { display: {{is_vegetarian}};}
@@ -114,20 +122,22 @@
         <div class="ingredients">
           <h2>Ingredients</h2>
           <div>
-            {{ingredients}}
+             <b>EN</b> {{{ingredients}}}
           </div>
         </div>
-        <div class="left_panel">
-        </div>
-        <div class="right_panel">
+        <div class="directions_panel">
+          <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
+          <img class="compliance" src="images/compliance.svg"  height="28" />
+          <p><b>Please keep out of reach of children!</b>. Our product is intended for use by <b>adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p>
           <h2>Directions for Use</h2>
-          <p>{{suggested_use}} Please don't exceed the recommended daily dose. Do not use if the package is damaged or the seal is broken.</p>
-          <h2>Warnings</h2>
-          <p>Our product is intended for use by adults aged 18 and above. Please keep out of reach of children.</p>
-          <p>It's always best to check with your healthcare practitioner before using this product if you're pregnant, breastfeeding, taking medication, or have a medical condition.</p>
-          <h2>Disclaimer</h2>
-          <p>We believe in being transparent with our customers, so we want to make it clear that this product is not intended to diagnose, treat, cure, or prevent any disease.</p>
-          <p>Fitness Health Ltd.<br />Gower Road<br />Swansea.<br />SA4 4RF</p>
+          <p><b>EN</b>  {{{suggested_use}}}</p>
+          <div class="allergens">
+          <h2>Allergens / Alérgenos / Allergene / Allergènes / Allergeni</h2>
+          <p>
+            <b>EN</b> {{{ALLERGENS_EN}}}
+          </p>
+          </div>
+          <p>Packaged to HACCP standards in the UK by Fitness Health Ltd. Gower Road, Swansea.SA4 4RF. Product of U.K. </p>
         </div>
         <div class="bottom_bar"></div>
         <div class="bottom_panel">
@@ -143,7 +153,18 @@
         <div class="qr_code">
           <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Frapidstrength.co" title="Link to Rapid Strength" />
         </div>
+
         <div class="batch_number">
+            <svg class="barcode"
+            jsbarcode-height="20"
+            jsbarcode-width="1"
+            jsbarcode-value="123456789012"
+            jsbarcode-textmargin="0"
+            >
+          </svg>
+          <script type="text/javascript">
+            JsBarcode(".barcode").init();
+          </script>
           BN: {{batch_number}}
         </div>
         <div class="footer_text">
@@ -155,7 +176,9 @@
     <h2>Adverts</h2>
     <div class="advert_content">
       <div class="advert ad1">
-      </div>
+      </div> 
+      <div class="advert ad1_accent">
+      </div> 
       <div class="advert ad2">
         <h2>High quality<br />ingredients, safely<br />formulated.</h2>
         <!--  icons for features -->
@@ -175,7 +198,7 @@
       </div> -->
       <div class="advert ad4">
           <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
-          <h3>Follow our simple, scientific system<br />of bulding strength.</h3>
+          <h3>Follow our simple, scientific system<br />of building strength.</h3>
       </div>
       <div class="advert ad5">
         <h2>Ingredients.</h2>
@@ -188,11 +211,6 @@
           <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
           <img src="images/fh-logo-black.svg"  width="90" height="90" />
         </div>
-            <div class="ingredients">
-              <div>
-                {{ingredients}}
-              </div>
-            </div>
       </div>
       <!-- <div class="advert ad6">
       </div> -->
@@ -206,6 +224,9 @@
     <h2>A+ Content</h2>
     <div class="aplus_content">
       <div class="aplus ap1">
+        <h2>The Science<br />of Strength.</h2>
+      </div>
+      <div class="aplus ap1_accent">
         <h2>The Science<br />of Strength.</h2>
       </div>
       <div class="aplus ap2">
@@ -224,7 +245,7 @@
       <!-- <div class="aplus ap3"></div> -->
       <div class="aplus ap4">
         <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
-        <h3>Follow our simple, scientific system<br />of bulding strength.</h3>
+        <h3>Follow our simple, scientific system<br />of building strength.</h3>
       </div>
       <div class="aplus ap5">
         <h2>Ingredients.</h2>

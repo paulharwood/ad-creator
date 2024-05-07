@@ -4,6 +4,7 @@
   font-weight: 300;
   src: local("neue haas grotesk display pro light"), url(/fonts/NeueHaasDisplay-Light.ttf) format("truetype");
 }
+
 @font-face {
   font-family: "neue haas grotesk display pro";
   font-style: normal;
@@ -17,9 +18,10 @@
 .is_halal,
 .is_kosher,
 .is_gmo_free,
-  .is_organic,
-  .is_gluten_free 
-{ display: none;}
+.is_organic,
+.is_gluten_free {
+  display: none;
+}
 
 /* brand colours */
 .recovery {
@@ -34,28 +36,31 @@
   color: #E20613;
 }
 
-
 .labels {
-    width: 30%;
-    padding: 1rem;
+  width: 30%;
+  padding: 1rem;
 }
+
 .label {
   width: 130mm;
   height: 225mm;
   color: #1d1d1d;
   background-color: transparent;
+  font-family: "DIN 2014";
 }
+
 .advert {
-  width:1000px;
-  height:1000px;
-  margin:2em;
+  width: 1000px;
+  height: 1000px;
+  margin: 0 2em;
   background-color: #fff;
   color: #1d1d1d;
 }
+
 .aplus {
   width: 2000px;
   height: 1000px;
-  margin: 2em;
+  margin: 0 2em;
   background-color: #fff;
 }
 
@@ -75,8 +80,8 @@ body {
 .front,
 .back {
   position: relative;
-  width:135mm;
-  height:225mm;
+  width: 135mm;
+  height: 225mm;
   /* -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
@@ -87,7 +92,7 @@ body {
 }
 
 .front {
-  background-color: rgba(255,255,255,0.06);
+  background-color: rgba(255, 255, 255, 0.06);
 }
 
 .back {
@@ -96,12 +101,13 @@ body {
 
 .label_background_top {
   background-color: #fff;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:96mm;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 96mm;
 }
+
 .label_background_bottom {
   background-color: #fff;
   position: absolute;
@@ -112,26 +118,25 @@ body {
 }
 
 .title {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   text-transform: capitalize;
   font-style: normal;
   font-weight: 500;
   position: absolute;
-  top: 195mm;
+  top: 196.5mm;
   left: 18mm;
   width: 14em;
   line-height: 0.85;
-  font-size: 14pt;
+  font-size: 13pt;
   letter-spacing: -0.03em;
   height: 2em;
 }
 
 .title_header {
   text-transform: capitalize;
-  font-family: "neue haas grotesk display pro light";
-  font-weight: 700;
+  font-weight: 300;
   position: absolute;
-  top: 190mm;
+  top: 191mm;
   left: 18mm;
 }
 
@@ -152,6 +157,7 @@ body {
   padding: 0.5mm 3mm;
   height: 30px;
 }
+
 .performance .tear_strip_text {
   background-color: #E20613;
 }
@@ -173,11 +179,12 @@ body {
   right: 6mm;
   overflow: hidden;
 }
+
 .keyword_title {
   position: absolute;
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 6em;
   bottom: 114mm;
   left: 15mm;
@@ -186,21 +193,40 @@ body {
   text-align: left;
   padding-bottom: 12px;
 }
+
 .keyword_subtitle {
   position: absolute;
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
-  font-weight: 500;
-  font-size: 3em;
+  font-weight: 600;
+  font-size: 2.6em;
   bottom: 108mm;
   left: 16mm;
   right: 8mm;
   letter-spacing: -0.07em;
   text-align: left;
-}
+  border-bottom: 3px solid #eee;
+  width: fit-content;
+  }
+  
+  .performance .keyword_subtitle {
+    color: #E20613;
+    border-color: #E20613;
+  }
+  
+  .maintenance .keyword_subtitle {
+    color: #19A2CC;
+    border-color: #19A2CC;
+  }
+  
+  .recovery .keyword_subtitle {
+    color: #cc8604;
+    border-color: #cc8604;
+  }
+
 .stripes {
   position: absolute;
-  width:150px;
+  width: 150px;
   top: 126mm;
   right: 8mm;
 }
@@ -217,6 +243,7 @@ body {
   fill: #cc8604;
 }
 
+
 .header_back {
   position: absolute;
   width: auto;
@@ -230,13 +257,13 @@ body {
 }
 
 .rs_collection {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-style: normal;
   font-weight: 500;
   text-transform: capitalize;
   position: absolute;
   top: 186mm;
-  left: 86mm;
+  left: 87mm;
   height: 7mm;
   font-size: 1.6em;
   letter-spacing: -0.04em;
@@ -256,79 +283,79 @@ body {
 }
 
 
-.recovery {
-  color: #cc8604;
-}
 
-.maintenance {
-  color: #19A2CC;
-}
-
-.performance {
-  color: #E20613;
-}
 
 .ingredients {
   border: 1px solid #1d1d1d;
-  font-size: 0.76em;
+font-size: 0.76em;
   margin: 0 20px 1em;
-  width: 45mm;
   border-radius: 3mm;
   position: absolute;
-  top: 50mm;
-  left: 2mm;
-  right: 2mm;
-  padding: 3mm 4mm 5mm;
+  top: 42mm;
+  left: 59mm;
+  right: 5mm;
+  padding: 1.8mm;
 }
 
 .ingredients div {
   text-transform: capitalize;
-  font-size: 1em;
-  line-height: 0.8;
+  font-size: 0.93em;
+  line-height: 1.1;
   margin-top: 0.3em;
 }
 
-.left_panel,
-.right_panel {
+.directions_panel {
   width: 55mm;
-  font-size: 0.75em;
-  line-height: 0.8;
+  font-size: 0.72em;
+  line-height: 1.1;
 }
 
-.left_panel h2,
-.right_panel h2,
+.ingredients b,
+.directions_panel b {
+    display: inline-block;
+      background-color: #1b1b1b;
+      color: #fff;
+      padding: 0 0.25em;
+      border-radius: 0.3em;
+      font-weight: normal;
+}
+
+.compliance {
+  margin: 0.4em 0;
+}
+.allergens {
+  border: 1.4px dashed;
+  padding: 0.4em;
+  border-radius: 0.7em;
+  margin-bottom: 0.3em;
+}
+.directions_panel h2,
 .ingredients h2 {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1em;
-  line-height: 0.7;
+  line-height: 0.9;
   padding: 0;
   margin: 0;
 }
 
-.left_panel p,
-.right_panel p {
-  padding-top: 0;
-  margin-top: 0.2em;
+
+.directions_panel p {
+  padding: 0;
+  margin: 0 0 0.5em;
 }
 
-.left_panel {
+.directions_panel {
   position: absolute;
-  top: 52mm;
+  top: 45mm;
   left: 8mm;
-}
-
-.right_panel {
-  position: absolute;
-  top: 52mm;
-  right: 8mm;
 }
 
 .bottom_panel {
   position: absolute;
   bottom: 25mm;
   right: 8mm;
-  left: 18mm;
+  left: 8mm;
 }
 
 
@@ -336,26 +363,25 @@ body {
   position: absolute;
   text-transform: capitalize;
   top: 194mm;
-  right:8mm;
-  width:40mm;
+  right: 8mm;
+  width: 40mm;
   letter-spacing: -0.03em;
   padding: 0;
-  font-family: "neue haas grotesk display pro";
-  font-weight: 400;
-  font-size: 11pt;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
+  font-weight: 300;
+  font-size: 9pt;
   text-align: left;
-  border-top:1px solid #999999;
-  padding-top:2px;
+  border-top: 1px solid #999999;
+  padding-top: 2px;
   line-height: 1.2;
 }
 
 .units_in_pack span {
   border-top: 3px solid #999999;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0;
-  font-size:1.6em;
+  font-size: 1.9em;
 }
-
 .units_in_pack .e_symbol {
   font-size: 1.2em;
 }
@@ -371,7 +397,7 @@ body {
 .sku {
   border-radius: 4mm;
   border: 1px solid #1b1b1b;
-  padding: 1px 9px 3px;
+  padding: 2px 9px;
   display: inline-block;
   font-size: 0.8em;
 }
@@ -402,8 +428,8 @@ body {
   position: absolute;
   bottom: 6mm;
   right: 10mm;
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
 }
 
 .logos img {
@@ -455,7 +481,7 @@ body {
 }
 
 .qr_code_text h2 {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1.2em;
   margin-bottom: 0.2em;
@@ -463,13 +489,17 @@ body {
 
 .bottom_bar {
   background-color: #eeeeee;
-  height: 10px;
+  height: 23px;
   position: absolute;
   bottom: 41mm;
   left: 7mm;
   right: 7mm;
+
 }
 
+.back .bottom_bar {
+  right: 72mm;
+}
 .performance .bottom_bar {
   background-color: #E20613;
 }
@@ -493,16 +523,16 @@ body {
 }
 
 .footer_text span {
-  font-family: "neue haas grotesk display pro";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   font-size: 1.4em;
 }
 
 .plus {
-  font-size: 4.5em;
+  font-size: 4.2em;
   position: absolute;
-  font-family: "neue haas grotesk display pro light";
-  font-weight: 700;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro light";
+  font-weight: 400;
 }
 
 .plus1 {
@@ -526,83 +556,250 @@ body {
 }
 
 
-.ad1 {
+/* ADVERTS AND APLUS */
+
+.aplus,
+.advert {
+  position: relative;
+}
+
+.aplus h2,
+.advert h2 {
+  font-size: 7.7em;
+  position: absolute;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+  color: #fff;
+}
+
+.aplus h3,
+.advert h3 {
+  font-size: 2.95em;
+  position: absolute;
+  font-family: "DIN 2014", monospace;
+  font-weight: 400;
+  /* letter-spacing: -0.07em; */
+  line-height: 1.2;
+  color: #fff;
+}
+
+
+/* ADVERT 1 & APLUS 1*/
+.ad1, .ad1_accent {
   background-image: url("../images/rs_ad1.png");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 2000px 1000px;
 }
 
-.ad2 {
-  background-image: url("../images/rs_ad2.png");
-}
-
-.ad3 {
-  background-image: url("../images/rs_ad3.png");
-}
-
-.ad4 {
-  background-image: url("../images/rs_ad4.png");
-}
-
-.ad5 {
-  background-image: url("../images/rs_ad5.png");
-  background-position: -800px -500px;
-  background-repeat: no-repeat;
-  background-size: 3000px 1500px;
-}
-.ad6 {
-  background-image: url("../images/rs_ad6.png");
-}
-
-.ad7 {
-  background-image: url("../images/rs_ad7.png");
-}
-
-.ad8 {
-  background-image: url("../images/rs_ad8.png");
-}
-
-.ad9 {
-  background-image: url("../images/rs_ad9.png");
-}
-
-.ap1 {
+.ap1, .ap1_accent{
   background-image: url("../images/rs_aplus1.png");
   background-position: top left;
   background-repeat: no-repeat;
   background-size: 2000px 1000px;
 }
 
+.ap1 h2, .ap1_accent h2 {
+  left: 1069px;
+  top: 240px;
+  font-size: 11em;
+  color: #1d1d1d;
+}
+
+
+/* ADVERT 2 & APLUS 2*/
+.ad2 {
+  background-image: url("../images/rs_ad2.png");
+}
+
+.ad2 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+.ad2 .ad_bullets,
+.ap2 .ad_bullets {
+  position: absolute;
+  top: 401px;
+  left: 170px;
+  color: #fff;
+  font-size: 35px;
+  line-height: 60px;
+  font-family: "DIN 2014";
+}
+
+
+.ad2 .ad_bullets_icons,
+.ap2 .ad_bullets_icons {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 440px;
+  left: 100px;
+}
+
+.ad2 .ad_bullets_icons img,
+.ap2 .ad_bullets_icons img {
+  width: 50px;
+  padding-bottom: 10px;
+}
+
+
+.ad2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
+.ap2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
 .ap2 {
   background-image: url("../images/rs_aplus2.png");
+}
+
+.ap2 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+
+/* ADVERT 3 & APLUS 3*/
+.ad3 {
+  background-image: url("../images/rs_ad3.png");
 }
 
 .ap3 {
   background-image: url("../images/rs_aplus3.png");
 }
 
+/* ADVERT 4 & APLUS 4*/
+.ad4 {
+  background-image: url("../images/rs_ad4.png");
+}
+
+.ad4 h2,
+.ap4 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+.ap4 h3,
+.ad4 h3 {
+  top: 401px;
+  left: 106px;
+}
+
 .ap4 {
   background-image: url("../images/rs_aplus4.png");
+}
+
+/* ADVERT 5 & APLUS 5*/
+
+.ad5 h2,
+.ap5 h2 {
+  top: -5px;
+  left: 462px;
+  color: #1b1b1b;
+}
+
+.ap5 h2 {
+  left: 1032px;
+  top: 5px;
+}
+
+.ad5 .logos img,
+.ap5 .logos img {
+  margin: 0 12px;
+}
+
+.ad5 .logos {
+  top: 800px;
+  left: 450px;
+}
+
+.ap5 .logos {
+    top: 220px;
+    left: 1035px;
+}
+
+.ad5 .ingredients,
+.ap5 .ingredients {
+  color: #1d1d1d;
+  font-size: 1.3em;
+  margin: 0 20px 1em;
+  width: 30em;
+  border-radius: 3mm;
+  position: absolute;
+  right: 2mm;
+  padding: 3mm 4mm 5mm;
+}
+
+.ad5 .ingredients {
+  top: 561px;
+  left: 400px;
+}
+
+.ap5 .ingredients {
+  top: 350px;
+  left: 1010px;
+  width: 40em;
+  font-size: 1.4em;
+}
+
+
+
+.ad5 {
+  background-image: url("../images/rs_ad5.png");
+  background-position: -346px -152px;
+  background-repeat: no-repeat;
+  background-size: 3000px 1500px;
 }
 
 .ap5 {
   background-image: url("../images/rs_aplus5.png");
   background-repeat: no-repeat;
-  background-position: -953px -984px;
-  background-size: 4000px 2000px;
+  background-position: -176px -152px;
+  background-size: 3000px 1500px;
+}
+/* ADVERT 6 & APLUS 6*/
+.ad6 {
+  background-image: url("../images/rs_ad6.png");
 }
 
 .ap6 {
   background-image: url("../images/rs_aplus6.png");
 }
 
+
+/* ADVERT 7 & APLUS 1*/
+.ad7 {
+  background-image: url("../images/rs_ad7.png");
+}
+
 .ap7 {
   background-image: url("../images/rs_aplus7.png");
 }
 
+
+/* ADVERT 8 & APLUS 1*/
+.ad8 {
+  background-image: url("../images/rs_ad8.png");
+}
+
 .ap8 {
   background-image: url("../images/rs_aplus8.png");
+}
+
+/* 9 & APLUS 1*/
+.ad9 {
+  background-image: url("../images/rs_ad9.png");
 }
 
 .ap9 {

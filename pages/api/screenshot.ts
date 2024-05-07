@@ -14,7 +14,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
     const page = await browser.newPage();
 
     await page.setViewport({ width: 2880, height: 1800, deviceScaleFactor: 2});
-    await page.goto(`http://localhost:57538/sku/${sku}/${sku}`);
+    await page.goto(`http://localhost:57538/sku/${sku}/${sku}.en`);
 
     const labels = await page.$$('.label');
 
@@ -59,7 +59,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     await browser.close();
-    return res.status(200).json({ message: `Screenshot taken of elements in http://localhost:57538/sku/${sku}/${sku}` });
+    return res.status(200).json({ message: `Screenshot taken of elements in http://localhost:57538/sku/${sku}/${sku}.en` });
 
 
 
