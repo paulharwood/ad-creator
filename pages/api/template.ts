@@ -98,10 +98,10 @@ function convertTrue(obj: { [key: string]: string }): { [key: string]: string } 
 }
 
 const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuData) => {
-  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M'  } = req.query; // Template name from query parameter
+  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M', multiLang = true, content = front|back|adverts  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
-  const { tpl, sku, multiLang} = req.query;
+  const { tpl, sku, multiLang, content} = req.query;
 
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
@@ -117,7 +117,12 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
   if (!tpl || typeof tpl !== 'string') {
       return res.status(400).json({ message: 'Invalid Template.' });
   }
-
+  if (!multiLang || typeof multiLang !== 'string') {
+      return res.status(400).json({ message: 'Invalid multiLang flag.' });
+  }
+  if (!content || typeof content !== 'string') {
+      return res.status(400).json({ message: 'Invalid Template content type.' });
+  }
   try {
     const wcRet = await fetchSkuData(wcData); // Fetch product data
 
@@ -201,7 +206,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
       // // Resolve paths to the template
       const templateDir = resolve(process.cwd(), `./public/templates/${tpl}/`);
-      const templatePath = join(templateDir, `${tpl}_template.html`);
+      const templatePath = join(templateDir, `${tpl}_template.${content}.html`);
 
       // // Read and compile the Handlebars template
       const templateSource = await fs.readFile(templatePath, 'utf8');
@@ -254,7 +259,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);
-          const publicPath = join(publicDir, `${sku}.${language}.html`);
+          const publicPath = join(publicDir, `${sku}.${content}.${language}.html`);
 
           // Write the rendered HTML to a file
           await fs.writeFile(publicPath, finalHTML, 'utf8');
@@ -268,7 +273,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
         // Render the english template with the product data and save it to the public folder
         const finalHTML = template(metaData);
-        const publicPath = join(publicDir, `${sku}.en.html`);
+        const publicPath = join(publicDir, `${sku}.${content}.en.html`);
 
         // Write the rendered HTML to a file
         await fs.writeFile(publicPath, finalHTML, 'utf8');

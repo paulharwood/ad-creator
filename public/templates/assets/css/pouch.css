@@ -35,18 +35,25 @@
 .performance {
   color: #E20613;
 }
-
+/* 
 .labels {
   width: 30%;
   padding: 1rem;
-}
+} */
 
 .label {
   width: 130mm;
   height: 225mm;
+  border:1px solid red;
   color: #1d1d1d;
   background-color: transparent;
   font-family: "DIN 2014";
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
 }
 
 .advert {
@@ -80,8 +87,7 @@ body {
 .front,
 .back {
   position: relative;
-  width: 135mm;
-  height: 225mm;
+
   /* -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
