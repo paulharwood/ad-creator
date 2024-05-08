@@ -126,6 +126,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // convert TRUE to block for display:block
       const metaData = convertTrue(wcRet.product.meta_data);
       
+      console.log(metaData);
       // pull in some wc specifics
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
@@ -184,7 +185,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
           }
         }
 
-      console.log(translations);
+      //console.log(translations);
       // console.log(langData);
 
     }
@@ -236,9 +237,9 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
             if (metaData.ALLERGENS_EN == '') {metaData.ALLERGENS_EN = 'None';}
             metaData.ALLERGENS_EN = metaData.ALLERGENS_EN + "<br /><b>" + language.toUpperCase() + "</b> " + translations[language].ALLERGENS_EN + " ";
 
-            console.log(metaData.ingredients);
+            //console.log(metaData.ingredients);
           }
-          console.log('LANGUAGE:', language);
+          //console.log('LANGUAGE:', language);
           // merge the language objects with the metadata
           // const outputData = { ...metaData, ...translations[language] };
         });

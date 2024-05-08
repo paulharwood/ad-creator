@@ -26,6 +26,7 @@
     "@types/yargs": "^17.0.32",
     "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "autoprefixer": "^10.0.1",
+    "csv-parser": "^3.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "handlebars": "^4.7.8",

@@ -4,13 +4,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/pouch.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/rs-powder.css"> -->
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
     <!-- conditional/inline styles -->
     <style>
       .keyword_title {
         font-size:{{keyword_title_size}}pt;
       }
-       .ad1, .ap1 {
+      .ad1, .ap1 {
         background-image: url("/renders/{{sku}}/0000.jpg");
       }
       .ad1_accent, .ap1_accent {
@@ -34,7 +36,7 @@
       Edit:
       <a href="https://inventory.fitnesshealth.co/wp-admin/post.php?post={{product_id}}&action=edit" target="_blank">{{sku}}</a>
       Regenerate:      
-      <a href="#" onclick="fetch('http://localhost:3000/api/template?sku={{sku}}&tpl=rs-powder&multiLang=true').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
+      <a href="#" onclick="fetch('http://localhost:3000/api/template?sku={{sku}}&tpl=rs-captab&multiLang=true').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
       Generate Images:      
       <a href="#" onclick="fetch('http://localhost:3000/api/screenshot?sku={{sku}}').then(response => response.json()).then(data => console.log(data)).catch(error => console.error('Error fetching data:', error)); return false;">{{sku}}</a>
 
@@ -101,7 +103,7 @@
           {{label_title}}
         </div>
         <div class="units_in_pack">
-          <span>{{units_count}}</span> <small class="e_symbol">&#x212E;</small><br />{{units_type}}
+          <span>{{units_count}}</span><br />{{units_type}}
         </div>
         <div class="rs_collection {{rs_collection}}">
           <img class="rs_collection_logo" src="images/rs-{{rs_collection}}-small.svg" width="20" height="20" />{{rs_collection}}</div>
@@ -118,23 +120,24 @@
             <img src="images/rs-motif.svg"  width="35" height="35" />
       </div>
       <div class="tear_strip_text">
-      HEAT SEALED FOR SAFETY AND FRESHNESS ++++++++-----_____
+          HEAT SEALED FOR SAFETY AND FRESHNESS ++++++++-----_____
       </div>
       <div class="safety_panel">
         <div class="safety_information">
           <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
           <img class="compliance" src="images/compliance.svg"  height="28" />
-          <p><b>Please keep out of reach of children!</b>. Our product is intended <b>for use by adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p>
+          <p><b>Please keep out of reach of children!</b>. Our product is intended for  <b>use by adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p>
         </div>
          <div class="ingredients">
-          <h2>Ingredients / Zutaten /  Ingredienti / Ingredientes / Ingrédients</h2>
+          <h2>Ingredients / Ingredientes / Zutaten / Ingrédients / Ingredienti</h2>
           <div>
             <b>EN</b> {{{ingredients}}}
           </div>
         </div>
       </div>
-        <div class="directions_panel">
-          <h2>Directions for Use</h2>
+      <div class="directions_panel">
+           <h2>Directions for Use / Gebrauchsanweisung / Istruzioni per l'uso / Instrucciones de uso
+ / Mode d'emploi</h2>
           <p><b>EN</b>  {{{suggested_use}}}</p>
           <div class="allergens">
           <h2>Allergens / Alérgenos / Allergene / Allergènes / Allergeni</h2>
@@ -197,10 +200,10 @@
         <pre class="ad_bullets">{{AD_BULLETS}}</pre>
         <!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> -->
       </div>
-      <!-- <div class="advert ad3">
+      <div class="advert ad3">
           <h2>Easy to swallow,<br />fast acting,<br />tasteless.</h2>
            <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
-      </div> -->
+      </div>
       <div class="advert ad4">
           <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
           <h3>Follow our simple, scientific system<br />of building strength.</h3>
@@ -247,7 +250,7 @@
         <pre class="ad_bullets">{{AD_BULLETS}}</pre>
         <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
       </div>
-      <!-- <div class="aplus ap3"></div> -->
+      <div class="aplus ap3"></div>
       <div class="aplus ap4">
         <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
         <h3>Follow our simple, scientific system<br />of building strength.</h3>

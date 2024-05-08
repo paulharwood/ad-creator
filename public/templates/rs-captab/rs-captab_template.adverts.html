@@ -3,7 +3,10 @@
     <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
-    <link rel="stylesheet" type="text/css" href="css/rs-captab.css">
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/pouch.css">
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
     <!-- conditional/inline styles -->
     <style>
       .keyword_title {
@@ -50,7 +53,7 @@
               <img src="images/rs-motif.svg"  width="35" height="35" />
         </div>
         <div class="tear_strip_text">
-          +++++++++++++------_____
+          HEAT SEALED FOR SAFETY AND FRESHNESS ++++++++-----_____
         </div>
         <div class="header">
           <img src="images/rs-header-motif.svg"  width="140"  />
@@ -117,19 +120,24 @@
             <img src="images/rs-motif.svg"  width="35" height="35" />
       </div>
       <div class="tear_strip_text">
+          HEAT SEALED FOR SAFETY AND FRESHNESS ++++++++-----_____
       </div>
-
-        <div class="ingredients">
-          <h2>Ingredients</h2>
+      <div class="safety_panel">
+        <div class="safety_information">
+          <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
+          <img class="compliance" src="images/compliance.svg"  height="28" />
+          <p><b>Please keep out of reach of children!</b>. Our product is intended for  <b>use by adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p>
+        </div>
+         <div class="ingredients">
+          <h2>Ingredients / Ingredientes / Zutaten / Ingrédients / Ingredienti</h2>
           <div>
             <b>EN</b> {{{ingredients}}}
           </div>
         </div>
-        <div class="directions_panel">
-          <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
-          <img class="compliance" src="images/compliance.svg"  height="28" />
-          <p><b>Please keep out of reach of children!</b>. Our product is intended for use by <b>adults aged 18 and above</b>. If you are pregnant, breastfeeding, taking prescription medication or under medical supervision it is advisable to consult a doctor prior to taking any supplements.  This product is not intended to diagnose, treat, cure, or prevent any disease. It should not be used as a substitute for a varied and balanced diet.</p> 
-          <h2>Directions for Use</h2>
+      </div>
+      <div class="directions_panel">
+           <h2>Directions for Use / Gebrauchsanweisung / Istruzioni per l'uso / Instrucciones de uso
+ / Mode d'emploi</h2>
           <p><b>EN</b>  {{{suggested_use}}}</p>
           <div class="allergens">
           <h2>Allergens / Alérgenos / Allergene / Allergènes / Allergeni</h2>
@@ -137,7 +145,7 @@
             <b>EN</b> {{{ALLERGENS_EN}}}
           </p>
           </div>
-          <p>Packaged to HACCP standards in the UK by Fitness Health Ltd. Gower Road, Swansea.SA4 4RF. Product of U.K. </p>
+          <p>Packaged to HACCP standards in the UK by Fitness Health Ltd. Gower Road, Swansea. SA4 4RF. Product of U.K. </p>
         </div>
         <div class="bottom_bar"></div>
         <div class="bottom_panel">
@@ -153,18 +161,19 @@
         <div class="qr_code">
           <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Frapidstrength.co" title="Link to Rapid Strength" />
         </div>
-        <div class="batch_number">
-            <svg class="barcode"
-            jsbarcode-height="20"
+          <svg class="barcode"
+            jsbarcode-height="30"
             jsbarcode-width="1"
-            jsbarcode-value="123456789012"
+            jsbarcode-value="{{barcode_ean}}"
             jsbarcode-textmargin="0"
+            jsbarcode-fontsize="12"
             >
           </svg>
           <script type="text/javascript">
             JsBarcode(".barcode").init();
           </script>
-          BN: {{batch_number}}
+        <div class="batch_number">
+          BN: {{current_batch_number}}
         </div>
         <div class="footer_text">
         <span>rapidstrength.co</span>
