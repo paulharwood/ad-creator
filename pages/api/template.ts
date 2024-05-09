@@ -102,6 +102,25 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
   // #TODO refactor the actions to handle this better 
   const { tpl, sku, multiLang, content} = req.query;
+let { numLang } = req.query;
+
+  // Ensure numLang is a string
+  const rawNumLang: string | undefined = numLang as string;
+
+  // Ensure numLang is a number
+  const numLangNumber: number = parseInt(rawNumLang, 10);
+
+  // Define the maximum number of languages dynamically based on the length of the languages array
+  let languages = ['en', 'de', 'it', 'es', 'fr'];
+  const maxLanguages = languages.length;
+
+  if (isNaN( numLangNumber) ||  numLangNumber < 1 ||  numLangNumber > maxLanguages) {
+    // Handle the case where  numLangNumber is not a valid number or exceeds the limit
+    return res.status(400).json({ error: 'Invalid or exceeded number of languages' });
+  }
+
+  // Slice the languages array based on  numLangNumber
+  languages = languages.slice(0,  numLangNumber);
 
     // Make sure wcData is an object before attempting to set its property
     if (!wcData) {
@@ -136,10 +155,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
 
-
-      // create a metadata set for each language and translate the values.
-      // The languages we are going to translate
-      const languages = ['en','de','it','es','fr'];
       
         // Define the type for translations object
         type Translations = {
