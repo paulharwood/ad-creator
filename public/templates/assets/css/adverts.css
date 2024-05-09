@@ -1,0 +1,253 @@
+/* ADVERTS AND APLUS */
+
+.aplus,
+.advert {
+  position: relative;
+}
+
+.aplus h2,
+.advert h2 {
+  font-size: 7.7em;
+  position: absolute;
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+  color: #fff;
+}
+
+.aplus h3,
+.advert h3 {
+  font-size: 2.95em;
+  position: absolute;
+  font-family: "DIN 2014", monospace;
+  font-weight: 400;
+  /* letter-spacing: -0.07em; */
+  line-height: 1.2;
+  color: #fff;
+}
+
+
+/* ADVERT 1 & APLUS 1*/
+.ad1,
+.ad1_accent {
+  background-image: url("../images/rs_ad1.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 2000px 1000px;
+}
+
+.ap1,
+.ap1_accent {
+  background-image: url("../images/rs_aplus1.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 2000px 1000px;
+}
+
+.ap1 h2,
+.ap1_accent h2 {
+  left: 1069px;
+  top: 240px;
+  font-size: 11em;
+  color: #1d1d1d;
+}
+
+
+/* ADVERT 2 & APLUS 2*/
+.ad2 {
+  background-image: url("../images/rs_ad2.png");
+}
+
+.ad2 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+.ad2 .ad_bullets,
+.ap2 .ad_bullets {
+  position: absolute;
+  top: 401px;
+  left: 170px;
+  color: #fff;
+  font-size: 35px;
+  line-height: 60px;
+  font-family: "DIN 2014";
+}
+
+
+.ad2 .ad_bullets_icons,
+.ap2 .ad_bullets_icons {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 440px;
+  left: 100px;
+}
+
+.ad2 .ad_bullets_icons img,
+.ap2 .ad_bullets_icons img {
+  width: 50px;
+  padding-bottom: 10px;
+}
+
+
+.ad2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
+.ap2 .ad_logo {
+  position: absolute;
+  bottom: 88px;
+  right: 83px;
+}
+
+.ap2 {
+  background-image: url("../images/rs_aplus2.png");
+}
+
+.ap2 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+
+/* ADVERT 3 & APLUS 3*/
+.ad3 {
+  background-image: url("../images/rs_ad3.png");
+}
+
+.ap3 {
+  background-image: url("../images/rs_aplus3.png");
+}
+
+/* ADVERT 4 & APLUS 4*/
+.ad4 {
+  background-image: url("../images/rs_ad4.png");
+}
+
+.ad4 h2,
+.ap4 h2 {
+  top: 27px;
+  left: 96px;
+}
+
+.ap4 h3,
+.ad4 h3 {
+  top: 401px;
+  left: 106px;
+}
+
+.ap4 {
+  background-image: url("../images/rs_aplus4.png");
+}
+
+/* ADVERT 5 & APLUS 5*/
+
+.ad5 h2,
+.ap5 h2 {
+  top: -5px;
+  left: 462px;
+  color: #1b1b1b;
+}
+
+.ap5 h2 {
+  left: 1032px;
+  top: 5px;
+}
+
+.ad5 .logos img,
+.ap5 .logos img {
+  margin: 0 12px;
+}
+
+.ad5 .logos {
+  top: 800px;
+  left: 450px;
+}
+
+.ap5 .logos {
+  top: 220px;
+  left: 1035px;
+}
+
+.ad5 .ingredients,
+.ap5 .ingredients {
+  color: #1d1d1d;
+  font-size: 1.3em;
+  margin: 0 20px 1em;
+  width: 30em;
+  border-radius: 3mm;
+  position: absolute;
+  right: 2mm;
+  padding: 3mm 4mm 5mm;
+}
+
+.ad5 .ingredients {
+  top: 561px;
+  left: 400px;
+}
+
+.ap5 .ingredients {
+  top: 350px;
+  left: 1010px;
+  width: 40em;
+  font-size: 1.4em;
+}
+
+
+
+.ad5 {
+  background-image: url("../images/rs_ad5.png");
+  background-position: -346px -152px;
+  background-repeat: no-repeat;
+  background-size: 3000px 1500px;
+}
+
+.ap5 {
+  background-image: url("../images/rs_aplus5.png");
+  background-repeat: no-repeat;
+  background-position: -176px -152px;
+  background-size: 3000px 1500px;
+}
+
+/* ADVERT 6 & APLUS 6*/
+.ad6 {
+  background-image: url("../images/rs_ad6.png");
+}
+
+.ap6 {
+  background-image: url("../images/rs_aplus6.png");
+}
+
+
+/* ADVERT 7 & APLUS 1*/
+.ad7 {
+  background-image: url("../images/rs_ad7.png");
+}
+
+.ap7 {
+  background-image: url("../images/rs_aplus7.png");
+}
+
+
+/* ADVERT 8 & APLUS 1*/
+.ad8 {
+  background-image: url("../images/rs_ad8.png");
+}
+
+.ap8 {
+  background-image: url("../images/rs_aplus8.png");
+}
+
+/* 9 & APLUS 1*/
+.ad9 {
+  background-image: url("../images/rs_ad9.png");
+}
+
+.ap9 {
+  background-image: url("../images/rs_aplus9.png");
+}
