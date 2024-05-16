@@ -277,9 +277,12 @@ let { numLang } = req.query;
           metaData.KEY_FEATURE_COPY = translations[language].KEY_FEATURE_COPY;
 
           // generate ad bullets
-          const bullet_text = metaData.AD_BULLETS;
+          const bullets_text = metaData.AD_BULLETS;
+          let iconsText = "fa-brain, fa-battery-full, fa-dumbbell, fa-bolt, fa-bed";
+          const icons = iconsText.split(',');
+    
       
-          metaData.AD_BULLETS_HTML = Bullets({ bullet_text }) as string;
+          metaData.AD_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
 
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);

@@ -19,16 +19,18 @@
         background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
       }
       .ad2, .ap2 {
-        background-image: url("/renders/{{sku}}/{{sku}}_00004.jpg");
+        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
       }
       .ad3, .ap3 {
-        background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
+        background-image: url("/stock/shutterstock_2146195251.jpg");
+        background-size: 2630px 1200px;
+        background-position: top right;
       }
       .ad4, .ap4 {
-        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+        background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
       }
       .ad5, .ap5  {
-        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+        background-image: url("/renders/{{sku}}/{{sku}}_00004.jpg");
       }
       .is_vegan { display: {{is_vegan}};}
       .is_vegetarian { display: {{is_vegetarian}};}
@@ -46,24 +48,11 @@
       <div class="advert ad1_accent">
       </div> 
       <div class="advert ad2">
-
         {{{AD_BULLETS_HTML}}}
-
-        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
-        <!--  icons for features -->
-        <div class="ad_bullets_icons">
-            <img src="images/rs_icon1.svg" alt="">
-            <img src="images/rs_icon2.svg" alt="">
-            <img src="images/rs_icon3.svg" alt="">
-            <img src="images/rs_icon4.svg" alt="">
-            <img src="images/rs_icon5.svg" alt="">
-          </div>
-        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
-        <!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> -->
       </div>
       <div class="advert ad3">
-          <h2>Easy to swallow,<br />fast acting,<br />tasteless.</h2>
-           <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
+          <h1>100%</h1> <h2>Money back<br />guarantee.</h2>
+           {{!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> --}}
       </div>
       <div class="advert ad4">
           <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
@@ -99,17 +88,7 @@
         <h2>The Science<br />of Strength.</h2>
       </div>
       <div class="aplus ap2">
-        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
-                <!--  icons for features -->
-        <div class="ad_bullets_icons">
-            <img src="images/rs_icon1.svg" alt="">
-            <img src="images/rs_icon2.svg" alt="">
-            <img src="images/rs_icon3.svg" alt="">
-            <img src="images/rs_icon4.svg" alt="">
-            <img src="images/rs_icon5.svg" alt="">
-          </div>
-        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
+        {{{AD_BULLETS_HTML}}}
       </div>
       <div class="aplus ap3"></div>
       <div class="aplus ap4">
@@ -174,3 +153,18 @@
     <p>COP: {{COPY_FR}}</p>
   </body>
 </html>
+
+
+
+<!--
+
+          <h2>High quality<br />ingredients, safely<br />formulated.</h2>
+       
+        <div class="ad_bullets_icons">
+            <img src="images/rs_icon1.svg" alt="">
+            <img src="images/rs_icon2.svg" alt="">
+            <img src="images/rs_icon3.svg" alt="">
+            <img src="images/rs_icon4.svg" alt="">
+            <img src="images/rs_icon5.svg" alt="">
+          </div>
+        <pre class="ad_bullets">{{AD_BULLETS}}</pre> -->
