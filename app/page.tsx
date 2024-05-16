@@ -1,59 +1,114 @@
 "use client";
-import { useFormState, useFormStatus } from "react-dom";
-import { getSkuData } from "@/app/actions";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-const initialState = {
-  message:'',
-  product: {available_tags:'b',
-						template: 'demo',
-						meta_data:{}} 
+type ProductData = [string, string, number][];
+
+const IndexPage: React.FC = () => {
+  const [data, setData] = useState<ProductData>([]);
+  const [response, setResponse] = useState<any>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/sku/data/skus.csv');
+        const csvData = await res.text();
+        const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, number]);
+        setData(rows);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const templateGenerate = async (sku: string, tpl: string, numLang: number, content: string) => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`/api/template?sku=${sku}&tpl=${tpl}&multiLang=true&content=${content}&numLang=${numLang}`);
+      const data = await res.json();
+      setResponse(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setIsLoading(false);
+    }
+  };
+
+
+  const imageGenerate = async (sku: string, content: string) => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`/api/generate?sku=${sku}&content=${content}`);
+      const data = await res.json();
+      setResponse(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className='"relative text-xs m-6'>
+		{isLoading &&   
+			<div className="absolute bg-white bg-opacity-60 z-10 h-full w-full flex items-center justify-center">
+				<div className="flex items-center">
+					<span className="text-3xl mr-4">Loading</span>
+					<svg className="animate-spin h-8 w-8 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 24 24">
+						<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+						<path className="opacity-75" fill="currentColor"
+							d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+						</path>
+					</svg>
+				</div>
+			</div>
+		}
+      <table className=' min-w-full text-left text-xs font-light text-surface dark:text-white'>
+        <thead className='bg-gray-100 dark:bg-gray-700'>
+          <tr>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>SKU</th>
+						<th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>actions</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Template</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Lang</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen TMPL</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen IMG</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index} className='border-b border-neutral-200 dark:border-white/10'>
+              <td> <Link href={`http://localhost:57538/sku/${item[0]}`} rel="noopener noreferrer" target="_blank">{item[0]}</Link> </td>
+
+							<td className='whitespace-nowrap px-6 py-4'>(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.front.en`} rel="noopener noreferrer" target="_blank">F</Link>) 
+							(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.back.en`} rel="noopener noreferrer" target="_blank">B</Link>)
+							(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.adverts.en`} rel="noopener noreferrer" target="_blank">ADS</Link>)
+							</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[1]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[2]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>
+                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'front')}>Front</button> |  
+                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'back')}>Back</button> | 
+                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'adverts')}>Adverts</button>
+              </td>
+              <td className='whitespace-nowrap px-6 py-4'>
+                <button onClick={() => imageGenerate(item[0], 'front')}>Front</button> |  
+                <button onClick={() => imageGenerate(item[0], 'back')}>Back</button> | 
+                <button onClick={() => imageGenerate(item[0], 'adverts')}>Adverts</button>
+              </td>
+              <td><Link href={`https://inventory.fitnesshealth.co/?product=${item[0]}`} rel="noopener noreferrer" target="_blank">Edit</Link></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {response && <pre>{JSON.stringify(response, null, 2)}</pre>}
+    </div>
+  );
 };
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button className="border p-4" type="submit" aria-disabled={pending}>
-      Generate
-    </button>
-  );
-}
-
-export default function Home() {
- 
-	const [state, formAction] = useFormState(getSkuData, initialState)
-
-	let product_template = '/templates/' + state?.product.template + '_template.html';
-
-
-
-  return (
-		<>
-			<main className="flex min-h-screen flex-col items-center p-24">
-				<form action={formAction}>
-					<label htmlFor="sku">Enter SKU</label>
-					<input type="text" id="sku" name="sku" className="border p-2 bg-black" required />
-					<SubmitButton />
-					<p aria-live="polite" role="status">
-						{state?.message} 
-					</p>
-				</form>
-				
-				<aside className="fixed top-0 left-0 z-40 w-64 h-screen overflow-y-auto">
-					{Object.entries(state?.product).map(([key, value]) => (
-							<div key={key}>
-								<span>&#123;&#123;{key}&#125;&#125;</span>
-							</div>
-					))}
-					{Object.entries(state?.product.meta_data).map(([key, value]) => (
-							<div key={key}>
-								<span>&#123;&#123;{key}&#125;&#125;</span>
-							</div>
-					))}
-				</aside>
-				<iframe className="w-full h-dvh" src={product_template}></iframe>
-			</main>
-				</>
-
-		);
-}
+export default IndexPage;

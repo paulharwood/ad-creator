@@ -7,6 +7,11 @@ import { getSkuData, SkuData } from "@/app/actions";
 import translate from "translate";
 import { metadata } from '@/app/layout';
 
+// template helpers
+import Bullets from '@/app/template_helpers/bullets';
+
+
+
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
 // translate.key = process.env.DEEPL_KEY;
 translate.key = "6d6577df-6c4e-4e2a-924e-3d5b29c67d74:fx";
@@ -32,6 +37,7 @@ interface ProductData {
     barcode_ean: string,
     nrv: string,
     AD_BULLETS: string,
+    AD_BULLETS_HTML: string,
     KEY_FEATURE_TITLE: string,
     KEY_FEATURE_COPY: string,
     BULLETS_ES: string,
@@ -270,7 +276,10 @@ let { numLang } = req.query;
           metaData.KEY_FEATURE_TITLE = translations[language].KEY_FEATURE_TITLE;
           metaData.KEY_FEATURE_COPY = translations[language].KEY_FEATURE_COPY;
 
-          // console.log(metaData);
+          // generate ad bullets
+          const bullet_text = metaData.AD_BULLETS;
+      
+          metaData.AD_BULLETS_HTML = Bullets({ bullet_text }) as string;
 
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);
@@ -287,6 +296,8 @@ let { numLang } = req.query;
       // just english
 
         // Render the english template with the product data and save it to the public folder
+
+
         const finalHTML = template(metaData);
         const publicPath = join(publicDir, `${sku}.${content}.en.html`);
 

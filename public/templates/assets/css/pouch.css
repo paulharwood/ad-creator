@@ -357,7 +357,7 @@ body {
   position: absolute;
   bottom: 25mm;
   right: 8mm;
-  left: 8mm;
+  left: 7mm;
 }
 
 
@@ -373,13 +373,13 @@ body {
   font-weight: 300;
   font-size: 9pt;
   text-align: left;
-  border-top: 1px solid #999999;
+  border-top: 2px solid #999999;
   padding-top: 2px;
   line-height: 1.2;
 }
 
 .units_in_pack span {
-  border-top: 3px solid #999999;
+  /* border-top: 3px solid #999999; */
   font-weight: 300;
   letter-spacing: 0;
   font-size: 1.9em;
@@ -392,14 +392,14 @@ body {
 .batch_number {
   position: absolute;
   bottom: 28mm;
-  left: 67mm;
+  left: 54mm;
   font-size: 0.7em;
 }
 
 .barcode {
   position: absolute;
   bottom: 17mm;
-  left: 27mm;
+  left: 15.5mm;
 }
 
 .use_by_date,
@@ -435,7 +435,7 @@ body {
 .logos {
   text-align: right;
   position: absolute;
-  bottom: 10mm;
+  bottom: 6mm;
   right: 10mm;
   display: flex;
   flex-direction: row;
@@ -528,7 +528,7 @@ body {
   font-size: 0.8em;
   position: absolute;
   bottom: 12mm;
-  left: 7mm;
+  left: 13mm;
   right: 7mm;
   padding: 0.7mm 5mm;
 }

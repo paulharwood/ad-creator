@@ -1,0 +1,176 @@
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/adverts.css">
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
+    <!-- conditional/inline styles -->
+    <style>
+      .keyword_title {
+        font-size:{{keyword_title_size}}pt;
+      }
+      .ad1, .ap1 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00000.jpg");
+      }
+      .ad1_accent, .ap1_accent {
+        background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
+      }
+      .ad2, .ap2 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00004.jpg");
+      }
+      .ad3, .ap3 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
+      }
+      .ad4, .ap4 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+      }
+      .ad5, .ap5  {
+        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+      }
+      .is_vegan { display: {{is_vegan}};}
+      .is_vegetarian { display: {{is_vegetarian}};}
+      .is_halal { display: {{halal}};}
+      .is_kosher { display: {{kosher}};}
+      .is_gmo_free { display: {{gmo_free}};}
+      .is_organic { display: {{organic}};}
+    </style>
+    </head>
+  <body>
+    <h2>Adverts</h2>
+    <div class="advert_content">
+      <div class="advert ad1">
+      </div> 
+      <div class="advert ad1_accent">
+      </div> 
+      <div class="advert ad2">
+
+        {{{AD_BULLETS_HTML}}}
+
+        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
+        <!--  icons for features -->
+        <div class="ad_bullets_icons">
+            <img src="images/rs_icon1.svg" alt="">
+            <img src="images/rs_icon2.svg" alt="">
+            <img src="images/rs_icon3.svg" alt="">
+            <img src="images/rs_icon4.svg" alt="">
+            <img src="images/rs_icon5.svg" alt="">
+          </div>
+        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
+        <!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> -->
+      </div>
+      <div class="advert ad3">
+          <h2>Easy to swallow,<br />fast acting,<br />tasteless.</h2>
+           <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
+      </div>
+      <div class="advert ad4">
+          <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
+          <h3>Follow our simple, scientific system<br />of building strength.</h3>
+      </div>
+      <div class="advert ad5">
+        <h2>Ingredients.</h2>
+        <div class="logos">
+          <!-- conditional -->
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
+          <img src="images/fh-logo-black.svg"  width="90" height="90" />
+        </div>
+      </div>
+      <!-- <div class="advert ad6">
+      </div> -->
+      <div class="advert ad7">
+      </div>
+      <div class="advert ad8">
+      </div>
+     <div class="advert ad9">
+      </div>
+    </div>
+    <h2>A+ Content</h2>
+    <div class="aplus_content">
+      <div class="aplus ap1">
+        <h2>The Science<br />of Strength.</h2>
+      </div>
+      <div class="aplus ap1_accent">
+        <h2>The Science<br />of Strength.</h2>
+      </div>
+      <div class="aplus ap2">
+        <h2>High quality<br />ingredients, safely<br />formulated.</h2>
+                <!--  icons for features -->
+        <div class="ad_bullets_icons">
+            <img src="images/rs_icon1.svg" alt="">
+            <img src="images/rs_icon2.svg" alt="">
+            <img src="images/rs_icon3.svg" alt="">
+            <img src="images/rs_icon4.svg" alt="">
+            <img src="images/rs_icon5.svg" alt="">
+          </div>
+        <pre class="ad_bullets">{{AD_BULLETS}}</pre>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  />
+      </div>
+      <div class="aplus ap3"></div>
+      <div class="aplus ap4">
+        <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
+        <h3>Follow our simple, scientific system<br />of building strength.</h3>
+      </div>
+      <div class="aplus ap5">
+        <h2>Ingredients.</h2>
+        <div class="logos">
+          <!-- conditional -->
+          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
+          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
+          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
+          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
+          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
+          <img src="images/fh-logo-black.svg"  width="90" height="90" />
+        </div>
+          <div class="ingredients">
+            <div>
+                {{ingredients}}
+            </div>
+          </div>
+      </div>
+      <!-- <div class="aplus ap6"></div> -->
+      <div class="aplus ap7"></div>
+      <div class="aplus ap8"></div>
+      <div class="aplus ap9"></div>
+    </div>
+
+    <p>lab: {{label_title}}</p>
+    <p>key: {{keyword_title}}</p>
+    <p>key: {{keyword_title_size}}</p>
+    <p>sug: {{suggested_use}}</p>
+    <p>use: {{use_by_date}}</p>
+    <p>is_: {{is_vegetarian}}</p>
+    <p>is_: {{is_vegan}}</p>
+    <p>fea: {{feature_image_code}}</p>
+    <p>bra: {{brand_colour}}</p>
+    <p>uni: {{units_in_pack}}</p>
+    <p>cur: {{current_batch_number}}</p>
+    <p>ing: {{ingredients}}</p>
+    <p>ing: {{ingredients_fr}}</p>
+    <p>ing: {{ingredients_de}}</p>
+    <p>ing: {{ingredients_es}}</p>
+    <p>ing: {{ingredients_it}}</p>
+    <p>bar: {{barcode_ean}}</p>
+    <p>nrv: {{nrv}}</p>
+    <p>AD_: {{AD_BULLETS}}</p>
+    <p>KEY: {{KEY_FEATURE_TITLE}}</p>
+    <p>KEY: {{KEY_FEATURE_COPY}}</p>
+    <p>BUL: {{BULLETS_ES}}</p>
+    <p>TIT: {{TITLE_ES}}</p>
+    <p>COP: {{COPY_ES}}</p>
+    <p>BUL: {{BULLETS_DE}}</p>
+    <p>TIT: {{TITLE_DE}}</p>
+    <p>COP: {{COPY_DE}}</p>
+    <p>BUL: {{BULLETS_IT}}</p>
+    <p>TIT: {{TITLE_IT}}</p>
+    <p>COP: {{COPY_IT}}</p>
+    <p>BUL: {{BULLETS_FR}}</p>
+    <p>TIT: {{TITLE_FR}}</p>
+    <p>COP: {{COPY_FR}}</p>
+  </body>
+</html>
