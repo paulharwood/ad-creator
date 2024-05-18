@@ -4,7 +4,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/adverts.css">
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,{{language}}',
+        }, 'google_translate_element');
+        setTimeout(function () {
+          // Set the default language to Spanish
+          var selectElement = document.querySelector('#google_translate_element select');
+          selectElement.value = '{{language}}';
+          selectElement.dispatchEvent(new Event('change'));
+        }, 500);
+      }
+
+    </script>
 
     <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
     <!-- conditional/inline styles -->
@@ -46,6 +63,8 @@
     </style>
     </head>
   <body class="{{rs_collection}}">
+    <div id="google_translate_element"></div>
+    <div class="content">
     <h2>Adverts</h2>
     <div class="advert_content">
       <div class="advert ad1">
@@ -248,6 +267,6 @@
     <p>COP: {{COPY_FR}}</p>
 
     </pre>
-
+    </div>
   </body>
 </html>

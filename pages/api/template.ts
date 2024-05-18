@@ -257,7 +257,6 @@ let { numLang } = req.query;
         languages.forEach( async (language) => {
          if (language !== 'en') { // dont need english
 
-            
           // Join the ingredients and suggested_use together      
             metaData.ingredients =  metaData.ingredients + "<br /><b>" + language.toUpperCase() + "</b> " + "(" + translations[language].keyword_title + ") " + translations[language].ingredients + " ";
             metaData.suggested_use =  metaData.suggested_use + "<br /><b>" + language.toUpperCase() + "</b> " + translations[language].suggested_use + " ";
@@ -293,6 +292,10 @@ let { numLang } = req.query;
 
           metaData.CUSTOM_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
 
+          metaData.language = language;
+
+
+          console.log('language', metaData.language);
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);
           const publicPath = join(publicDir, `${sku}.${content}.${language}.html`);

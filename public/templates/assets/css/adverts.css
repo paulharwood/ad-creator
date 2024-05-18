@@ -6,11 +6,13 @@ body {
   font-family: "alte haas grotesk";
   font-weight: 400;
   font-style: normal;
-  display: flex;
   color: #d0d6d9;
   background-color: transparent;
 }
-
+.content {
+  margin-top: 150px;
+  display: flex;
+}
 
 img.rs_collection_logo {
   width: 300px;
@@ -355,8 +357,8 @@ img.ad_logo {
 /* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
-  background-position: -412px -240px;
-  background-size: 3000px 1500px;
+  background-position: -232px -80px;
+  background-size: 2400px 1200px;
 }
 .ad4 .logos {
   position: absolute;

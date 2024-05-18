@@ -38,12 +38,12 @@ const IndexPage: React.FC = () => {
   };
 
 
-  const imageGenerate = async (sku: string, content: string) => {
+  const imageGenerate = async (sku: string, content: string, lang: string) => {
       console.log('generating adverts');
 
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/generate?sku=${sku}&content=${content}`);
+      const res = await fetch(`/api/generate?sku=${sku}&content=${content}&langs=en,de,es,it,fr`);
       const data = await res.json();
       setResponse(data);
       setIsLoading(false);
@@ -98,9 +98,9 @@ const IndexPage: React.FC = () => {
                 <button onClick={() => templateGenerate(item[0], item[1], item[2], 'adverts')}>Adverts</button>
               </td>
               <td className='whitespace-nowrap px-6 py-4'>
-                <button onClick={() => imageGenerate(item[0], 'front')}>Front</button> |  
-                <button onClick={() => imageGenerate(item[0], 'back')}>Back</button> | 
-                <button onClick={() => imageGenerate(item[0], 'adverts')}>Adverts</button>
+                <button onClick={() => imageGenerate(item[0], 'front', 'multi')}>Front</button> |  
+                <button onClick={() => imageGenerate(item[0], 'back', 'multi')}>Back</button> | 
+                <button onClick={() => imageGenerate(item[0], 'adverts', 'multi')}>Adverts</button>
               </td>
               <td><Link href={`https://inventory.fitnesshealth.co/?product=${item[0]}`} rel="noopener noreferrer" target="_blank">Edit</Link></td>
             </tr>
