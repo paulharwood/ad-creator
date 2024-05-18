@@ -36,9 +36,16 @@
       .is_kosher { display: {{kosher}};}
       .is_gmo_free { display: {{gmo_free}};}
       .is_organic { display: {{organic}};}
+
+      .ad5 .rs_logos img.{{rs_collection}},
+      .ap5 .rs_logos img.{{rs_collection}} {
+        display:block
+      }
+
+
     </style>
     </head>
-  <body>
+  <body class="{{rs_collection}}">
     <h2>Adverts</h2>
     <div class="advert_content">
       <div class="advert ad1">
@@ -62,31 +69,63 @@
           <p>We are confident that you will be happy with your purchase from us.</p>
           <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
         </div>
-        {{!-- <img src="/templates/assets/images/rs/rs-certificate.svg" /> --}}
-           {{!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> --}}
       </div>
       <div class="advert ad4">
-          {{!-- <h3>High quality<br />ingredients,<br />safely formulated.</h3> --}}
           <div class="logos">
             <!-- conditional -->
             <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
             <img class="is_vegan" src="images/vegan-logo.svg" />
-            {{!-- <img class="is_organic" src="images/organic-logo.svg" /> --}}
             <img class="is_halal" src="images/halal-logo.svg" />
             <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
       </div>
       <div class="advert ad5">
-          <h2>Only take<br />the supplements<br />that you need.</h2>
-          <h3>Follow our simple, scientific system<br />of building strength.</h3>
+          <h2>{{KEY_FEATURE_TITLE}}</h2>
+          <div class="features">
+            <p>{{KEY_FEATURE_COPY}}</p>
+          </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+          <div class="rs_logos">
+            <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+            <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+            <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
+          </div>
+
       </div>
       <div class="advert ad6">
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly.</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        </div>
       </div>
       <div class="advert ad7">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
+        </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
       <div class="advert ad8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
-     <div class="advert ad9">
+      <div class="advert ad9">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense workouts.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
     </div>
     <h2>A+ Content</h2>
@@ -114,27 +153,64 @@
           <p>We are confident that you will be happy with your purchase from us.</p>
           <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
         </div>
-          {{!-- <img class="ad_logo" src="images/rs-header-motif-white.svg" width="220" /> --}}
       </div>
       <div class="aplus ap4">
-          {{!-- <h3>High quality<br />ingredients,<br />safely formulated.</h3> --}}
           <div class="logos">
             <!-- conditional -->
             <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
             <img class="is_vegan" src="images/vegan-logo.svg" />
-            {{!-- <img class="is_organic" src="images/organic-logo.svg" /> --}}
             <img class="is_halal" src="images/halal-logo.svg" />
             <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
       </div>
       <div class="aplus ap5">
-          <h2>Only take<br />the supplements<br />that you need.</h2>
-          <h3>Follow our simple, scientific system<br />of building strength.</h3>
+          <h2>{{KEY_FEATURE_TITLE}}</h2>
+          <div class="features">
+            <p>{{KEY_FEATURE_COPY}}</p>
+          </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+          <div class="rs_logos">
+            <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+            <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+            <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
+          </div>
       </div>
-      <div class="aplus ap6"></div>
-      <div class="aplus ap7"></div>
-      <div class="aplus ap8"></div>
-      <div class="aplus ap9"></div>
+      <div class="aplus ap6">
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly.</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        </div>
+      </div>
+      <div class="aplus ap7">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      <div class="aplus ap8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      <div class="aplus ap9">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense
+          workouts.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
     </div>
     <pre>
     <p>label_title: {{label_title}}</p>
@@ -175,18 +251,3 @@
 
   </body>
 </html>
-
-
-
-<!--
-
-          <h2>High quality<br />ingredients, safely<br />formulated.</h2>
-       
-        <div class="ad_bullets_icons">
-            <img src="images/rs_icon1.svg" alt="">
-            <img src="images/rs_icon2.svg" alt="">
-            <img src="images/rs_icon3.svg" alt="">
-            <img src="images/rs_icon4.svg" alt="">
-            <img src="images/rs_icon5.svg" alt="">
-          </div>
-        <pre class="ad_bullets">{{AD_BULLETS}}</pre> -->

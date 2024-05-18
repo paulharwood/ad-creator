@@ -11,6 +11,24 @@ body {
   background-color: transparent;
 }
 
+
+img.rs_collection_logo {
+  width: 300px;
+}
+img.ad_logo {
+  width: 360px;
+}
+
+.ad_copy {
+  position:absolute
+}
+.ad_copy h2 {
+  margin: 0;
+}
+.ad_copy p {
+  font-size: 2.5em;
+}
+
 /* Bullet Icons */
 .bullet-icon {
   text-align: center;
@@ -388,14 +406,15 @@ body {
 
 .ad5 h2,
 .ap5 h2 {
-  top: -5px;
-  left: 462px;
-  color: #1b1b1b;
+  top: 5px;
+  left: 96px;
+  width: 4em;
 }
 
 .ap5 h2 {
-  left: 1032px;
   top: 5px;
+  left: 301px;
+
 }
 
 .ad5 .logos img,
@@ -437,23 +456,160 @@ body {
   font-size: 1.4em;
 }
 
+.ad5 img.ad_logo,
+.ap5 img.ad_logo {
+  position: absolute;
+  bottom: 60px;
+  width: 270px;
+}
+.ad5 img.ad_logo {
+  left: 66px;
+}
+.ap5 img.ad_logo {
+  left:260px
+}
 
 
+body.Maintenance .features {
+  background: #2ca2cc;
+  color: #d0d6d9;
+}
+body.Performance .features {
+  background: #e20613;
+  color: #d0d6d9;
+}
+body.Recovery .features {
+  background: #ffaa00;
+  color: #d0d6d9;
+}
+
+.ad5 .features,
+.ap5 .features{
+position: absolute;
+  right: 60px;
+  width: 441px;
+  font-size: 1.4em;
+  border-radius: 2em;
+  padding: 2.2em;
+}
+
+.ad5 .features {
+  top: 476px;
+  width:540px;
+}
+.ap5 .features {
+  top: 476px;
+  right: 60px;
+  font-size: 1.5em;
+  width: 578px;
+}
+
+.ad5 .features h3,
+.ap5 .features h3 {
+  font-size: 4em;
+  color:#1d1d1d;
+  margin:0;
+}
+
+.ad5 .features p,
+.ap5 .features p {
+  font-size: 2em;
+  margin: 0;
+  padding:0;
+}
+
+.ad5 .rs_logos,
+.ap5 .rs_logos {
+  position: absolute;
+  top: 79px;
+  right: 59px;
+  width: 361px;
+}
+
+.ap5 .rs_logos {
+  right: 150px;
+}
+.ap5 .features {
+  right: 150px;
+}
+
+.ad5 .rs_logos img,
+.ap5 .rs_logos img {
+  display: none;
+}
 .ad5 {
   background-image: url("../images/rs_ad5.png");
-  background-position: -346px -152px;
+  background-position: -211px;
+  /* background-position: -346px -152px;
   background-repeat: no-repeat;
-  background-size: 3000px 1500px;
+  background-size: 3000px 1500px; */
 }
 
 .ap5 {
   background-image: url("../images/rs_aplus5.png");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-position: -176px -152px;
-  background-size: 3000px 1500px;
+  background-size: 3000px 1500px; */
 }
 
 /* ADVERT 6 & APLUS 6*/
+
+
+.ad6 h1,
+.ap6 h1 {
+position: absolute;
+  top: 64px;
+  left: 79px;
+  padding: 0;
+  margin: 0;
+  font-size: 57em;
+}
+
+.ap6 h1 {
+  font-size: 46em;
+  left: 170px;
+}
+
+.ad6 h2,
+.ap6 h2 {
+  position: absolute;
+  top: 148px;
+  left: 440px;
+  width: 460px;
+}
+
+.ap6 h2 {
+  font-size: 9em;
+  left: 500px;
+  width: 800px;
+  top: 148px;
+}
+
+.ad6 .rs_collection_logo {
+  width: 200px;
+}
+.ap6 .rs_collection_logo {
+  width: 180px;
+}
+.ad6 .rs_collection_group,
+.ap6 .rs_collection_group{
+  position: absolute;
+  top: 689px;
+  left: 90px;
+  right: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+.ap6 .rs_collection_group {
+  left: 180px;
+  right: 180px;
+  top: 580px;
+}
+
+.ap6 .rs_collection_group .rs_collection_logo {
+  width:300px;
+}
+
 .ad6 {
   background-image: url("/stock/rs_ad6.png");
   background-size:1000px 1000px;
@@ -466,18 +622,50 @@ body {
 
 
 /* ADVERT 7 & APLUS 1*/
+
+.ad7, .ap7 {
+  color:#d0d6d9;
+}
 .ad7 {
   background-image: url("/stock/rs_ad7.png");
   background-size: 1000px 1000px;
 }
-
 .ap7 {
   background-image:url("/stock/rs_aplus7.png");
   background-size: 2000px 1000px;
 }
+.ad7 .rs_collection_logo, 
+.ap7 .rs_collection_logo{
+  position:absolute;
+  top:90px;
+  left:90px;
+}
+.ad7 .ad_logo,
+.ap7 .ad_logo {
 
+  position: absolute;
+  bottom: 90px;
+  right: 90px;
+  width: 200px;
+}
+
+.ad7 h2,
+.ap7 h2 {
+position:relative
+}
+.ad7 .ad_copy,
+.ap7 .ad_copy {
+  top: 460px;
+  left: 83px;
+  width: 400px;
+}
 
 /* ADVERT 8 & APLUS 1*/
+
+.ad8,
+.ap8 {
+  color: #d0d6d9;
+}
 .ad8 {
   background-image: url("/stock/rs_ad8.png");
   background-size: 1000px 1000px;
@@ -487,8 +675,38 @@ body {
   background-image: url("/stock/rs_aplus8.png");
   background-size: 2000px 1000px;
 }
+.ad8 .rs_collection_logo,
+.ap8 .rs_collection_logo {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+}
+
+.ad8 .ad_logo,
+.ap8 .ad_logo {
+  position: absolute;
+  bottom: 90px;
+  right: 90px;
+  width: 200px;
+}
+
+.ad8 h2,
+.ap8 h2 {
+  position: relative
+}
+
+.ad8 .ad_copy,
+.ap8 .ad_copy {
+  top: 460px;
+  left: 83px;
+  width: 400px;
+}
 
 /* 9 & APLUS 1*/
+.ad9,
+.ap9 {
+  color: #d0d6d9;
+}
 .ad9 {
   background-image: url("/stock/rs_ad9.png");
   background-size: 1000px 1000px;
@@ -497,4 +715,30 @@ body {
 .ap9 {
   background-image: url("/stock/rs_aplus9.png");
   background-size: 2000px 1000px;
+}
+.ad9 .rs_collection_logo,
+.ap9 .rs_collection_logo {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+}
+
+.ad9 .ad_logo,
+.ap9 .ad_logo {
+  position: absolute;
+  bottom: 90px;
+  right: 90px;
+  width: 200px;
+}
+
+.ad9 h2,
+.ap9 h2 {
+  position: relative
+}
+
+.ad9 .ad_copy,
+.ap9 .ad_copy {
+  top: 460px;
+  left: 83px;
+  width: 400px;
 }
