@@ -23,8 +23,6 @@
       }
       .ad3, .ap3 {
         background-image: url("/stock/shutterstock_2146195251.jpg");
-        background-size: 2630px 1200px;
-        background-position: top right;
       }
       .ad4, .ap4 {
         background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
@@ -49,29 +47,41 @@
       </div> 
       <div class="advert ad2">
         {{{AD_BULLETS_HTML}}}
+        <div class="disclaimer_text">
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
+        </div>
       </div>
       <div class="advert ad3">
-          <h1>100%</h1> <h2>Money back<br />guarantee.</h2>
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction<br />guarantee.</h2>
+        </div>          
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+        {{!-- <img src="/templates/assets/images/rs/rs-certificate.svg" /> --}}
            {{!-- <img class="ad_logo" src="images/rs-header-motif-white.svg"  width="220"  /> --}}
       </div>
       <div class="advert ad4">
-          <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
-          <h3>Follow our simple, scientific system<br />of building strength.</h3>
+          {{!-- <h3>High quality<br />ingredients,<br />safely formulated.</h3> --}}
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            {{!-- <img class="is_organic" src="images/organic-logo.svg" /> --}}
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
+          </div>
       </div>
       <div class="advert ad5">
-        <h2>Ingredients.</h2>
-        <div class="logos">
-          <!-- conditional -->
-          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
-          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
-          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
-          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
-          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
-          <img src="images/fh-logo-black.svg"  width="90" height="90" />
-        </div>
+          <h2>Only take<br />the supplements<br />that you need.</h2>
+          <h3>Follow our simple, scientific system<br />of building strength.</h3>
       </div>
-      <!-- <div class="advert ad6">
-      </div> -->
+      <div class="advert ad6">
+      </div>
       <div class="advert ad7">
       </div>
       <div class="advert ad8">
@@ -89,41 +99,50 @@
       </div>
       <div class="aplus ap2">
         {{{AD_BULLETS_HTML}}}
-      </div>
-      <div class="aplus ap3"></div>
-      <div class="aplus ap4">
-        <h2>Don't take<br />supplements<br />that you don't<br />need.</h2>
-        <h3>Follow our simple, scientific system<br />of building strength.</h3>
-      </div>
-      <div class="aplus ap5">
-        <h2>Ingredients.</h2>
-        <div class="logos">
-          <!-- conditional -->
-          <img class="is_vegetarian" src="images/vegetarian-logo.svg"  width="90" height="147" />
-          <img class="is_vegan" src="images/vegan-logo.svg"  width="90" height="147" />
-          <img class="is_organic" src="images/organic-logo.svg"  width="90" height="147" />
-          <img class="is_halal" src="images/halal-logo.svg"  width="90" height="147" />
-          <img class="is_kosher" src="images/kosher-logo.svg"  width="90" height="147" />
-          <img src="images/fh-logo-black.svg"  width="90" height="90" />
+        <div class="disclaimer_text">
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
         </div>
-          <div class="ingredients">
-            <div>
-                {{ingredients}}
-            </div>
+      </div>
+      <div class="aplus ap3">
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction<br />guarantee.</h2>
+        </div>
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+          {{!-- <img class="ad_logo" src="images/rs-header-motif-white.svg" width="220" /> --}}
+      </div>
+      <div class="aplus ap4">
+          {{!-- <h3>High quality<br />ingredients,<br />safely formulated.</h3> --}}
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            {{!-- <img class="is_organic" src="images/organic-logo.svg" /> --}}
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
       </div>
-      <!-- <div class="aplus ap6"></div> -->
+      <div class="aplus ap5">
+          <h2>Only take<br />the supplements<br />that you need.</h2>
+          <h3>Follow our simple, scientific system<br />of building strength.</h3>
+      </div>
+      <div class="aplus ap6"></div>
       <div class="aplus ap7"></div>
       <div class="aplus ap8"></div>
       <div class="aplus ap9"></div>
     </div>
-
-    <p>lab: {{label_title}}</p>
-    <p>key: {{keyword_title}}</p>
-    <p>key: {{keyword_title_size}}</p>
-    <p>sug: {{suggested_use}}</p>
-    <p>use: {{use_by_date}}</p>
-    <p>is_: {{is_vegetarian}}</p>
+    <pre>
+    <p>label_title: {{label_title}}</p>
+    <p>keyword_title: {{keyword_title}}</p>
+    <p>keyword_title_size: {{keyword_title_size}}</p>
+    <p>suggested_us: {{suggested_use}}</p>
+    <p>use_by_date: {{use_by_date}}</p>
+    <p>is_vegetarian: {{is_vegetarian}}</p>
     <p>is_: {{is_vegan}}</p>
     <p>fea: {{feature_image_code}}</p>
     <p>bra: {{brand_colour}}</p>
@@ -151,6 +170,9 @@
     <p>BUL: {{BULLETS_FR}}</p>
     <p>TIT: {{TITLE_FR}}</p>
     <p>COP: {{COPY_FR}}</p>
+
+    </pre>
+
   </body>
 </html>
 

@@ -13,7 +13,7 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
 
     // Function to create SVG element for text along circular path with icon
     const createSvgElement = (line: string, icon: string | undefined, key: number): string => {
-        const iconElement = icon ? `<div class='bullet-icon'><div class="fa-light ${icon}"></div></div>` : '';
+        const iconElement = icon ? `<div class='bullet-icon'><div class="fa-thin ${icon}"></div></div>` : '';
         return `
             <div class="bullet bullet-${key}">
                 <svg key=${key} viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">

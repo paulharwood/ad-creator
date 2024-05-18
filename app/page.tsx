@@ -81,7 +81,7 @@ const IndexPage: React.FC = () => {
         </thead>
         <tbody>
           {data.map((item, index) => (
-            <tr key={index} className='border-b border-neutral-200 dark:border-white/10'>
+            <tr key={index} className='border-b border-neutral-200 dark:border-white/10  hover:bg-gray-800'>
               <td> <Link href={`http://localhost:57538/sku/${item[0]}`} rel="noopener noreferrer" target="_blank">{item[0]}</Link> </td>
 
 							<td className='whitespace-nowrap px-6 py-4'>(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.front.en`} rel="noopener noreferrer" target="_blank">F</Link>) 

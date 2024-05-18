@@ -38,6 +38,7 @@ interface ProductData {
     nrv: string,
     AD_BULLETS: string,
     AD_BULLETS_HTML: string,
+    CUSTOM_BULLETS_HTML: string,
     KEY_FEATURE_TITLE: string,
     KEY_FEATURE_COPY: string,
     BULLETS_ES: string,
@@ -216,6 +217,7 @@ let { numLang } = req.query;
 
     }
 
+
       const units = metaData.units_in_pack.split(" ");
 
       // separate units_count and units_type
@@ -277,12 +279,19 @@ let { numLang } = req.query;
           metaData.KEY_FEATURE_COPY = translations[language].KEY_FEATURE_COPY;
 
           // generate ad bullets
-          const bullets_text = metaData.AD_BULLETS;
+          let bullets_text = metaData.AD_BULLETS;
+
+          // TODO remove all this and replace with inputs from metadata
           let iconsText = "fa-brain, fa-battery-full, fa-dumbbell, fa-bolt, fa-bed";
-          const icons = iconsText.split(',');
-    
-      
+          let icons = iconsText.split(',');
+
           metaData.AD_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
+
+          bullets_text = "Resealable for Freshness\nResponsibly Sourced\nHighest Grade ISO & Certified";
+          iconsText = "fa-check-square, fa-recycle, fa-certificate";
+          icons = iconsText.split(',');
+
+          metaData.CUSTOM_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
 
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);
