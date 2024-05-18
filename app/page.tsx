@@ -39,6 +39,8 @@ const IndexPage: React.FC = () => {
 
 
   const imageGenerate = async (sku: string, content: string) => {
+      console.log('generating adverts');
+
     try {
       setIsLoading(true);
       const res = await fetch(`/api/generate?sku=${sku}&content=${content}`);
