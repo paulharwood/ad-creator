@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-type ProductData = [string, string, number][];
+type ProductData = [string, string, number, string, string][];
 
 const IndexPage: React.FC = () => {
   const [data, setData] = useState<ProductData>([]);
@@ -12,9 +12,9 @@ const IndexPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/sku/data/skus.csv');
+        const res = await fetch('/sku/data/rs_all_skus.csv');
         const csvData = await res.text();
-        const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, number]);
+        const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, number, string, string]);
         setData(rows);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -72,9 +72,12 @@ const IndexPage: React.FC = () => {
       <table className=' min-w-full text-left text-xs font-light text-surface dark:text-white'>
         <thead className='bg-gray-100 dark:bg-gray-700'>
           <tr>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>IMG</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>SKU</th>
-						<th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>actions</th>
+						<th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>View</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Template</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Colour</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>rs_type</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Lang</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen TMPL</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen IMG</th>
@@ -84,6 +87,10 @@ const IndexPage: React.FC = () => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className='border-b border-neutral-200 dark:border-white/10  hover:bg-gray-800'>
+              <td>
+                <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat rotate-180`} style={{backgroundImage:`url('/sku/${item[0]}/${item[0]}_label_front.png')`}}></div>
+                <div className={` inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{backgroundImage:`url('/ads/${item[0]}/p/en/${item[0]}_advert_0.en.png')`}}></div>
+              </td>
               <td> <Link href={`http://localhost:57538/sku/${item[0]}`} rel="noopener noreferrer" target="_blank">{item[0]}</Link> </td>
 
 							<td className='whitespace-nowrap px-6 py-4'>(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.front.en`} rel="noopener noreferrer" target="_blank">F</Link>) 
@@ -91,6 +98,8 @@ const IndexPage: React.FC = () => {
 							(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.adverts.en`} rel="noopener noreferrer" target="_blank">ADS</Link>)
 							</td>
               <td className='whitespace-nowrap px-6 py-4'>{item[1]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[3]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[4]}</td>
               <td className='whitespace-nowrap px-6 py-4'>{item[2]}</td>
               <td className='whitespace-nowrap px-6 py-4'>
                 <button onClick={() => templateGenerate(item[0], item[1], item[2], 'front')}>Front</button> |  

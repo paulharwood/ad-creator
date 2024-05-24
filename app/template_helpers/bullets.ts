@@ -11,6 +11,8 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
         return bullets_text.split('\n').map(line => line.trim());
     };
 
+    
+
     // Function to create SVG element for text along circular path with icon
     const createSvgElement = (line: string, icon: string | undefined, key: number): string => {
         const iconElement = icon ? `<div class='bullet-icon'><div class="fa-thin ${icon}"></div></div>` : '';
@@ -47,7 +49,10 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
     };
 
     // Convert text block to array of lines
-    const lines = textToArray(bullets_text);
+    let lines = textToArray(bullets_text);
+    if (lines.length >= 5 ) {
+        lines = lines.slice(0, 5); // ensure we only have 5  
+    }
 
     // Create SVG elements for each line of text
     const svgElements: string[] = lines.map((line, index) => {

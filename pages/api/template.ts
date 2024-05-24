@@ -21,12 +21,18 @@ interface ProductData {
     label_title: string,
     keyword_title: string,
     keyword_title_size: string,
+    feature_icons: string,
     suggested_use: string,
     use_by_date: string,
     is_vegetarian: string,
     is_vegan: string,
     feature_image_code: string,
     brand_colour: string,
+    three_d_type: string,
+    three_d_shape: string,
+    three_d_template: string,
+    three_d_colour: string,
+    three_d_size: string,
     units_in_pack: string,
     current_batch_number: string,
     ingredients: string,
@@ -281,9 +287,12 @@ let { numLang } = req.query;
           let bullets_text = metaData.AD_BULLETS;
 
           // TODO remove all this and replace with inputs from metadata
-          let iconsText = "fa-brain, fa-battery-full, fa-dumbbell, fa-bolt, fa-bed";
+          let iconsText = metaData.feature_icons;
           let icons = iconsText.split(',');
-
+          if (icons.length >= 5 ) {
+            icons = icons.slice(0, 5); // ensure we only have 5  
+          }
+   
           metaData.AD_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
 
           bullets_text = "Resealable for Freshness\nResponsibly Sourced\nHighest Grade ISO & Certified";
