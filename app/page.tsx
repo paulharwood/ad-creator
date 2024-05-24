@@ -15,6 +15,8 @@ const IndexPage: React.FC = () => {
         const res = await fetch('/sku/data/rs_all_skus.csv');
         const csvData = await res.text();
         const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, number, string, string]);
+        // remove the header row  
+        rows.shift();
         setData(rows);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -75,10 +77,13 @@ const IndexPage: React.FC = () => {
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>IMG</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>SKU</th>
 						<th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>View</th>
-            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Template</th>
-            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Colour</th>
-            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>rs_type</th>
-            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Lang</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>three_d_template</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>three_d_type</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>three_d_shape</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>three_d_size</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>three_d_colour</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>numLang</th>
+            <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>rs_colour</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen TMPL</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Gen IMG</th>
             <th className='py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400'>Edit</th>
@@ -98,9 +103,13 @@ const IndexPage: React.FC = () => {
 							(<Link href={`http://localhost:57538/sku/${item[0]}/${item[0]}.adverts.en`} rel="noopener noreferrer" target="_blank">ADS</Link>)
 							</td>
               <td className='whitespace-nowrap px-6 py-4'>{item[1]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[2]}</td>
               <td className='whitespace-nowrap px-6 py-4'>{item[3]}</td>
               <td className='whitespace-nowrap px-6 py-4'>{item[4]}</td>
-              <td className='whitespace-nowrap px-6 py-4'>{item[2]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[5]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[6]}</td>
+              <td className='whitespace-nowrap px-6 py-4'>{item[7]}</td>
+
               <td className='whitespace-nowrap px-6 py-4'>
                 <button onClick={() => templateGenerate(item[0], item[1], item[2], 'front')}>Front</button> |  
                 <button onClick={() => templateGenerate(item[0], item[1], item[2], 'back')}>Back</button> | 

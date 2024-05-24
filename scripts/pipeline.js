@@ -61,31 +61,16 @@ local_path - th epublic path on the local machine
 /*
 
 [
-    {
-        "sku": "example-sku-1",
-        "tpl": "rs-powder",
-        "content": "front",
-        "numLang": 5,
-        "rs_colour": "performance",
-        "pack_contents": "powder",
-        "pack_contents_colour": "blue",
-        "langs": ["en", "de", "es", "it", "fr"],
-        "public_path": "/path/to/public",
-        "local_path": "/path/to/local"
-    },
-    {
-        "sku": "example-sku-2",
-        "tpl": "rs-captab",
-        "content": "back",
-        "numLang": 3,
-        "rs_colour": "maintenance",
-        "pack_contents": "capsules",
-        "pack_contents_colour": "red",
-        "langs": ["en", "de", "es"],
-        "public_path": "/path/to/public",
-        "local_path": "/path/to/local"
-    }
-    // Add more sets of inputs as needed
+  {
+    sku: 'RS_WHY-CHC_100G',
+    three_d_template: 'rs-powder',
+    three_d_type: 'powder',
+    three_d_shape: 'coarse',
+    three_d_size: '0',
+    three_d_colour: '#6b4207',
+    numLang: '5',
+    rs_colour: 'Recovery'
+  }
 ]
 */
 
@@ -97,8 +82,8 @@ const path = require('path');
 const API_HOST = 'http://localhost:3000';
 
 // Step 1: Generate Template
-async function gen_tpl(sku, tpl, content, numLang) {
-    const url = `${API_HOST}/api/template?sku=${sku}&tpl=${tpl}&multiLang=true&content=${content}&numLang=${numLang}`;
+async function gen_tpl(sku, three_d_template, numLang) {
+    const url = `${API_HOST}/api/template?sku=${sku}&tpl=${three_d_template}&multiLang=true&content=&numLang=${numLang}`;
     try {
         const response = await axios.get(url);
         console.log(`Step 1 - gen_tpl for ${sku}:`, response.data);
@@ -110,9 +95,9 @@ async function gen_tpl(sku, tpl, content, numLang) {
 }
 
 // Step 2: Generate Image Labels
-async function gen_img_labels(sku, content, langs) {
+async function gen_img_labels(sku, content) {
     const langsString = langs.join(',');
-    const url = `${API_HOST}/api/generate?sku=${sku}&content=${content}&langs=${langsString}`;
+    const url = `${API_HOST}/api/generate?sku=${sku}&content=${content}&langs=en,de,es,it,fr`;
     try {
         const response = await axios.get(url);
         console.log(`Step 2 - gen_img_labels for ${sku}:`, response.data);
@@ -186,6 +171,16 @@ async function readPipelineInputs(filePath) {
     }
 }
 
+// Write pipeline inputs to JSON file
+async function writePipelineInputs(filePath, inputArray) {
+    try {
+        const data = JSON.stringify(inputArray, null, 2);
+        await fs.writeFile(path.resolve(filePath), data, 'utf8');
+    } catch (error) {
+        console.error('Error writing pipeline inputs:', error);
+    }
+}
+
 // Execute Pipeline for a single job
 async function executePipeline(inputs, ref) {
     const { sku, tpl, content, numLang, rs_colour, pack_contents, pack_contents_colour, langs, public_path, local_path } = inputs;
@@ -195,68 +190,50 @@ async function executePipeline(inputs, ref) {
         result = await gen_tpl(sku, tpl, content, numLang);
         if (!result) throw new Error('gen_tpl failed');
 
-        result = await gen_img_labels(sku, content, langs);
-        if (!result) throw new Error('gen_img_labels failed');
+        // result = await gen_img_labels(sku, content, langs);
+        // if (!result) throw new Error('gen_img_labels failed');
 
-        result = await render(sku, rs_colour, pack_contents, pack_contents_colour);
-        if (!result) throw new Error('render failed');
+        // result = await render(sku, rs_colour, pack_contents, pack_contents_colour);
+        // if (!result) throw new Error('render failed');
 
-        result = await gen_img_ads(sku);
-        if (!result) throw new Error('gen_img_ads failed');
+        // result = await gen_img_ads(sku);
+        // if (!result) throw new Error('gen_img_ads failed');
 
-        result = await post_process(sku);
-        if (!result) throw new Error('post_process failed');
+        // result = await post_process(sku);
+        // if (!result) throw new Error('post_process failed');
 
-        result = await sync(public_path, local_path);
-        if (!result) throw new Error('sync failed');
+        // result = await sync(public_path, local_path);
+        // if (!result) throw new Error('sync failed');
         
         console.log(`Pipeline execution for ${sku} completed successfully.`);
-        return { ref, status: 'success', sku };
+        inputs.status = 'completed';
+        return { ref, status: 'completed', sku };
     } catch (error) {
         console.error(`Pipeline execution for ${sku} failed:`, error);
-        return { ref, status: 'failure', sku, error: error.message };
-    }
-}
-
-// Checks after the pipeline execution
-async function postCompletionChecks(pipelinesResults) {
-    // Perform necessary checks, e.g., file existence.
-    for (const result of pipelinesResults) {
-        if (result.status === 'success') {
-            // Example check: Ensure the generated file exists
-            const filePath = `/path/to/generated/file/${result.sku}.txt`; // Modify as per your requirement
-            try {
-                await fs.access(filePath);
-                console.log(`Post-check for ${result.ref}: File exists.`);
-            } catch (error) {
-                console.error(`Post-check for ${result.ref}: File does not exist or cannot be accessed.`);
-            }
-        } else {
-            console.error(`Skipping post-check for ${result.ref} due to earlier failure.`);
-        }
+        inputs.status = 'failed';
+        return { ref, status: 'failed', sku, error: error.message };
     }
 }
 
 // Main function to run the script
 async function main() {
-    const inputFilePath = process.argv[2] || 'pipelineInputs.json'; // Default to 'pipelineInputs.json' if no argument is provided
-    const inputArray = await readPipelineInputs(inputFilePath);
+    const inputFilePath = process.argv[2] || './public/sku/data/rs_all_skus.json'; // Default to './public/sku/data/rs_all_skus.json' if no argument is provided
+    let inputArray = await readPipelineInputs(inputFilePath);
     if (!inputArray) {
         console.error('Failed to load pipeline inputs.');
         return;
     }
 
     // Add a unique reference for each job
-    const inputWithRefs = inputArray.map((inputs, index) => ({ inputs, ref: `job_${index + 1}` }));
+    inputArray = inputArray.map((inputs, index) => ({ ...inputs, ref: `job_${index + 1}` }));
 
     // Execute all pipelines in parallel and collect results
-    const results = await Promise.all(inputWithRefs.map(({ inputs, ref }) => executePipeline(inputs, ref)));
+    const results = await Promise.all(inputArray.map(inputs => executePipeline(inputs, inputs.ref)));
 
-    // Run post-completion checks
-    await postCompletionChecks(results);
+    // Write back the updated inputs with status
+    await writePipelineInputs(inputFilePath, inputArray);
 
     console.log('All pipeline jobs finished.');
 }
 
 main();
-

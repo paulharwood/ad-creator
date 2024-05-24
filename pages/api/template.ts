@@ -111,11 +111,11 @@ function convertTrue(obj: { [key: string]: string }): { [key: string]: string } 
 }
 
 const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuData) => {
-  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M', multiLang = true, content = front|back|adverts  } = req.query; // Template name from query parameter
+  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M', content = front|back|adverts  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
-  const { tpl, sku, multiLang, content} = req.query;
-let { numLang } = req.query;
+  const { tpl, sku, content} = req.query;
+  let { numLang } = req.query;
 
   // Ensure numLang is a string
   const rawNumLang: string | undefined = numLang as string;
@@ -149,9 +149,6 @@ let { numLang } = req.query;
   if (!tpl || typeof tpl !== 'string') {
       return res.status(400).json({ message: 'Invalid Template.' });
   }
-  if (!multiLang || typeof multiLang !== 'string') {
-      return res.status(400).json({ message: 'Invalid multiLang flag.' });
-  }
   if (!content || typeof content !== 'string') {
       return res.status(400).json({ message: 'Invalid Template content type.' });
   }
@@ -178,7 +175,6 @@ let { numLang } = req.query;
 
         const translations: Translations = {};
 
-      if (multiLang) {  // multiple language templates
 
       // Define the type for langData object
       type LangData = {
@@ -218,11 +214,6 @@ let { numLang } = req.query;
           }
         }
 
-      //console.log(translations);
-      // console.log(langData);
-
-    }
-
 
       const units = metaData.units_in_pack.split(" ");
 
@@ -257,7 +248,6 @@ let { numLang } = req.query;
       await fs.cp(cssDir, publicDir + '/css/', {recursive: true});  
       
 
-      if (multiLang) {
 
         //collect the languages into one 
         languages.forEach( async (language) => {
@@ -314,21 +304,6 @@ let { numLang } = req.query;
 
         });
 
-
-      } else {
-
-      // just english
-
-        // Render the english template with the product data and save it to the public folder
-
-
-        const finalHTML = template(metaData);
-        const publicPath = join(publicDir, `${sku}.${content}.en.html`);
-
-        // Write the rendered HTML to a file
-        await fs.writeFile(publicPath, finalHTML, 'utf8');
-
-      }
      
       // Respond to the request indicating success
       res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });
