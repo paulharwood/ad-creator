@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-type ProductData = [string, string, number, string, string][];
+type ProductData = [string, string, string, string, string, string, number, string][];
 
 const IndexPage: React.FC = () => {
   const [data, setData] = useState<ProductData>([]);
@@ -14,7 +14,7 @@ const IndexPage: React.FC = () => {
       try {
         const res = await fetch('/sku/data/rs_all_skus.csv');
         const csvData = await res.text();
-        const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, number, string, string]);
+        const rows: ProductData = csvData.trim().split('\n').map(row => row.split(',').map(cell => cell.trim()) as [string, string, string, string, string, string, number, string]);
         // remove the header row  
         rows.shift();
         setData(rows);
@@ -111,9 +111,9 @@ const IndexPage: React.FC = () => {
               <td className='whitespace-nowrap px-6 py-4'>{item[7]}</td>
 
               <td className='whitespace-nowrap px-6 py-4'>
-                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'front')}>Front</button> |  
-                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'back')}>Back</button> | 
-                <button onClick={() => templateGenerate(item[0], item[1], item[2], 'adverts')}>Adverts</button>
+                <button onClick={() => templateGenerate(item[0], item[1], item[6], 'front')}>Front</button> |  
+                <button onClick={() => templateGenerate(item[0], item[1], item[6], 'back')}>Back</button> | 
+                <button onClick={() => templateGenerate(item[0], item[1], item[6], 'adverts')}>Adverts</button>
               </td>
               <td className='whitespace-nowrap px-6 py-4'>
                 <button onClick={() => imageGenerate(item[0], 'front', 'multi')}>Front</button> |  

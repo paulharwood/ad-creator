@@ -57,11 +57,34 @@ img.ad_logo {
 }
 .bullet {
   width:230px;
-  position : absolute
+  position : absolute;
 }
+.aplus .bullet {
+  width: 440px;
+}
+
+
+.bullet::before {
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width: 230px;
+  height: 230px;
+  -moz-border-radius: 230px;
+  -webkit-border-radius: 230px;
+  border-radius: 230px;
+  background-color: #1B1B1B;
+  z-index:1;
+}
+
 
 .bullet svg {
   width:100%;
+  z-index: 2;
+  position: absolute;
+  top:3px;
+  left:3px;
 }
 
 .ad2 .bullet-0 {
@@ -96,7 +119,7 @@ img.ad_logo {
 }
 
 .ap2 .bullet-1 {
-  top: 220px;
+  top: 600px;
   left: 350px;
 }
 
@@ -106,7 +129,7 @@ img.ad_logo {
 }
 
 .ap2 .bullet-3 {
-  top: 220px;
+  top: 600px;
   left: 850px;
 }
 
@@ -119,14 +142,19 @@ img.ad_logo {
 .advert {
   width: 1000px;
   height: 1000px;
-  margin: 0 2em;
+  margin: 0 3em;
   background-color: #444444;
   color: #1d1d1d;
 }
-
+.advert.featured {
+  width: 1000px;
+  height: 1691px;
+  background-size: 3400px 1700px;
+  background-position-x: -365px;
+}
 .aplus {
   width: 2000px;
-  height: 1000px;
+  height: 1236px;
   margin: 0 2em;
   background-color: #444444;
 }
@@ -136,7 +164,9 @@ img.ad_logo {
 .aplus,
 .advert {
   position: relative;
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
+  margin-bottom:4em;
+
 }
 .aplus h1,
 .advert h1 {
@@ -183,16 +213,16 @@ img.ad_logo {
 .ap1,
 .ap1_accent {
   background-image: url("../images/rs_aplus1.png");
-  background-position: top left;
+  background-position: -240px 0;
   background-repeat: no-repeat;
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
 }
 
 .ap1 h2,
 .ap1_accent h2 {
-  left: 968px;
-  top: 240px;
-  font-size: 11em;
+left: 889px;
+  top: 170px;
+  font-size: 13em;
   color: #1d1d1d;
 }
 .ap1_accent h2 {
@@ -202,11 +232,11 @@ img.ad_logo {
 /* ADVERT 2 & APLUS 2*/
 .ad2, .ap2 {
   background-image: url("../images/rs_ad2.png");
-  background-size: 2000px 1000px;
+  background-size: 2500px 1250px;
   color: #d0d6d9;
 }
 .advert.ad2 {
-  background-position-x: -800px;
+  background-position-x: -1100px;
 }
 
 .disclaimer_text {
@@ -269,7 +299,9 @@ img.ad_logo {
 
 .ap2 {
   background-image: url("../images/rs_aplus2.png");
-}
+  background-size: 2472px 1236px;
+  background-position: -290px 0px;
+  }
 
 .ap2 h2 {
   top: 27px;
@@ -416,6 +448,7 @@ img.ad_logo {
 
 .ap4 {
   background-image: url("../images/rs_aplus4.png");
+  background-position: -240px 0px;
 }
 
 /* ADVERT 5 & APLUS 5*/
@@ -633,7 +666,7 @@ position: absolute;
 
 .ap6 {
   background-image: url("/stock/rs_aplus6.png");
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
 }
 
 
@@ -648,7 +681,7 @@ position: absolute;
 }
 .ap7 {
   background-image:url("/stock/rs_aplus7.png");
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
 }
 .ad7 .rs_collection_logo, 
 .ap7 .rs_collection_logo{
@@ -689,7 +722,7 @@ position:relative
 
 .ap8 {
   background-image: url("/stock/rs_aplus8.png");
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
 }
 .ad8 .rs_collection_logo,
 .ap8 .rs_collection_logo {
@@ -730,7 +763,7 @@ position:relative
 
 .ap9 {
   background-image: url("/stock/rs_aplus9.png");
-  background-size: 2000px 1000px;
+  background-size: 2472px 1236px;
 }
 .ad9 .rs_collection_logo,
 .ap9 .rs_collection_logo {

@@ -183,11 +183,11 @@ async function writePipelineInputs(filePath, inputArray) {
 
 // Execute Pipeline for a single job
 async function executePipeline(inputs, ref) {
-    const { sku, tpl, content, numLang, rs_colour, pack_contents, pack_contents_colour, langs, public_path, local_path } = inputs;
+    const { sku, three_d_template, content, numLang, rs_colour, pack_contents, pack_contents_colour, langs, public_path, local_path } = inputs;
 
     let result;
     try {
-        result = await gen_tpl(sku, tpl, content, numLang);
+        result = await gen_tpl(sku, three_d_template, content, numLang);
         if (!result) throw new Error('gen_tpl failed');
 
         // result = await gen_img_labels(sku, content, langs);
