@@ -1,22 +1,19 @@
 import bpy
 import os
 import sys
+import csv
 
-# List of required environment variables
-required_env_vars = ['SKU', 'RS_COLOUR']
+# Set the project root directory
+PROJECT_ROOT = '/Users/paulh/Projects/_wallets/code/ad-creator/ad-creator/'
 
-# Check if all required environment variables are set
-for var in required_env_vars:
-    if var not in os.environ:
-        print(f"Error: Required environment variable '{var}' is not set.")
-        sys.exit(1)  # Exit the script with a non-zero status indicating an error
+# Color mapping dictionary
+color_mapping = {
+    'maintenance': '#2ca2cc',
+    'performance': '#e20613',
+    'recovery': '#ffaa00'
+}
 
-# Get the SKU from an environment variable, using 'TEST' as default value if SKU is not set
-sku = os.getenv('SKU', 'TEST')
-
-# Get the RS_COLOUR from an environment variable, using '#cccccc' as default value if COLOUR is not set
-rs_colour = os.getenv('RS_COLOUR', '#cccccc')
-
+# Function to enable GPUs
 def enable_gpus(device_type, use_cpus=False, sku='TEST'):
     preferences = bpy.context.preferences
     cycles_preferences = preferences.addons['cycles'].preferences
@@ -87,11 +84,6 @@ if sys.platform == "darwin":
 else:
     default_device_type = "CUDA"  # Adjust as necessary for other platforms
 
-# Run the script using the environment variable provided SKU
-activated_gpus = enable_gpus(default_device_type, sku=sku)
-print(f"Activated GPUs: {activated_gpus}")
-
-
 def hex_to_rgb(hex_color):
     """Convert hex color string to RGB tuple in range [0, 1] with linear conversion."""
     hex_color = hex_color.lstrip('#')
@@ -123,43 +115,67 @@ def change_texture(mesh_name, new_texture_path):
                     # Load new texture image
                     node.image = bpy.data.images.load(new_texture_path)
 
-
-# Define SKU variable
-# sku = "RS_ASC-ACD_100G"
-
-
-# Function to set the output directory for the renders
 def set_output_directory(sku):
     output_path = f"/tmp/{sku}/"
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     bpy.context.scene.render.filepath = os.path.join(output_path, f"{sku}_0")
 
+# Function to process a single SKU
+def process_sku(row):
+    sku = row['sku'].upper()
+    rs_colour_key = row['rs_colour'].lower()
 
-# # hex references are: Maintenance:#2ca2cc; Performance: #e20613; Recovery #ffaa00;
-# rs_colour = "#2ca2cc"
+    # Set environment variables
+    os.environ['SKU'] = sku
+    os.environ['RS_COLOUR'] = rs_colour_key
 
-# Specify color changes and keyframes
-color_keyframes = [
-    {"hex_color": rs_colour, "frame": 1},
-    {"hex_color": rs_colour, "frame": 2},
-    {"hex_color": rs_colour, "frame": 4},
-]
+    # List of required environment variables
+    required_env_vars = ['SKU', 'RS_COLOUR']
 
-for ck in color_keyframes:
-    set_floor_color_at_keyframe(ck['hex_color'], ck['frame'])
+    # Check if all required environment variables are set
+    for var in required_env_vars:
+        if var not in os.environ:
+            print(f"Error: Required environment variable '{var}' is not set for SKU '{sku}'. Skipping.")
+            return
 
+    # Get the SKU from environment variable, using 'TEST' as default value if SKU is not set
+    sku = os.getenv('SKU', 'TEST').upper()
 
-front_label_image = f"/Users/paulh/Projects/_wallets/code/ad-creator/ad-creator/public/sku/{sku}/{sku}_label_front.png"
-back_label_image = f"/Users/paulh/Projects/_wallets/code/ad-creator/ad-creator/public/sku/{sku}/{sku}_label_back.png"  # Path to the new texture image.
+    # Get the RS_COLOUR from environment variable and map to hex color
+    rs_colour_key = os.getenv('RS_COLOUR', 'maintenance')
+    rs_colour = color_mapping.get(rs_colour_key, '#2ca2cc')
 
-change_texture('pouch_front', front_label_image)
-change_texture('pouch_back', back_label_image)
+    # Run the script using the environment variable provided SKU
+    activated_gpus = enable_gpus(default_device_type, sku=sku)
+    print(f"Activated GPUs: {activated_gpus}")
 
-# To save changes use bpy.ops.wm.save_mainfile() if you need to save the blend file.
-set_output_directory(sku)
+    # Specify color changes and keyframes
+    color_keyframes = [
+        {"hex_color": rs_colour, "frame": 1},
+        {"hex_color": rs_colour, "frame": 2},
+        {"hex_color": rs_colour, "frame": 4},
+    ]
 
-bpy.ops.wm.save_mainfile()
+    for ck in color_keyframes:
+        set_floor_color_at_keyframe(ck['hex_color'], ck['frame'])
 
-# Render the animation
-bpy.ops.render.render(animation=True)
+    front_label_image = os.path.join(PROJECT_ROOT, f"public/sku/{sku}/{sku}_label_front.png")
+    back_label_image = os.path.join(PROJECT_ROOT, f"public/sku/{sku}/{sku}_label_back.png")
+
+    change_texture('pouch_front', front_label_image)
+    change_texture('pouch_back', back_label_image)
+
+    set_output_directory(sku)
+
+    bpy.ops.wm.save_mainfile()
+
+    # Render the animation
+    bpy.ops.render.render(animation=True)
+
+# Read SKU information from CSV
+csv_file_path = os.path.join(PROJECT_ROOT, 'skus.csv')
+with open(csv_file_path, 'r') as file:
+    csv_reader = csv.DictReader(file)
+    for row in csv_reader:
+        process_sku(row)

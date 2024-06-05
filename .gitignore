@@ -41,3 +41,4 @@ next-env.d.ts
 /public/sku
 /public/ads
 /public/renders
+scripts/pipeline/blender_files/pouch_product.v1.blend

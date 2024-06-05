@@ -2,7 +2,7 @@
 
 # update and install requirements
 sudo apt update -y
-sudo apt install -y gvfs snapd libllvm6.0 subversion
+sudo apt install -y gvfs snapd subversion
 sudo snap install blender --classic
 
 # alias our snap-blender to "blender"
