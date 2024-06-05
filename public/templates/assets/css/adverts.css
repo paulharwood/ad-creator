@@ -50,10 +50,10 @@ img.ad_logo {
 .bullet-icon .fa-light, 
 .bullet-icon .fa-thin,
 .bullet-icon .fa {
-  padding-top:22px;
+  padding-top: 13px;
   width: 144px;
   height: 144px;
-  font-size: 54px;
+  font-size: 77px;
 }
 .bullet {
   width:230px;
@@ -179,7 +179,9 @@ img.ad_logo {
   color: #d0d6d9;
 }
 .aplus h2,
-.advert h2 {
+.advert h2,
+.aplus .key_feature_title,
+.advert .key_feature_title {
   font-size: 7.7em;
   position: absolute;
   font-family: "Helvetica Neue", "neue haas grotesk display pro";
@@ -218,14 +220,15 @@ img.ad_logo {
   background-size: 2472px 1236px;
 }
 
-.ap1 h2,
-.ap1_accent h2 {
-left: 889px;
-  top: 170px;
-  font-size: 13em;
+.ap1 .key_feature_title,
+.ap1_accent .key_feature_title {
+  width:600px;
+  left: 889px;
+  top: 270px;
+  font-size: 12em;
   color: #1d1d1d;
 }
-.ap1_accent h2 {
+.ap1_accent  .key_feature_title{
   color:#d0d6d9
 }
 

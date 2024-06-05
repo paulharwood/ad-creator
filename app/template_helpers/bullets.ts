@@ -36,7 +36,7 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                     <!-- Render text along circular path -->
                     <text>
                         <textPath xlink:href="#circlePath${key}" startOffset="20">
-                            <tspan dy="-7">${line}</tspan>
+                            <!-- <tspan dy="-7">${line}</tspan> -->
                         </textPath>
                     </text>
                     <!-- Render FontAwesome icon -->
@@ -44,7 +44,8 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                         ${iconElement}
                     </foreignObject>
                 </svg>
-            </div>
+             <div class="bullet-text">${line}</div>
+          </div>
         `;
     };
 
