@@ -23,7 +23,7 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                         <!-- Define circular path -->
                         <style>
                             text {
-                                fill:#d0d6d9;
+                                fill:#1B1B1B;
                                 font-size:1.3em;
                                 letter-spacing:0.12em;
                             }
@@ -32,11 +32,11 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                         <path id="circlePath${key}" d="M3,70c0,37.1,30.1,67.1,67.1,67.1s67.1-30.1,67.1-67.1S107.2,2.9,70.2,2.9,3,32.9,3,70" fill="none" />
                     </defs>
                     <!-- Render circular path -->
-                    <path d="M3,70c0,37.1,30.1,67.1,67.1,67.1s67.1-30.1,67.1-67.1S107.2,2.9,70.2,2.9,3,32.9,3,70" fill="none" stroke="#d0d6d9" stroke-width="2" />
+                    <path d="M3,70c0,37.1,30.1,67.1,67.1,67.1s67.1-30.1,67.1-67.1S107.2,2.9,70.2,2.9,3,32.9,3,70" fill="none" stroke="#1B1B1B" stroke-width="2" />
                     <!-- Render text along circular path -->
                     <text>
                         <textPath xlink:href="#circlePath${key}" startOffset="20">
-                            <!-- <tspan dy="-7">${line}</tspan> -->
+                            <tspan dy="-7">${line}</tspan>
                         </textPath>
                     </text>
                     <!-- Render FontAwesome icon -->
@@ -44,7 +44,6 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                         ${iconElement}
                     </foreignObject>
                 </svg>
-             <div class="bullet-text">${line}</div>
           </div>
         `;
     };

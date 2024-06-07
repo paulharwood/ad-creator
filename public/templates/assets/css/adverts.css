@@ -6,7 +6,7 @@ body {
   font-family: "alte haas grotesk";
   font-weight: 400;
   font-style: normal;
-  color: #d0d6d9;
+  color: #ffffff;
   background-color: transparent;
 }
 .content {
@@ -58,6 +58,7 @@ img.ad_logo {
 .bullet {
   width:230px;
   position : absolute;
+  color:#1B1B1B;
 }
 .aplus .bullet {
   width: 440px;
@@ -74,8 +75,18 @@ img.ad_logo {
   -moz-border-radius: 230px;
   -webkit-border-radius: 230px;
   border-radius: 230px;
-  background-color: #1B1B1B;
+  background-color:#ffffff;
   z-index:1;
+}
+
+.aplus .bullet::before {
+    width: 440px;
+      height: 440px;
+      -moz-border-radius: 440px;
+      -webkit-border-radius: 440px;
+      border-radius: 440px;
+      top: -4px;
+        left: -4px;
 }
 
 
@@ -114,7 +125,7 @@ img.ad_logo {
 
 /* aplus */
 .ap2 .bullet-0 {
-  top: 220px;
+  top: 170px;
   left: 100px
 }
 
@@ -124,7 +135,7 @@ img.ad_logo {
 }
 
 .ap2 .bullet-2 {
-  top: 220px;
+  top: 170px;
   left: 600px;
 }
 
@@ -134,7 +145,7 @@ img.ad_logo {
 }
 
 .ap2 .bullet-4 {
-  top: 220px;
+  top: 170px;
   left: 1100px;
 }
 
@@ -149,8 +160,8 @@ img.ad_logo {
 .advert.featured {
   width: 1000px;
   height: 1691px;
-  background-size: 3400px 1700px;
-  background-position-x: -365px;
+    background-size: 2750px;
+      background-position: -405px -6px;
 }
 .aplus {
   width: 2000px;
@@ -164,9 +175,8 @@ img.ad_logo {
 .aplus,
 .advert {
   position: relative;
-  background-size: 2472px 1236px;
+  background-size: 3236px 2000px;
   margin-bottom:4em;
-
 }
 .aplus h1,
 .advert h1 {
@@ -176,7 +186,7 @@ img.ad_logo {
   font-weight: 700;
   letter-spacing: -0.07em;
   line-height: 0.86;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 .aplus h2,
 .advert h2,
@@ -188,7 +198,7 @@ img.ad_logo {
   font-weight: 700;
   letter-spacing: -0.07em;
   line-height: 0.86;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 
 .aplus h3,
@@ -199,7 +209,7 @@ img.ad_logo {
   font-weight: 400;
   /* letter-spacing: -0.07em; */
   line-height: 1.2;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 
 
@@ -207,39 +217,39 @@ img.ad_logo {
 .ad1,
 .ad1_accent {
   background-image: url("../images/rs_ad1.png");
-  background-position: top left;
+  background-position: -30px 0px;
   background-repeat: no-repeat;
-  background-size: 2000px 1000px;
+  background-size: 1619px;  
 }
 
 .ap1,
 .ap1_accent {
   background-image: url("../images/rs_aplus1.png");
-  background-position: -240px 0;
+background-position: 0px 0;
   background-repeat: no-repeat;
-  background-size: 2472px 1236px;
+  background-size: 2001px;
 }
 
 .ap1 .key_feature_title,
 .ap1_accent .key_feature_title {
-  width:600px;
-  left: 889px;
+  width: 740px;
+  left: 1140px;
   top: 270px;
-  font-size: 12em;
+  font-size: 10em;
   color: #1d1d1d;
 }
 .ap1_accent  .key_feature_title{
-  color:#d0d6d9
+  color:#ffffff
 }
 
 /* ADVERT 2 & APLUS 2*/
 .ad2, .ap2 {
   background-image: url("../images/rs_ad2.png");
-  background-size: 2500px 1250px;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 .advert.ad2 {
-  background-position-x: -1100px;
+  background-position-x: -341px;
+  background-size: 1617px;  
 }
 
 .disclaimer_text {
@@ -251,7 +261,7 @@ img.ad_logo {
 }
  
 .ap2 .disclaimer_text {
-  bottom:360px;
+  bottom:90px;
 }
 
 .ad2 h2 {
@@ -264,7 +274,7 @@ img.ad_logo {
   position: absolute;
   top: 401px;
   left: 170px;
-  color: #d0d6d9;
+  color: #ffffff;
   font-size: 35px;
   line-height: 60px;
   font-family: "DIN 2014";
@@ -273,7 +283,7 @@ img.ad_logo {
 
 .ad2 .ad_bullets_icons,
 .ap2 .ad_bullets_icons {
-  color: #d0d6d9;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -302,8 +312,8 @@ img.ad_logo {
 
 .ap2 {
   background-image: url("../images/rs_aplus2.png");
-  background-size: 2472px 1236px;
-  background-position: -290px 0px;
+    background-size: 2910px;
+      background-position: -30px;
   }
 
 .ap2 h2 {
@@ -323,9 +333,9 @@ img.ad_logo {
 
 .ad3,
 .ap3 {
-  background-size: 2630px 1200px;
+  background-size: 2720px;
   background-position: top right;
-  color:#d0d6d9;
+  color:#ffffff;
 }
 
 .ad3 > h2,
@@ -359,12 +369,6 @@ img.ad_logo {
   margin: 0;
 }
 
-.ad3 .bullet,
-.ap3 .bullet {
-  border: 3px dotted #d0d6d9;
-  padding:6px 0 0 6px;
-  border-radius: 50%;
-}
 
 
 .ad3 .bullet-0 {
@@ -380,22 +384,19 @@ img.ad_logo {
   left: 670px;
 }
 
-.ap3 .bullet {
-  width:350px;
-  padding: 10px 0 0 10px;
-}
+
 .ap3 .bullet-0 {
-  top: 410px;
-  left: 670px;
+  top: 500px;
+  left: 547px;
 }
 
 .ap3 .bullet-1 {
-  top: 410px;
-  left: 1075px;
+  top: 230px;
+  left: 1010px;
 }
 
 .ap3 .bullet-2 {
-  top: 410px;
+  top: 500px;
   left: 1470px;
 }
 
@@ -403,8 +404,8 @@ img.ad_logo {
 /* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
-  background-position: -232px -80px;
-  background-size: 2400px 1200px;
+  background-position: 0;
+  background-size: 1620px;
 }
 .ad4 .logos {
   position: absolute;
@@ -452,6 +453,7 @@ img.ad_logo {
 .ap4 {
   background-image: url("../images/rs_aplus4.png");
   background-position: -240px 0px;
+  display:none
 }
 
 /* ADVERT 5 & APLUS 5*/
@@ -523,15 +525,15 @@ position: absolute;
 
 body.Maintenance .features {
   background: #2ca2cc;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 body.Performance .features {
   background: #e20613;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 body.Recovery .features {
   background: #ffaa00;
-  color: #d0d6d9;
+  color: #ffffff;
 }
 
 .ad5 .features,
@@ -591,7 +593,7 @@ position: absolute;
 }
 .ad5 {
   background-image: url("../images/rs_ad5.png");
-  background-position: -211px;
+    background-size: 1620px;
   /* background-position: -346px -152px;
   background-repeat: no-repeat;
   background-size: 3000px 1500px; */
@@ -599,6 +601,7 @@ position: absolute;
 
 .ap5 {
   background-image: url("../images/rs_aplus5.png");
+  background-size: 2000px;
   /* background-repeat: no-repeat;
   background-position: -176px -152px;
   background-size: 3000px 1500px; */
@@ -670,13 +673,14 @@ position: absolute;
 .ap6 {
   background-image: url("/stock/rs_aplus6.png");
   background-size: 2472px 1236px;
+  background-position: -216px 0;
 }
 
 
 /* ADVERT 7 & APLUS 1*/
 
 .ad7, .ap7 {
-  color:#d0d6d9;
+  color:#ffffff;
 }
 .ad7 {
   background-image: url("/stock/rs_ad7.png");
@@ -712,11 +716,19 @@ position:relative
   width: 400px;
 }
 
+.ap7 h2 {
+  font-size: 16em;
+  width: 6em;
+}
+.ap7 p {
+  font-size: 4em;
+  width: 16em;
+}
 /* ADVERT 8 & APLUS 1*/
 
 .ad8,
 .ap8 {
-  color: #d0d6d9;
+  color: #ffffff;
 }
 .ad8 {
   background-image: url("/stock/rs_ad8.png");
@@ -754,10 +766,20 @@ position:relative
   width: 400px;
 }
 
+.ap8 h2 {
+  font-size: 16em;
+  width: 6em;
+}
+
+.ap8 p {
+  font-size: 4em;
+  width: 16em;
+}
+
 /* 9 & APLUS 1*/
 .ad9,
 .ap9 {
-  color: #d0d6d9;
+  color: #ffffff;
 }
 .ad9 {
   background-image: url("/stock/rs_ad9.png");
@@ -793,4 +815,20 @@ position:relative
   top: 460px;
   left: 83px;
   width: 400px;
+}
+.ap9 h2 {
+  font-size: 16em;
+  width: 6em;
+}
+
+.ap9 p {
+  font-size: 4em;
+  width: 16em;
+}
+
+
+
+/* RS AD Logos*/
+.aplus .ad_logo {
+  width: 350px;
 }

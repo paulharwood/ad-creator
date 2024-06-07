@@ -4,7 +4,7 @@ import sys
 import csv
 
 # Set the project root directory
-PROJECT_ROOT = '/home/ubuntu/ad-creator-fs-az'
+PROJECT_ROOT = '/Users/paulh/Projects/_wallets/code/ad-creator/ad-creator/'
 
 # Color mapping dictionary
 color_mapping = {
@@ -65,7 +65,7 @@ def enable_gpus(device_type, use_cpus=False, sku='TEST'):
     print(f"{len(activated_gpus)} devices activated: {activated_gpus}")
 
     # Set the target directory based on the SKU and ensure it exists
-    output_directory =  os.path.join(PROJECT_ROOT, f"public/renders/{sku}/")
+    output_directory = f"/tmp/renders/{sku}/"
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
         print(f"Created directory: {output_directory}")
@@ -116,7 +116,7 @@ def change_texture(mesh_name, new_texture_path):
                     node.image = bpy.data.images.load(new_texture_path)
 
 def set_output_directory(sku):
-    output_path = os.path.join(PROJECT_ROOT, f"public/renders/{sku}/")
+    output_path = f"/tmp/renders/{sku}/"
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     bpy.context.scene.render.filepath = os.path.join(output_path, f"{sku}_0")
