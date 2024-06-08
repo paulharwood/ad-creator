@@ -6,10 +6,16 @@ const Ad_Capture = async (sku: string, content: string, langs: string[]) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
+    console.log('rendering images for ' + sku + ' using languages [' + langs + ']')
+
+
     await page.setViewport({ width: 2880, height: 1800, deviceScaleFactor: 2 });
 
     for (const lang of langs) {
-        await page.goto(`http://localhost:57538/sku/${sku}/${sku}.${content}.${lang}`);
+        let url = `http://localhost:57538/sku/${sku}/${sku}.${content}.${lang}`;
+        console.log(url);
+        
+        await page.goto(url);
 
         console.log(`Generating directory for language: ${lang}`);
         // Define the path for the public HTML file
@@ -31,6 +37,7 @@ const Ad_Capture = async (sku: string, content: string, langs: string[]) => {
         if (aplus.length > 0) {
             for (let i = 0; i < aplus.length; i++) {
                 const ap = aplus[i];
+                console.log('ad image found ' + i);
                 await ap.screenshot({ path: `public/ads/${sku}/${sku}_aplus_${i}.${lang}.png` });
             }
         }

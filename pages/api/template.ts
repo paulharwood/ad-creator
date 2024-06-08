@@ -10,6 +10,9 @@ import { metadata } from '@/app/layout';
 // template helpers
 import Bullets from '@/app/template_helpers/bullets';
 
+handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 
 
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"

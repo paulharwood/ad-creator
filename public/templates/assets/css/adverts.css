@@ -10,8 +10,13 @@ body {
   background-color: transparent;
 }
 .content {
-  margin-top: 150px;
+  position: absolute;
   display: flex;
+  top: 220px;
+}
+
+iframe {
+  display: none;
 }
 
 img.rs_collection_logo {
@@ -53,7 +58,7 @@ img.ad_logo {
   padding-top: 13px;
   width: 144px;
   height: 144px;
-  font-size: 77px;
+  font-size: 69px;  
 }
 .bullet {
   width:230px;
@@ -63,7 +68,6 @@ img.ad_logo {
 .aplus .bullet {
   width: 440px;
 }
-
 
 .bullet::before {
   content: '';
@@ -160,14 +164,23 @@ img.ad_logo {
 .advert.featured {
   width: 1000px;
   height: 1691px;
-    background-size: 2750px;
-      background-position: -405px -6px;
+  background-size: 3118px;
+  background-position: -344px -146px;
 }
 .aplus {
   width: 2000px;
   height: 1236px;
   margin: 0 2em;
   background-color: #444444;
+}
+
+.aplus .divider-vertical-center {
+  position:absolute;
+  top:0;
+  left: 970px;
+  width:60px;
+  height:100%;
+  background-color: #fff;
 }
 
 /* ADVERTS AND APLUS */
@@ -177,6 +190,7 @@ img.ad_logo {
   position: relative;
   background-size: 3236px 2000px;
   margin-bottom:4em;
+  border-radius: 6em;
 }
 .aplus h1,
 .advert h1 {
@@ -217,25 +231,25 @@ img.ad_logo {
 .ad1,
 .ad1_accent {
   background-image: url("../images/rs_ad1.png");
-  background-position: -30px 0px;
+  background-position: 0 -88px;
   background-repeat: no-repeat;
-  background-size: 1619px;  
+  background-size: 1849px;
 }
 
 .ap1,
 .ap1_accent {
   background-image: url("../images/rs_aplus1.png");
-background-position: 0px 0;
+  background-position: -50px -20px;
   background-repeat: no-repeat;
-  background-size: 2001px;
+  background-size: 2051px;
 }
 
 .ap1 .key_feature_title,
 .ap1_accent .key_feature_title {
   width: 740px;
   left: 1140px;
-  top: 270px;
-  font-size: 10em;
+  top: 190px;
+  font-size: 9em;
   color: #1d1d1d;
 }
 .ap1_accent  .key_feature_title{
@@ -312,9 +326,9 @@ background-position: 0px 0;
 
 .ap2 {
   background-image: url("../images/rs_aplus2.png");
-    background-size: 2910px;
-      background-position: -30px;
-  }
+  background-size: 2910px;
+  background-position: -356px
+}
 
 .ap2 h2 {
   top: 27px;
@@ -362,6 +376,12 @@ background-position: 0px 0;
   font-size: 13em;
   margin-bottom:0;
 }
+
+.ap3 .certificate h1 {
+  font-size: 15em;
+  margin-top: 150px;
+}
+
 .ad3 .certificate h2,
 .ap3 .certificate h2 {
   position: relative;
@@ -404,8 +424,8 @@ background-position: 0px 0;
 /* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
-  background-position: 0;
-  background-size: 1620px;
+  background-position: -90px -40px;
+  background-size: 2170px;
 }
 .ad4 .logos {
   position: absolute;
@@ -453,7 +473,6 @@ background-position: 0px 0;
 .ap4 {
   background-image: url("../images/rs_aplus4.png");
   background-position: -240px 0px;
-  display:none
 }
 
 /* ADVERT 5 & APLUS 5*/
@@ -466,8 +485,9 @@ background-position: 0px 0;
 }
 
 .ap5 h2 {
-  top: 5px;
+    top: 130px;
   left: 1150px;
+      font-size: 7em;
 }
 
 .ad5 .logos img,
@@ -551,7 +571,7 @@ position: absolute;
   width: 450px;
 }
 .ap5 .features {
-  top: 546px;
+  top: 554px;
   right: 60px;
   font-size: 1.5em;
   width: 578px;
@@ -570,7 +590,9 @@ position: absolute;
   margin: 0;
   padding:0;
 }
-
+.ap5 .features p {
+  font-size:2.5em;
+}
 .ad5 .rs_logos,
 .ap5 .rs_logos {
 position: absolute;
