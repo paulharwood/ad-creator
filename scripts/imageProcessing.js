@@ -24,9 +24,9 @@ console.log(`Output Directory: ${outputDir}`);
 fs.ensureDirSync(outputDir);
 
 // Brightness factor (1 is no change, >1 is brighter, <1 is darker)
-const contrast = 1.2;
-const brightness = 1.04;
-const saturation = 1.58;
+const contrast = 1.1;
+const brightness = 1.01;
+const saturation = 1.4;
 
 // Process each image in the input directory
 fs.readdir(inputDir, (err, files) => {
@@ -59,8 +59,8 @@ fs.readdir(inputDir, (err, files) => {
 
       sharp(inputFilePath)
         .sharpen()
-        .linear(contrast, -(128 * contrast) + 128)
-        .modulate({ brightness: brightness, saturation: saturation })
+        // .linear(contrast, -(128 * contrast) + 128)
+        // .modulate({ brightness: brightness, saturation: saturation })
         .toFile(outputFilePath)
         .then(() => {
           console.log(`Processed ${file}`);
