@@ -1,0 +1,287 @@
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/adverts.css">
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,{{language}}',
+        }, 'google_translate_element');
+        setTimeout(function () {
+          // Set the default language to Spanish
+          var selectElement = document.querySelector('#google_translate_element select');
+          selectElement.value = '{{language}}';
+          selectElement.dispatchEvent(new Event('change'));
+        }, 500);
+      }
+
+    </script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
+    <!-- conditional/inline styles -->
+    <style>
+      .keyword_title {
+        font-size:{{keyword_title_size}}pt;
+      }
+      .ad1, .ap1 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00000.jpg");
+      }
+      .ad1_accent, .ap1_accent {
+        background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
+      }
+      .ad2, .ap2 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+      }
+      .ad3, .ap3 {
+        background-image: url("/stock/shutterstock_2146195251.jpg");
+      }
+      .ad4, .ap4 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
+      }
+      .ad5, .ap5  {
+        background-image: url("/renders/{{sku}}/{{sku}}_00004.jpg");
+      }
+      .is_vegan { display: {{is_vegan}};}
+      .is_vegetarian { display: {{is_vegetarian}};}
+      .is_halal { display: {{halal}};}
+      .is_kosher { display: {{kosher}};}
+      .is_gmo_free { display: {{gmo_free}};}
+      .is_organic { display: {{organic}};}
+
+      .ad5 .rs_logos img.{{rs_collection}},
+      .ap5 .rs_logos img.{{rs_collection}} {
+        display:block
+      }
+
+
+    </style>
+    </head>
+  <body class="{{rs_collection}}">
+    <div id="google_translate_element"></div>
+    <div class="content">
+    <h2>Adverts</h2>
+    <div class="advert_content">
+      <div class="advert ad1 featured">
+      </div> 
+      <div class="advert ad1">
+      </div>
+      <div class="advert ad1_accent">
+      </div> 
+      <div class="advert ad2">
+        {{{AD_BULLETS_HTML}}}
+        <div class="disclaimer_text">
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
+        </div>
+      </div>
+      <div class="advert ad3">
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction</h2><h2>guarantee.</h2>
+        </div>          
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+      </div>
+      <div class="advert ad4">
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
+          </div>
+      </div>
+      <div class="advert ad5">
+          <h2>{{KEY_FEATURE_TITLE}}</h2>
+          <div class="features">
+            <p>{{KEY_FEATURE_COPY}}</p>
+          </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+          <div class="rs_logos">
+            <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+            <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+            <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
+          </div>
+
+      </div>
+      <div class="advert ad6">
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        </div>
+      </div>
+      <div class="advert ad7">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
+        </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      <div class="advert ad8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      <div class="advert ad9">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense workouts.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+    </div>
+    <h2>A+ Content</h2>
+    <div class="aplus_content">
+      <div class="aplus ap1">
+        <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
+      </div>
+      <div class="aplus ap1_accent">
+        <div class="divider-vertical-center"></div>
+        <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
+      </div>
+      <div class="aplus ap2">
+        {{{AD_BULLETS_HTML}}}
+        <div class="disclaimer_text">
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
+        </div>
+      </div>
+      <div class="aplus ap5">
+        <div class="divider-vertical-center"></div>
+        <h2>{{label_title}}</h2>
+        <div class="features">
+          <p>{{KEY_FEATURE_COPY}}</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+        <div class="rs_logos">
+          <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
+        </div>
+      </div>
+      {{#if (eq rs_collection 'Performance')}}
+      <div class="aplus ap7">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      {{#if (eq rs_collection 'Maintenance')}}
+      <div class="aplus ap8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term
+            success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      {{#if (eq rs_collection 'Recovery')}}
+      <div class="aplus ap9">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense
+            workouts.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      <div class="aplus ap3">
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction</h2>
+        </div>
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+      </div>
+      {{!-- <div class="aplus ap4">
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
+          </div>
+      </div> --}}
+
+      <div class="aplus ap6">
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        </div>
+      </div>
+
+
+    </div>
+    <pre>
+    <p>label_title: {{label_title}}</p>
+    <p>keyword_title: {{keyword_title}}</p>
+    <p>keyword_title_size: {{keyword_title_size}}</p>
+    <p>suggested_us: {{suggested_use}}</p>
+    <p>use_by_date: {{use_by_date}}</p>
+    <p>is_vegetarian: {{is_vegetarian}}</p>
+    <p>is_: {{is_vegan}}</p>
+    <p>fea: {{feature_image_code}}</p>
+    <p>bra: {{brand_colour}}</p>
+    <p>3D_Colour: {{three_d_colour}}</p>
+    <p>uni: {{units_in_pack}}</p>
+    <p>cur: {{current_batch_number}}</p>
+    <p>ing: {{ingredients}}</p>
+    <p>ing: {{ingredients_fr}}</p>
+    <p>ing: {{ingredients_de}}</p>
+    <p>ing: {{ingredients_es}}</p>
+    <p>ing: {{ingredients_it}}</p>
+    <p>bar: {{barcode_ean}}</p>
+    <p>nrv: {{nrv}}</p>
+    <p>AD_: {{AD_BULLETS}}</p>
+    <p>KEY: {{KEY_FEATURE_TITLE}}</p>
+    <p>KEY: {{KEY_FEATURE_COPY}}</p>
+    <p>BUL: {{BULLETS_ES}}</p>
+    <p>TIT: {{TITLE_ES}}</p>
+    <p>COP: {{COPY_ES}}</p>
+    <p>BUL: {{BULLETS_DE}}</p>
+    <p>TIT: {{TITLE_DE}}</p>
+    <p>COP: {{COPY_DE}}</p>
+    <p>BUL: {{BULLETS_IT}}</p>
+    <p>TIT: {{TITLE_IT}}</p>
+    <p>COP: {{COPY_IT}}</p>
+    <p>BUL: {{BULLETS_FR}}</p>
+    <p>TIT: {{TITLE_FR}}</p>
+    <p>COP: {{COPY_FR}}</p>
+
+    </pre>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import Ad_Capture from '@/app/screenshot/ad_capture';
-import Label_Capture from '@/app/screenshot/label_capture';
+import Ad_Capture from '@/app/lib/screenshot/ad_capture';
+import Label_Capture from '@/app/lib/screenshot/label_capture';
 
 const Generate = async (req: NextApiRequest, res: NextApiResponse) => {
     const { sku, content, langs } = req.query;

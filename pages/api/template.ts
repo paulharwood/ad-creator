@@ -2,18 +2,17 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { promises as fs } from 'fs';
 import { resolve, join } from 'path';
 import handlebars from 'handlebars';
-import { getSkuData, SkuData } from "@/app/actions";
+import { getSkuData, SkuData } from "@/app/lib/actions";
 // Omit this line if loading from a CDN
 import translate from "translate";
-import { metadata } from '@/app/layout';
+import { metadata } from '@/components/layout';
 
 // template helpers
-import Bullets from '@/app/template_helpers/bullets';
+import Bullets from '@/app/lib/template_helpers/bullets';
 
 handlebars.registerHelper('eq', function (a, b) {
   return a === b;
 });
-
 
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
 // translate.key = process.env.DEEPL_KEY;
