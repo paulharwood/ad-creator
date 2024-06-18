@@ -33,7 +33,7 @@ const EcommerceLink: React.FC<EcommerceLinkProps> = ({ platform, countryCode, id
   return (
       <>
       {identifierArray.map((identifier, index) => (
-        <Link key={index} href={generateLink(identifier)} target='_blank' rel='noopener noreferrer' className='border border-white/20 hover:border-white/80 rounded-full  mr-2 text-xs p-1 px-2' >
+        <Link key={index} href={generateLink(identifier)} target='_blank' rel='noopener noreferrer' className='whitespace-nowrap border border-white/20 hover:border-white/80 rounded-full  mr-2 text-xs p-1 px-2' >
             <FontAwesomeIcon icon={icon} /> {country}
         </Link>
       ))}

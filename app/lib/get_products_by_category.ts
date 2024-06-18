@@ -2,7 +2,6 @@
 
 import api from './wc_api';
 
-
 interface Product {
   id: number;
   name: string;
@@ -11,7 +10,6 @@ interface Product {
   description: string;
   meta_data: { key: string; value: any }[]; // Define your metadata structure
 }
-
 
 export const getProductsByCategory = async (
   categoryId: number,
@@ -26,7 +24,7 @@ export const getProductsByCategory = async (
       // Add any other parameters like orderby if needed
     });
 
-    const products: Product[] = response.data.map((product: any) => ({
+    let products: Product[] = response.data.map((product: any) => ({
       id: product.id,
       name: product.name,
       sku: product.sku,
@@ -34,6 +32,9 @@ export const getProductsByCategory = async (
       description: product.description,
       meta_data: product.meta_data, // Adjust as per your actual API response structure
     }));
+
+    // Sort products by sku
+    products.sort((a, b) => (a.sku > b.sku ? 1 : -1));
 
     const totalPages = parseInt(response.headers['x-wp-totalpages']);
     const totalProducts = parseInt(response.headers['x-wp-total']);
