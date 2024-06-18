@@ -40,8 +40,8 @@ const CategorySelector: React.FC = () => {
       setLoading(true);
       const perPage = 50;
       try {
-        const { data, pagination } = await getProductsByCategory(selectedCategory, currentPage, perPage);
-        setProducts(data);
+        const { products, pagination } = await getProductsByCategory(selectedCategory, currentPage, perPage);
+        setProducts(products);
         setTotalPages(pagination.totalPages);
         setError(null);
       } catch (error) {
