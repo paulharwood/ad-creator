@@ -4,6 +4,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { getCategories } from '@/app/lib/get_categories';
 import { getProductsByCategory } from '@/app/lib/get_products_by_category';
+import CategorySelectorTable from './category_selector_table';
 
 interface Category {
   id: number;
@@ -37,10 +38,10 @@ const CategorySelector: React.FC = () => {
   const fetchProducts = useCallback(async () => {
     if (selectedCategory !== null) {
       setLoading(true);
-      const perPage = 100;
+      const perPage = 50;
       try {
         const { data, pagination } = await getProductsByCategory(selectedCategory, currentPage, perPage);
-        console.log(data);
+        setProducts(data);
         setTotalPages(pagination.totalPages);
         setError(null);
       } catch (error) {
@@ -94,20 +95,15 @@ const CategorySelector: React.FC = () => {
       {selectedCategory !== null && !loading && (
         <div>
           <h2>Products for {categories.find((cat) => cat.id === selectedCategory)?.name}</h2>
-          <ul>
-            {products.map((product) => (
-              <li key={product.id}>{product.name}</li>
-            ))}
-          </ul>
-          <div>
-            <button onClick={handlePrevPage} disabled={currentPage === 1}>
-              Previous Page
-            </button>
-            <span>Page {currentPage} of {totalPages}</span>
-            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-              Next Page
-            </button>
-          </div>
+          <CategorySelectorTable
+                products={products}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                loading={loading}
+                error={error}
+                handlePrevPage={handlePrevPage}
+                handleNextPage={handleNextPage}
+              />
         </div>
       )}
     </div>
