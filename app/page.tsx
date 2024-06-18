@@ -1,41 +1,19 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { GetServerSideProps } from 'next';
-import { getCategories } from '../app/lib/actions';
 import Link from 'next/link';
+import CategorySelector from '@/components/category_selector';
 
+// // type ProductData = [string, string, string, string, string, string, number, string][];
 
-// type ProductData = [string, string, string, string, string, string, number, string][];
-
-
-interface Props {
-  categories: any[]; // Adjust the type according to your API response structure
-}
-
-const IndexPage: React.FC<Props> = ({ categories }) => {
+const Home = () => {
   return (
     <div>
-      <h1>Categories</h1>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id}>{category.name}</li>
-        ))}
-      </ul>
+      <h1>Product SKUs by Category</h1>
+      <CategorySelector />
     </div>
   );
 };
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  try {
-    const categories = await getCategories();
-    return { props: { categories } };
-  } catch (error) {
-    console.error('Error fetching categories:', error);
-    return { props: { categories: [] } }; // Return empty categories or handle error
-  }
-};
 
-
-export default IndexPage;
+export default Home;
 
   // useEffect(() => {
   //   if (selectedCategory) {
