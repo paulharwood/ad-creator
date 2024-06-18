@@ -59,7 +59,7 @@ const Header = (props: {
             <Image
               width={32}
               height={32}
-              src={"/images/logo/logo-icon.svg"}
+              src={"/images/fyra-logo-solo.svg"}
               alt="Logo"
             />
           </Link>
