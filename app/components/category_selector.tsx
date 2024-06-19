@@ -2,8 +2,8 @@
 
 // components/CategorySelector.tsx
 import React, { useCallback, useEffect, useState } from 'react';
-import { getCategories } from '@/app/lib/get_categories';
-import { getProductsByCategory } from '@/app/lib/get_products_by_category';
+import { getCategories } from '..//lib/get_categories';
+import { getProductsByCategory } from '../lib/get_products_by_category';
 import CategorySelectorTable from './category_selector_table';
 
 interface Category {
@@ -74,27 +74,29 @@ const CategorySelector: React.FC = () => {
   };
 
   return (
-    <div>
-      <label htmlFor="categorySelect">Select a category:</label>
-      <select
-        id="categorySelect"
-        value={selectedCategory || ''}
-        onChange={(e) => handleCategoryChange(parseInt(e.target.value))}
-      >
-        <option value="">Select...</option>
-        {categories.map((category) => (
-          <option key={category.id} value={category.id}>
-            {category.name}
-          </option>
-        ))}
-      </select>
+    <div className="">
+      <div className='navbar bg-transparent border border-stone-400/20 rounded-full py-4 px-4 text-neutral-content mb-4'>
+        <select
+          id="categorySelect"
+          className="py-2 px-6 rounded-full text-black"
+          value={selectedCategory || ''}
+          onChange={(e) => handleCategoryChange(parseInt(e.target.value))}
+        >
+          <option value="">Select...</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
 
-      {loading && <div>Loading...</div>}
+      {loading && <div className='float-end	'>Loading...</div>}
       {error && <div>Error: {error}</div>}
+      </div>
+    
 
       {selectedCategory !== null && !loading && (
         <div>
-          <h2>Products for {categories.find((cat) => cat.id === selectedCategory)?.name}</h2>
           <CategorySelectorTable
                 products={products}
                 currentPage={currentPage}

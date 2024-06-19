@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileImport } from '@fortawesome/free-solid-svg-icons'; 
 
 interface GenerateImagesProps {
   sku: string;
@@ -32,7 +34,7 @@ const GenerateImages: React.FC <GenerateImagesProps> = ({ sku, content, langs })
   return (
     <div>
       <button onClick={imageGenerate} disabled={isLoading}>
-        Generate Image
+        <FontAwesomeIcon icon={faFileImport} />
       </button>
       {isLoading && <div>Loading...</div>}
       {response && <div>{JSON.stringify(response)}</div>}

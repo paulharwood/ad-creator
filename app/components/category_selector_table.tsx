@@ -3,6 +3,7 @@ import ActionSelector from './action_selector';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAmazon, faEbay } from '@fortawesome/free-brands-svg-icons';
+import { faFileImport } from '@fortawesome/free-solid-svg-icons'; 
 import EcommerceLink from './ecommerce_link'; 
 import GenerateImages from './generate_images';
 import GenerateTemplates from './generate_templates';
@@ -71,7 +72,7 @@ const CategorySelectorTable: React.FC<Props> = ({
 
       {!loading && products.length > 0 && (
         <div className='relative overflow-x-auto'>
-          <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 leading-relaxed'>
+          <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 dark:bg-gray-200  leading-relaxed'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
               <tr>
                 <th className='px-6 py-3'>Select</th>
@@ -88,7 +89,7 @@ const CategorySelectorTable: React.FC<Props> = ({
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700' key={product.id}>
+                <tr className=' border-b dark:bg-gray-200 dark:border-gray-700' key={product.id}>
                   <td  className='align-top px-6 py-3' >
                     <input
                       type="checkbox"
@@ -100,7 +101,7 @@ const CategorySelectorTable: React.FC<Props> = ({
                   </td>
                   <td className='align-top px-6 py-3'><Link href={`https://inventory.fitneshealth.co/product=`} ></Link>{product.sku}</td>
                   <td className='align-top px-6 py-3'>{product.name}</td>
-                  <td className='align-top px-6 py-3'>
+                  <td className='align-top px-6 py-3'> 
                     <button onClick={() => toggleDescription(product.id)}>
                       {expandedProductDescription === product.id ?  '[hide description ▲]' : '[show description ▼]'}
                     </button>
