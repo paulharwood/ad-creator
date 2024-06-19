@@ -2,9 +2,9 @@
 
 // components/CategorySelector.tsx
 import React, { useCallback, useEffect, useState } from 'react';
-import { getCategories } from '..//lib/get_categories';
+import { getCategories } from '../lib/get_categories';
 import { getProductsByCategory } from '../lib/get_products_by_category';
-import CategorySelectorTable from './category_selector_table';
+import CategorySelectorTable from './categorySelectorTable';
 
 interface Category {
   id: number;

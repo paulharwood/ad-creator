@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileImport } from '@fortawesome/free-solid-svg-icons'; 
+import { useActivityFeed } from '../lib/context/ActivityFeedContext'; // Add this import
 
 interface GenerateTemplatesProps {
   sku: string;
@@ -10,6 +13,7 @@ interface GenerateTemplatesProps {
 const GenerateTemplates: React.FC<GenerateTemplatesProps> = ({ sku, tpl, numLang, content }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<any>(null);
+  const { addMessage } = useActivityFeed(); // Use the activity feed context
 
   const templateGenerate = async () => {
     try {
@@ -17,8 +21,10 @@ const GenerateTemplates: React.FC<GenerateTemplatesProps> = ({ sku, tpl, numLang
       const res = await fetch(`/api/template?sku=${sku}&tpl=${tpl}&multiLang=true&content=${content}&numLang=${numLang}`);
       const data = await res.json();
       setResponse(data);
-    } catch (error) {
+      addMessage(`Generated templates for ${sku}: ${JSON.stringify(data)}`); // Add message to activity feed
+    } catch (error: any) {
       console.error('Error fetching data:', error);
+      addMessage(`Error generating templates for ${sku}: ${error.message}`); // Log error to activity feed
     } finally {
       setIsLoading(false);
     }
@@ -27,7 +33,7 @@ const GenerateTemplates: React.FC<GenerateTemplatesProps> = ({ sku, tpl, numLang
   return (
     <div>
       <button onClick={templateGenerate} disabled={isLoading}>
-        Generate Template
+        <FontAwesomeIcon icon={faFileImport} /> {content}
       </button>
       {isLoading && <div>Loading...</div>}
       {response && <div>{JSON.stringify(response)}</div>}

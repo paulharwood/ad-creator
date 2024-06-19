@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import ActionSelector from './action_selector';
+import ActionSelector from './actionSelector';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAmazon, faEbay } from '@fortawesome/free-brands-svg-icons';
 import { faFileImport } from '@fortawesome/free-solid-svg-icons'; 
-import EcommerceLink from './ecommerce_link'; 
-import GenerateImages from './generate_images';
-import GenerateTemplates from './generate_templates';
+import EcommerceLink from './ecommerceLink'; 
+import GenerateImages from './generateImages';
+import GenerateTemplates from './generateTemplates';
+import { useActivityFeed } from '../lib/context/ActivityFeedContext'; // Add this import
+import { useApiWithActivityFeed } from '../lib/hooks/useApiWithActivityFeed'; // Add this import
 
 interface Product {
   id: number;
@@ -38,6 +40,7 @@ const CategorySelectorTable: React.FC<Props> = ({
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
   const [expandedProductDescription, setExpandedProductDescription] = useState<number | null>(null);
   const [expandedProductMeta, setExpandedProductMeta] = useState<number | null>(null);
+  const { addMessage } = useActivityFeed(); // Use the activity feed context
 
   const handleProductSelect = (productId: number) => {
     setSelectedProducts((prevSelected) =>
@@ -47,8 +50,8 @@ const CategorySelectorTable: React.FC<Props> = ({
     );
   };
 
-
   const handleActionChange = (action: string) => {
+    addMessage(`Action "${action}" selected for product IDs ${selectedProducts.join(', ')}`); // Add message to activity feed
     console.log(`Action "${action}" selected for product IDs ${selectedProducts.join(', ')}`);
   };
 
@@ -76,6 +79,7 @@ const CategorySelectorTable: React.FC<Props> = ({
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
               <tr>
                 <th className='px-6 py-3'>Select</th>
+                <th className='px-6 py-3'>Preview</th>
                 <th className='px-6 py-3'>SKU</th>
                 <th className='px-6 py-3'>Name</th>
                 <th className='px-6 py-3'>Description</th>
@@ -99,7 +103,11 @@ const CategorySelectorTable: React.FC<Props> = ({
                       onChange={() => handleProductSelect(product.id)}
                     />
                   </td>
-                  <td className='align-top px-6 py-3'><Link href={`https://inventory.fitneshealth.co/product=`} ></Link>{product.sku}</td>
+                  <td>
+                    <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat rotate-180`} style={{backgroundImage:`url('/sku/${product.sku}/${product.sku}_label_front.png')`}}></div>
+                    <div className={` inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{backgroundImage:`url('/ads/${product.sku}/p/en/${product.sku}_advert_0.en.png')`}}></div>
+                  </td>
+                  <td className='align-top px-6 py-3'><Link href={`https://inventory.fitneshealth.co/product=${product.sku}`}>{product.sku}</Link></td>
                   <td className='align-top px-6 py-3'>{product.name}</td>
                   <td className='align-top px-6 py-3'> 
                     <button onClick={() => toggleDescription(product.id)}>
@@ -126,17 +134,14 @@ const CategorySelectorTable: React.FC<Props> = ({
                     )}
                   </td>
                   <td className='align-top px-6 py-3' >
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.front.en`} rel="noopener noreferrer" target="_blank">F</Link> | 
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.back.en`} rel="noopener noreferrer" target="_blank"> B</Link> | 
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.adverts.en`} rel="noopener noreferrer" target="_blank"> ADS</Link>
-                    <GenerateTemplates sku={product.sku} tpl="template1" numLang={3} content="Sample content for template" />
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="front" />
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="back" />
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="adverts" />
                   </td>
                   <td className='align-top px-6 py-3' >
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.front.en`} rel="noopener noreferrer" target="_blank">F</Link> | 
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.back.en`} rel="noopener noreferrer" target="_blank"> B</Link> | 
-                    <Link href={`http://localhost:57538/sku/${product.sku}/${product.sku}.adverts.en`} rel="noopener noreferrer" target="_blank"> ADS</Link>
-                    <GenerateImages sku={product.sku} content="Sample content for image" langs={[]} />
-
+                    <GenerateImages sku={product.sku} content="front" langs={['en','de','es','it','fr','pl','nl','se']} />
+                    <GenerateImages sku={product.sku} content="back" langs={['en','de','es','it','fr','pl','nl','se']} />
+                    <GenerateImages sku={product.sku} content="adverts" langs={['en','de','es','it','fr','pl','nl','se']} />
                   </td>
                   <td className='align-top px-6 py-3' ></td>
                   <td className='align-top px-6 py-3' ></td>
