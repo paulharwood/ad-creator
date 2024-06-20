@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import api from './wc_api';
+import api from './wcApi';
 
 // Interface for SKU data
 export interface SkuData {

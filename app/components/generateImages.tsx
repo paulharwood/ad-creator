@@ -20,10 +20,11 @@ const GenerateImages: React.FC<GenerateImagesProps> = ({ sku, content, langs }) 
 
     try {
       setIsLoading(true);
+      addMessage(`Attempting to generate ${content} template for ${sku}`);
       const res = await fetch(url);
       const data = await res.json();
       setResponse(data);
-      addMessage(`Generated images for ${sku}: ${JSON.stringify(data)}`); // Add message to activity feed
+      addMessage(`✓ Generated ${content} images for ${sku}`); // Add message to activity feed
     } catch (error: any) {
       console.error('Error fetching data:', error);
       addMessage(`Error generating images for ${sku}: ${error.message}`); // Log error to activity feed
@@ -38,7 +39,7 @@ const GenerateImages: React.FC<GenerateImagesProps> = ({ sku, content, langs }) 
         <FontAwesomeIcon icon={faFileImport} /> {content}
       </button>
       {isLoading && <div>Loading...</div>}
-      {response && <div>{JSON.stringify(response)}</div>}
+      {/* {response && <div>{JSON.stringify(response)}</div>} */}
     </div>
   );
 };

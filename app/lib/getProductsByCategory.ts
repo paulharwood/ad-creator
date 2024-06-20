@@ -1,6 +1,6 @@
 "use server";
 
-import api from './wc_api';
+import api from './wcApi';
 
 interface Product {
   id: number;

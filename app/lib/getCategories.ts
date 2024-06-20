@@ -1,6 +1,6 @@
 "use server";
 
-import api from './wc_api';
+import api from './wcApi';
 
 /**
  * Fetches product categories from the WooCommerce API.
