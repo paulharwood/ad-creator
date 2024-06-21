@@ -5,7 +5,6 @@ import handlebars from 'handlebars';
 import { getSkuData, SkuData } from "@/app/lib/actions";
 // Omit this line if loading from a CDN
 import translate from "translate";
-import { metadata } from '@/components/layout';
 
 // template helpers
 import Bullets from '@/app/lib/template_helpers/bullets';
@@ -166,6 +165,14 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // pull in some wc specifics
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
+
+      if (metaData.feature_image_code !== undefined && metaData.feature_image_code !== null && metaData.feature_image_code !== '') {
+          // Ensure feature_image_code is a string before checking length
+          if (metaData.feature_image_code.toString().length === 1) {
+              metaData.feature_image_code = '0' + metaData.feature_image_code;
+          }
+      }
+
 
       
         // Define the type for translations object
