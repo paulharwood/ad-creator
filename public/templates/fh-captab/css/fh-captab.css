@@ -2,9 +2,10 @@
 @import url('https://fonts.cdnfonts.com/css/new-york-extra-large');
 
 .label {
-/* border:1px solid #333;
+/*border:1px solid #333;
 background-image: url('/templates/fh-captab/images/guide.png');
 background-size: cover; */
+overflow: hidden;
 }
 
 .label_background_top,
@@ -117,7 +118,7 @@ background-size: cover; */
   width:70mm;
   height:16.9mm;
   position:absolute;
-  top:0;
+  top: -10%;
   left: 50%;
   transform: translate(-50%, -20%);
   z-index:-1;
@@ -138,4 +139,14 @@ background-size: cover; */
 .title_header,
 .footer_text {
   display: none;
+}
+
+.barcode {
+  position: absolute;
+  bottom: 17mm;
+  left: 5.5mm;
+}
+
+.batch_number {
+  left: 44mm;
 }

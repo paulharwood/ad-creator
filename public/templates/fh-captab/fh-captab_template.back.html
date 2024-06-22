@@ -3,6 +3,8 @@
     <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/pouch.css">
+    <link rel="stylesheet" type="text/css" href="/templates/fh-captab/css/fh-captab.css">
+
     <!-- conditional/inline styles -->
     <style>
       .is_vegan { display: {{is_vegan}};}
@@ -11,6 +13,15 @@
       .is_kosher { display: {{kosher}};}
       .is_gmo_free { display: {{gmo_free}};}
       .is_organic { display: {{organic}};}
+      .bottom_bar {
+        opacity:0.2;
+        background-color: {{brand_colour}};
+      }
+      .ingredients,
+      .allergens {
+        border-color: {{brand_colour}};
+      }
+
     </style>
     </head>
   <body>

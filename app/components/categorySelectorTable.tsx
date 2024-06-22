@@ -9,6 +9,7 @@ import GenerateImages from './generateImages';
 import GenerateTemplates from './generateTemplates';
 import { useActivityFeed } from '../lib/context/ActivityFeedContext'; // Add this import
 import { useApiWithActivityFeed } from '../lib/hooks/useApiWithActivityFeed'; // Add this import
+import Papa from 'papaparse';
 
 interface Product {
   id: number;
@@ -68,6 +69,33 @@ const CategorySelectorTable: React.FC<Props> = ({
     return metaField ? metaField.value : '';
   };
 
+  const downloadCSV = () => {
+    const selectedProductsData = products
+      .filter((product) => selectedProducts.includes(product.id))
+      .map((product) => ({
+        id: product.id,
+        name: product.name,
+        sku: product.sku,
+        description: product.description,
+        meta_field1: getMetaField(product.meta_data, 'meta_field1'),
+        meta_field2: getMetaField(product.meta_data, 'meta_field2'),
+        // Add more meta fields as needed
+      }));
+
+    const csv = Papa.unparse(selectedProductsData);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'selected_products.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    addMessage('CSV download initiated for selected products.');
+  };
+
   return (
     <div>
       {loading && <div>Loading...</div>}
@@ -75,7 +103,7 @@ const CategorySelectorTable: React.FC<Props> = ({
 
       {!loading && products.length > 0 && (
         <div className='relative overflow-x-auto'>
-          <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 dark:bg-gray-200  leading-relaxed'>
+          <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 dark:bg-gray-200 leading-relaxed'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
               <tr>
                 <th className='px-6 py-3'>Select</th>
@@ -93,31 +121,31 @@ const CategorySelectorTable: React.FC<Props> = ({
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr className=' border-b dark:bg-gray-200 dark:border-gray-700' key={product.id}>
-                  <td  className='align-top px-6 py-3' >
+                <tr className='border-b dark:bg-gray-200 dark:border-gray-700' key={product.id}>
+                  <td className='align-top px-6 py-3'>
                     <input
-                      type="checkbox"
-                      name="productSelect"
+                      type='checkbox'
+                      name='productSelect'
                       value={product.id}
                       checked={selectedProducts.includes(product.id)}
                       onChange={() => handleProductSelect(product.id)}
                     />
                   </td>
                   <td>
-                    <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat rotate-180`} style={{backgroundImage:`url('/sku/${product.sku}/${product.sku}_label_front.png')`}}></div>
-                    <div className={` inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{backgroundImage:`url('/ads/${product.sku}/p/en/${product.sku}_advert_0.en.png')`}}></div>
+                    <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat rotate-180`} style={{ backgroundImage: `url('/sku/${product.sku}/${product.sku}_label_front.png')` }}></div>
+                    <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{ backgroundImage: `url('/ads/${product.sku}/p/en/${product.sku}_advert_0.en.png')` }}></div>
                   </td>
-                  <td className='align-top px-6 py-3'><Link href={`https://inventory.fitneshealth.co/product=${product.sku}`}>{product.sku}</Link></td>
+                  <td className='align-top px-6 py-3'>
+                    <Link href={`https://inventory.fitnesshealth.co/?product=${product.sku}`} target='_blank'>
+                      {product.sku}
+                    </Link>
+                  </td>
                   <td className='align-top px-6 py-3'>{product.name}</td>
-                  <td className='align-top px-6 py-3'> 
+                  <td className='align-top px-6 py-3'>
                     <button onClick={() => toggleDescription(product.id)}>
-                      {expandedProductDescription === product.id ?  '[hide description ▲]' : '[show description ▼]'}
+                      {expandedProductDescription === product.id ? '[hide description ▲]' : '[show description ▼]'}
                     </button>
-                    {expandedProductDescription === product.id && (
-                      <div>
-                        {product.description}
-                      </div>
-                    )}
+                    {expandedProductDescription === product.id && <div>{product.description}</div>}
                   </td>
                   <td className='align-top px-6 py-3'>
                     <div>template: {getMetaField(product.meta_data, 'three_d_template')}</div>
@@ -126,7 +154,7 @@ const CategorySelectorTable: React.FC<Props> = ({
                     <div>colour: {getMetaField(product.meta_data, 'three_d_colour')}</div>
                     <div>size: {getMetaField(product.meta_data, 'three_d_size')}</div>
                     <button onClick={() => toggleMeta(product.id)}>
-                      {expandedProductMeta === product.id ?  '[hide meta ▲]' : '[show meta ▼]'}
+                      {expandedProductMeta === product.id ? '[hide meta ▲]' : '[show meta ▼]'}
                     </button>
                     {expandedProductMeta === product.id && (
                       <ul>
@@ -138,81 +166,80 @@ const CategorySelectorTable: React.FC<Props> = ({
                       </ul>
                     )}
                   </td>
-                  <td className='align-top px-6 py-3' >
-                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="front" />
-                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="back" />
-                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content="adverts" />
+                  <td className='align-top px-6 py-3'>
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='front' />
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='back' />
+                    <GenerateTemplates sku={product.sku} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='adverts' />
                   </td>
-                  <td className='align-top px-6 py-3' >
-                    <GenerateImages sku={product.sku} content="front" langs={['en','de','es','it','fr','pl','nl','se']} />
-                    <GenerateImages sku={product.sku} content="back" langs={['en','de','es','it','fr','pl','nl','se']} />
-                    <GenerateImages sku={product.sku} content="adverts" langs={['en','de','es','it','fr','pl','nl','se']} />
+                  <td className='align-top px-6 py-3'>
+                    <GenerateImages sku={product.sku} content='front' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
+                    <GenerateImages sku={product.sku} content='back' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
+                    <GenerateImages sku={product.sku} content='adverts' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
                   </td>
-                  <td className='align-top px-6 py-3' ></td>
-                  <td className='align-top px-6 py-3' ></td>
+                  <td className='align-top px-6 py-3'></td>
+                  <td className='align-top px-6 py-3'></td>
                   <td className='align-top px-6 py-3'>
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="co.uk"
+                      platform='amazon'
+                      countryCode='co.uk'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="UK"
+                      country='UK'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="de"
+                      platform='amazon'
+                      countryCode='de'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="DE"
+                      country='DE'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="es"
+                      platform='amazon'
+                      countryCode='es'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="ES"
+                      country='ES'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="it"
+                      platform='amazon'
+                      countryCode='it'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="IT"
+                      country='IT'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="fr"
+                      platform='amazon'
+                      countryCode='fr'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="FR"
+                      country='FR'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="pl"
+                      platform='amazon'
+                      countryCode='pl'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="PL"
+                      country='PL'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="nl"
+                      platform='amazon'
+                      countryCode='nl'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="NL"
+                      country='NL'
                       icon={faAmazon}
                     />
                     <EcommerceLink
-                      platform="amazon"
-                      countryCode="se"
+                      platform='amazon'
+                      countryCode='se'
                       identifiers={getMetaField(product.meta_data, 'amazon_asin')}
-                      country="SE"
+                      country='SE'
                       icon={faAmazon}
                     />
-                    {/* Example for eBay link */}
                     <EcommerceLink
-                      platform="ebay"
-                      countryCode="com"
+                      platform='ebay'
+                      countryCode='com'
                       identifiers={getMetaField(product.meta_data, 'ebay_sku')}
-                      country="US"
+                      country='US'
                       icon={faEbay}
                     />
                   </td>
@@ -230,6 +257,9 @@ const CategorySelectorTable: React.FC<Props> = ({
             </button>
           </div>
           <ActionSelector selectedProducts={selectedProducts} handleActionChange={handleActionChange} />
+          <button onClick={downloadCSV} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+            Download CSV
+          </button>
         </div>
       )}
 

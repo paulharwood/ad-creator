@@ -23,6 +23,7 @@
         opacity:0.2;
         background-color: {{brand_colour}};
       }
+      #title_background { display: none; }
     </style>
     </head>
   <body>
@@ -67,6 +68,9 @@
         <div class="footer_text">
           <span>fitnesshealth.co</span>
         </div>
+      </div>
+    </div>
+    
       <div id="title_background">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 239.4 58.07">
           <path
@@ -74,24 +78,24 @@
             fill={{brand_colour}} stroke-width="0" />
         </svg>
       </div>
-    </div>
-        <script type="text/javascript">
-          const svgContent = document.getElementById('title_background').innerHTML;
 
-          // Encode the manipulated SVG content to base64
-          const encodedSvg = btoa(svgContent);
+      <script type="text/javascript">
+        const svgContent = document.getElementById('title_background').innerHTML;
 
-          const svgDataUri = `data:image/svg+xml;base64,${encodedSvg}`;
+        // Encode the manipulated SVG content to base64
+        const encodedSvg = btoa(svgContent);
 
-          // Create a style element
-          const style = document.createElement('style');
-          style.type = 'text/css';
+        const svgDataUri = `data:image/svg+xml;base64,${encodedSvg}`;
 
-          // Add CSS rule for ::after pseudo-element
-          const cssRule = `.title::after { content: url("${svgDataUri}"); }`;
-          style.appendChild(document.createTextNode(cssRule));
+        // Create a style element
+        const style = document.createElement('style');
+        style.type = 'text/css';
+
+        // Add CSS rule for ::after pseudo-element
+        const cssRule = `.title::after { content: url("${svgDataUri}"); }`;
+        style.appendChild(document.createTextNode(cssRule));
         // Append the style element to the head
-          document.head.appendChild(style);
-        </script>
+        document.head.appendChild(style);
+      </script>
   </body>
 </html>

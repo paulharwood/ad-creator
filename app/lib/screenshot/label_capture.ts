@@ -16,6 +16,11 @@ const Label_Capture = async ( sku: string, content: string) => {
     await page.goto(url);
     await page.emulateMediaType('screen');
 
+
+    // generate a png for the render
+    const label = await page.$$('.label');
+    await label[0].screenshot({ path:`public/sku/${sku}/${sku}_label_${content}.png` , omitBackground: true });
+
     // generate a pdf for the printer
     const pdf = await page.pdf({
         path: `public/sku/${sku}/${sku}_label_${content}.pdf`, // Saves pdf to disk.
@@ -23,10 +28,6 @@ const Label_Capture = async ( sku: string, content: string) => {
         width:'130mm',
         printBackground: true,
     });    
-
-    // generate a png for the render
-    const label = await page.$$('.label');
-    await label[0].screenshot({ path:`public/sku/${sku}/${sku}_label_${content}.png` , omitBackground: true });
 
     await browser.close();
     return 'success';
