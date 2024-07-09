@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/woocommerce__woocommerce-rest-api": "^1.0.5",

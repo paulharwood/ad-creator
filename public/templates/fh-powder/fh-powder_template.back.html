@@ -3,6 +3,8 @@
     <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/pouch.css">
+    <link rel="stylesheet" type="text/css" href="/templates/fh-powder/css/fh-powder.css">
+
     <!-- conditional/inline styles -->
     <style>
       .is_vegan { display: {{is_vegan}};}
@@ -11,19 +13,20 @@
       .is_kosher { display: {{kosher}};}
       .is_gmo_free { display: {{gmo_free}};}
       .is_organic { display: {{organic}};}
+      .bottom_bar {
+        opacity:0.2;
+        background-color: {{brand_colour}};
+      }
+      .ingredients,
+      .allergens {
+        border-color: {{brand_colour}};
+      }
+
     </style>
     </head>
   <body>
     <div class="labels {{rs_collection}}">
       <div class="label back">
-      <div class="plus plus3">+</div>
-      <div class="plus plus4">+</div>
-      <div class="tear_strip">
-            <img src="images/rs-motif.svg"  width="35" height="35" />
-      </div>
-      <div class="tear_strip_text">
-          HEAT SEALED FOR SAFETY AND FRESHNESS ++++++++-----_____
-      </div>
       <div class="safety_panel">
         <div class="safety_information">
           <h2>Important Safety Information / Wichtige Sicherheitshinweise / Informazioni importanti sulla sicurezza / Informacion de Seguridad Importante / Informations de sécurité importantes</h2>
@@ -81,8 +84,7 @@
           BN: {{current_batch_number}}
         </div>
         <div class="footer_text">
-        <span>rapidstrength.co</span>
-        The Science of Strength
+        <span>fitnesshealth.co</span>
         </div>
       </div>
     </div>

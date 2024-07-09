@@ -70,16 +70,18 @@ const CategorySelectorTable: React.FC<Props> = ({
   };
 
   const downloadCSV = () => {
+    //sku,three_d_template,three_d_type,three_d_shape,three_d_size,three_d_colour,numLang,rs_colour
     const selectedProductsData = products
       .filter((product) => selectedProducts.includes(product.id))
       .map((product) => ({
-        id: product.id,
-        name: product.name,
         sku: product.sku,
-        description: product.description,
-        meta_field1: getMetaField(product.meta_data, 'meta_field1'),
-        meta_field2: getMetaField(product.meta_data, 'meta_field2'),
-        // Add more meta fields as needed
+        template: getMetaField(product.meta_data, 'three_d_template') || '',
+        type: getMetaField(product.meta_data, 'three_d_type') || '',
+        shape: getMetaField(product.meta_data, 'three_d_shape') || '',
+        colour: getMetaField(product.meta_data, 'three_d_colour') || '',
+        size: getMetaField(product.meta_data, 'three_d_size') || '',
+        numLang: '5',
+        rs_colour: getMetaField(product.meta_data, 'rs_collection') || '',
       }));
 
     const csv = Papa.unparse(selectedProductsData);
@@ -153,6 +155,7 @@ const CategorySelectorTable: React.FC<Props> = ({
                     <div>shape: {getMetaField(product.meta_data, 'three_d_shape')}</div>
                     <div>colour: {getMetaField(product.meta_data, 'three_d_colour')}</div>
                     <div>size: {getMetaField(product.meta_data, 'three_d_size')}</div>
+                    <div>image_code: {getMetaField(product.meta_data, 'feature_image_code')}</div>
                     <button onClick={() => toggleMeta(product.id)}>
                       {expandedProductMeta === product.id ? '[hide meta ▲]' : '[show meta ▼]'}
                     </button>

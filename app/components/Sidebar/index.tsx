@@ -66,11 +66,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       }`}
     >
       {/* <!-- SIDEBAR HEADER --> */}
-      <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+      <div className="flex items-center justify-between gap-2 px-6 py-3 lg:px-9 lg:py-3">
         <Link href="/">
           <Image
-            width={180}
-            height={100}
+            width={90}
+            height={50}
             src={"/images/fyra-logo-solo.svg"}
             alt="Logo"
             priority

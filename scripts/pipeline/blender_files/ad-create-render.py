@@ -121,17 +121,29 @@ def set_output_directory(sku):
         os.makedirs(output_path)
     bpy.context.scene.render.filepath = os.path.join(output_path, f"{sku}_0")
 
+def set_material_color(material_name, hex_color):
+    """Set the material color of the specified material."""
+    rgb_color = hex_to_rgb(hex_color)
+    material = bpy.data.materials.get(material_name)
+    if material and material.node_tree:
+        bsdf = material.node_tree.nodes.get("Principled BSDF")
+        if bsdf:
+            bsdf.inputs['Base Color'].default_value = (*rgb_color, 1.0)
+
+
 # Function to process a single SKU
 def process_sku(row):
     sku = row['sku'].upper()
     rs_colour_key = row['rs_colour'].lower()
+    colour = row['colour']
 
     # Set environment variables
     os.environ['SKU'] = sku
     os.environ['RS_COLOUR'] = rs_colour_key
+    os.environ['COLOUR'] = colour
 
     # List of required environment variables
-    required_env_vars = ['SKU', 'RS_COLOUR']
+    required_env_vars = ['SKU', 'RS_COLOUR', 'COLOUR']
 
     # Check if all required environment variables are set
     for var in required_env_vars:
@@ -145,6 +157,9 @@ def process_sku(row):
     # Get the RS_COLOUR from environment variable and map to hex color
     rs_colour_key = os.getenv('RS_COLOUR', 'maintenance')
     rs_colour = color_mapping.get(rs_colour_key, '#2ca2cc')
+        # Change the material color for a specified material (e.g., 'capsule_contents.002')
+    set_material_color('capsule_contents.002', colour)  # Change 'capsule_contents.002' to the actual material name
+
 
     # Run the script using the environment variable provided SKU
     activated_gpus = enable_gpus(default_device_type, sku=sku)
@@ -174,7 +189,7 @@ def process_sku(row):
     bpy.ops.render.render(animation=True)
 
 # Read SKU information from CSV
-csv_file_path = os.path.join(PROJECT_ROOT, 'public/sku/data/rs_powder_skus.csv')
+csv_file_path = os.path.join(PROJECT_ROOT, 'public/sku/data/selected_products.csv')
 with open(csv_file_path, 'r') as file:
     csv_reader = csv.DictReader(file)
     for row in csv_reader:
