@@ -85,6 +85,7 @@ async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
     if (skuData.template) {
       console.log("Template:", skuData.template); // Log the template if available
     }
+    console.log(skuData);
 
     return skuData; // Return the skuData object
   } catch (error) {

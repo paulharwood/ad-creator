@@ -9,7 +9,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #ffffff;
+  color: #000000;
   background-color: transparent;
 }
 .content {
@@ -87,13 +87,13 @@ img.ad_logo {
 }
 
 .aplus .bullet::before {
-    width: 440px;
-      height: 440px;
-      -moz-border-radius: 440px;
-      -webkit-border-radius: 440px;
-      border-radius: 440px;
-      top: -4px;
-        left: -4px;
+  width: 440px;
+  height: 440px;
+  -moz-border-radius: 440px;
+  -webkit-border-radius: 440px;
+  border-radius: 440px;
+  top: -4px;
+  left: -4px;
 }
 
 
@@ -166,9 +166,9 @@ img.ad_logo {
 }
 .advert.featured {
   width: 1000px;
-  height: 1691px;
-  background-size: 3118px;
-  background-position: -344px -146px;
+  height: 1483px;
+  background-size: 2537px;
+  background-position: -852px -65px;
 }
 .aplus {
   width: 2000px;
@@ -203,7 +203,6 @@ img.ad_logo {
   font-weight: 700;
   letter-spacing: -0.07em;
   line-height: 0.86;
-  color: #ffffff;
 }
 .aplus h2,
 .advert h2,
@@ -215,7 +214,6 @@ img.ad_logo {
   font-weight: 700;
   letter-spacing: -0.07em;
   line-height: 0.86;
-  color: #ffffff;
 }
 
 .aplus h3,
@@ -226,7 +224,6 @@ img.ad_logo {
   font-weight: 400;
   /* letter-spacing: -0.07em; */
   line-height: 1.2;
-  color: #ffffff;
 }
 
 
@@ -234,9 +231,9 @@ img.ad_logo {
 .ad1,
 .ad1_accent {
   background-image: url("../images/rs_ad1.png");
-  background-position: 0 -88px;
+  background-position: -367px -47px;
   background-repeat: no-repeat;
-  background-size: 1849px;
+  background-size: 1739px;
 }
 
 .ap1,
@@ -256,13 +253,13 @@ img.ad_logo {
   color: #1d1d1d;
 }
 .ap1_accent  .key_feature_title{
-  color:#ffffff
+
 }
 
 /* ADVERT 2 & APLUS 2*/
 .ad2, .ap2 {
   background-image: url("../images/rs_ad2.png");
-  color: #ffffff;
+
 }
 .advert.ad2 {
   background-position-x: -341px;
@@ -291,7 +288,7 @@ img.ad_logo {
   position: absolute;
   top: 401px;
   left: 170px;
-  color: #ffffff;
+
   font-size: 35px;
   line-height: 60px;
   font-family: "DIN 2014";
@@ -300,7 +297,7 @@ img.ad_logo {
 
 .ad2 .ad_bullets_icons,
 .ap2 .ad_bullets_icons {
-  color: #ffffff;
+
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -352,7 +349,7 @@ img.ad_logo {
 .ap3 {
   background-size: 2720px;
   background-position: top right;
-  color:#ffffff;
+
 }
 
 .ad3 > h2,
@@ -368,7 +365,7 @@ img.ad_logo {
   left: 100px;
   width: 500px;
   height: 500px;
-  background-image: url("/templates/assets/images/rs/rs-certificate.svg");
+  background-image: url("/templates/assets/images/fh/fh-certificate.svg");
   background-repeat: none;
   background-size: cover;
   text-align: center;
@@ -427,8 +424,8 @@ img.ad_logo {
 /* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
-  background-position: -90px -40px;
-  background-size: 2170px;
+  background-position: -40px -40px;
+  background-size: 1750px;
 }
 .ad4 .logos {
   position: absolute;
@@ -691,12 +688,12 @@ position: absolute;
 }
 
 .ad6 {
-  background-image: url("/stock/rs_ad6.png");
+  /* background-image: url("/stock/rs_ad6.png"); */
   background-size:1000px 1000px;
 }
 
 .ap6 {
-  background-image: url("/stock/rs_aplus6.png");
+  /* background-image: url("/stock/rs_aplus6.png"); */
   background-size: 2472px 1236px;
   background-position: -216px 0;
 }
@@ -708,11 +705,11 @@ position: absolute;
   color:#ffffff;
 }
 .ad7 {
-  background-image: url("/stock/rs_ad7.png");
+  /* background-image: url("/stock/rs_ad7.png"); */
   background-size: 1000px 1000px;
 }
 .ap7 {
-  background-image:url("/stock/rs_aplus7.png");
+  /* background-image:url("/stock/rs_aplus7.png"); */
   background-size: 2472px 1236px;
 }
 .ad7 .rs_collection_logo, 
@@ -756,12 +753,12 @@ position:relative
   color: #ffffff;
 }
 .ad8 {
-  background-image: url("/stock/rs_ad8.png");
+  /* background-image: url("/stock/rs_ad8.png"); */
   background-size: 1000px 1000px;
 }
 
 .ap8 {
-  background-image: url("/stock/rs_aplus8.png");
+  /* background-image: url("/stock/rs_aplus8.png"); */
   background-size: 2472px 1236px;
 }
 .ad8 .rs_collection_logo,
@@ -807,12 +804,12 @@ position:relative
   color: #ffffff;
 }
 .ad9 {
-  background-image: url("/stock/rs_ad9.png");
+  /* background-image: url("/stock/rs_ad9.png"); */
   background-size: 1000px 1000px;
 }
 
 .ap9 {
-  background-image: url("/stock/rs_aplus9.png");
+  /* background-image: url("/stock/rs_aplus9.png"); */
   background-size: 2472px 1236px;
 }
 .ad9 .rs_collection_logo,

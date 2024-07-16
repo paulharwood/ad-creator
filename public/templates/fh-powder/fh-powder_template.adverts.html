@@ -29,17 +29,17 @@
       .keyword_title {
         font-size:{{keyword_title_size}}pt;
       }
-      .ad1, .ap1 {
-        background-image: url("/renders/{{sku}}/{{sku}}_00000.jpg");
-      }
-      .ad1_accent, .ap1_accent {
+      .ad1 {
         background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
       }
-      .ad2, .ap2 {
+      .ap1 {
         background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
       }
+      .ad2, .ap2 {
+        /*background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");*/
+      }
       .ad3, .ap3 {
-        background-image: url("/stock/shutterstock_2146195251.jpg");
+        {{!-- background-image: url("/stock/shutterstock_2146195251.jpg"); --}}
       }
       .ad4, .ap4 {
         background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
@@ -71,9 +71,11 @@
       </div> 
       <div class="advert ad1">
       </div>
-      <div class="advert ad1_accent">
-      </div> 
       <div class="advert ad2">
+          <div
+            style="left: 373px; top: 225px; position: absolute; color: black; font-size: 128px; font-family: New York; font-weight: 568; word-wrap: break-word">
+            Some Text</div>
+          <div style="width: 407px; height: 407px; left: 69px; top: 420px; position: absolute; background: #D9D9D9"></div>
         {{{AD_BULLETS_HTML}}}
         <div class="disclaimer_text">
           <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
@@ -107,43 +109,20 @@
           </div>
       </div>
       <div class="advert ad6">
-        <h1>3</h1>
-        <h2>Simple steps to<br>
-          build strength<br>
-          quickly</h2>
+
       </div>
       <div class="advert ad7">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
-        <div class="ad_copy">
-          <h2>Push your limits.</h2>
-          <p>Our Performance supplements help you push your limits and reach new heights.</p>
-        </div>
-          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+    
       </div>
       <div class="advert ad8">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
-        <div class="ad_copy">
-          <h2>Keep Going.</h2>
-          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term success.</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+
       </div>
       <div class="advert ad9">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
-        <div class="ad_copy">
-          <h2>Recover well.</h2>
-          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense workouts.</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
     </div>
     <h2>A+ Content</h2>
     <div class="aplus_content">
       <div class="aplus ap1">
-        <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
-      </div>
-      <div class="aplus ap1_accent">
-        <div class="divider-vertical-center"></div>
         <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
       </div>
       <div class="aplus ap2">
@@ -152,51 +131,7 @@
           <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
         </div>
       </div>
-      <div class="aplus ap5">
-        <div class="divider-vertical-center"></div>
-        <h2>{{label_title}}</h2>
-        <div class="features">
-          <p>{{KEY_FEATURE_COPY}}</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
-        <div class="rs_logos">
-          <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
-          <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
-          <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
-        </div>
-      </div>
-      {{#if (eq rs_collection 'Performance')}}
-      <div class="aplus ap7">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
-        <div class="ad_copy">
-          <h2>Push your limits.</h2>
-          <p>Our Performance supplements help you push your limits and reach new heights.</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
-      </div>
-      {{/if}}
-      {{#if (eq rs_collection 'Maintenance')}}
-      <div class="aplus ap8">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
-        <div class="ad_copy">
-          <h2>Keep Going.</h2>
-          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term
-            success.</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
-      </div>
-      {{/if}}
-      {{#if (eq rs_collection 'Recovery')}}
-      <div class="aplus ap9">
-        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
-        <div class="ad_copy">
-          <h2>Recover well.</h2>
-          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense
-            workouts.</p>
-        </div>
-        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
-      </div>
-      {{/if}}
+
       <div class="aplus ap3">
       <h2>Quality<br />assured.</h2>
         <div class="certificate">
@@ -209,7 +144,7 @@
           <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
         </div>
       </div>
-      {{!-- <div class="aplus ap4">
+      <div class="aplus ap4">
           <div class="logos">
             <!-- conditional -->
             <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
@@ -217,23 +152,19 @@
             <img class="is_halal" src="images/halal-logo.svg" />
             <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
-      </div> --}}
-
-      <div class="aplus ap6">
-        <h1>3</h1>
-        <h2>Simple steps to<br>
-          build strength<br>
-          quickly</h2>
-        <div class="rs_collection_group">
-          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
-          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
-          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+      </div>
+      <div class="aplus ap5">
+        <div class="divider-vertical-center"></div>
+        <h2>{{label_title}}</h2>
+        <div class="features">
+          <p>{{KEY_FEATURE_COPY}}</p>
         </div>
       </div>
-
-
+      <div class="aplus ap6">
+      </div>
     </div>
     <pre>
+      <p>label_title: {{description}}</p>
     <p>label_title: {{label_title}}</p>
     <p>keyword_title: {{keyword_title}}</p>
     <p>keyword_title_size: {{keyword_title_size}}</p>

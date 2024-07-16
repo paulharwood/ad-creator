@@ -12,6 +12,6 @@ alias blender=/snap/bin/blender
 sudo mkdir -p /run/user/1000/gvfs
 
 # create paths for data files if they dont exist, replace ~/ad-creator-fs-az/ with the file store we are using
-mkdir ~/ad-creator-fs-az/public/
-mkdir ~/ad-creator-fs-az/public/renders/
-mkdir ~/ad-creator-fs-az/public/sku/
+mkdir -p ~/ad-creator-fs-az/public/
+mkdir -p ~/ad-creator-fs-az/public/renders/
+mkdir -p ~/ad-creator-fs-az/public/sku/
