@@ -40,7 +40,7 @@ const GenerateTemplates: React.FC<GenerateTemplatesProps> = ({ sku, tpl, numLang
       </button>
       {isLoading && <div>Loading...</div>}
       <Link href={`https://media.fitnesshealth.co/sku/${sku}/${sku}_label_${content}.pdf`} rel="noopener noreferrer" className=' px-1 mr-2' target="_blank"><FontAwesomeIcon icon={faCloud} /></Link>
-      <Link href={`http://localhost:57538/sku/${sku}/${sku}.${content}.en`} rel="noopener noreferrer" target="_blank">{content}</Link>
+      <Link href={`http://localhost:57538/sku/${sku}/${sku}.${content}.en.html`} rel="noopener noreferrer" target="_blank">{content}</Link>
 
       {/* {response && <div>{JSON.stringify(response)}</div>} */}
     </div>

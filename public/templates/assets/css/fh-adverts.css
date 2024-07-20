@@ -215,7 +215,17 @@ img.ad_logo {
   letter-spacing: -0.07em;
   line-height: 0.86;
 }
-
+.aplus h2,
+.advert h2,
+.aplus .key_feature_subtitle,
+.advert .key_feature_subtitle {
+  font-size: 7.7em;
+  position: absolute;
+  font-family: "New York";
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+}
 .aplus h3,
 .advert h3 {
   font-size: 2.95em;

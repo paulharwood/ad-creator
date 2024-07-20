@@ -39,6 +39,7 @@ const CategorySelectorTable: React.FC<Props> = ({
   handleNextPage,
 }) => {
   const [selectedProducts, setSelectedProducts] = useState<number[]>([]);
+  const [selectAll, setSelectAll] = useState(false);
   const [expandedProductDescription, setExpandedProductDescription] = useState<number | null>(null);
   const [expandedProductMeta, setExpandedProductMeta] = useState<number | null>(null);
   const { addMessage } = useActivityFeed(); // Use the activity feed context
@@ -49,6 +50,15 @@ const CategorySelectorTable: React.FC<Props> = ({
         ? prevSelected.filter((id) => id !== productId)
         : [...prevSelected, productId]
     );
+  };
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedProducts([]);
+    } else {
+      setSelectedProducts(products.map((product) => product.id));
+    }
+    setSelectAll(!selectAll);
   };
 
   const handleActionChange = (action: string) => {
@@ -108,7 +118,14 @@ const CategorySelectorTable: React.FC<Props> = ({
           <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 dark:bg-gray-200 leading-relaxed'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
               <tr>
-                <th className='px-6 py-3'>Select</th>
+                <th className='px-6 py-3'>
+                  <input
+                    type='checkbox'
+                    name='selectAll'
+                    checked={selectAll}
+                    onChange={handleSelectAll}
+                  />
+                </th>
                 <th className='px-6 py-3'>Preview</th>
                 <th className='px-6 py-3'>SKU</th>
                 <th className='px-6 py-3'>Name</th>
