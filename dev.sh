@@ -7,7 +7,7 @@
 
 node live-server.js &
 
-#
+node process-scss.js &
 
 # start the required development envoronment
 

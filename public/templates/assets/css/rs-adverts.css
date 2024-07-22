@@ -1,14 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-/* @import url('https://fonts.cdnfonts.com/css/new-york-extra-large'); */
 body {
   margin: 0px;
   padding: 0px;
   font-size: 11.5px;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "alte haas grotesk";
   font-weight: 400;
   font-style: normal;
-  color: #000000;
+  color: #ffffff;
   background-color: transparent; }
 
 .content {
@@ -138,20 +136,20 @@ img.ad_logo {
   width: 1000px;
   height: 1000px;
   margin: 0 3em;
-  background-color: #ffffff;
+  background-color: #444444;
   color: #1d1d1d; }
 
 .advert.featured {
   width: 1000px;
-  height: 1483px;
-  background-size: 2537px;
-  background-position: -852px -65px; }
+  height: 1691px;
+  background-size: 3118px;
+  background-position: -344px -146px; }
 
 .aplus {
   width: 2000px;
   height: 1236px;
   margin: 0 2em;
-  background-color: #ffffff; }
+  background-color: #444444; }
 
 .aplus .divider-vertical-center {
   position: absolute;
@@ -173,10 +171,11 @@ img.ad_logo {
 .advert h1 {
   font-size: 10em;
   position: absolute;
-  font-family: "New York";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   letter-spacing: -0.07em;
-  line-height: 0.86; }
+  line-height: 0.86;
+  color: #ffffff; }
 
 .aplus h2,
 .advert h2,
@@ -184,21 +183,11 @@ img.ad_logo {
 .advert .key_feature_title {
   font-size: 7.7em;
   position: absolute;
-  font-family: "New York";
+  font-family: "Helvetica Neue", "neue haas grotesk display pro";
   font-weight: 700;
   letter-spacing: -0.07em;
-  line-height: 0.86; }
-
-.aplus h2,
-.advert h2,
-.aplus .key_feature_subtitle,
-.advert .key_feature_subtitle {
-  font-size: 7.7em;
-  position: absolute;
-  font-family: "New York";
-  font-weight: 700;
-  letter-spacing: -0.07em;
-  line-height: 0.86; }
+  line-height: 0.86;
+  color: #ffffff; }
 
 .aplus h3,
 .advert h3 {
@@ -207,15 +196,16 @@ img.ad_logo {
   font-family: "DIN 2014", monospace;
   font-weight: 400;
   /* letter-spacing: -0.07em; */
-  line-height: 1.2; }
+  line-height: 1.2;
+  color: #ffffff; }
 
 /* ADVERT 1 & APLUS 1*/
 .ad1,
 .ad1_accent {
   background-image: url("../images/rs_ad1.png");
-  background-position: -367px -47px;
+  background-position: 0 -88px;
   background-repeat: no-repeat;
-  background-size: 1739px; }
+  background-size: 1849px; }
 
 .ap1,
 .ap1_accent {
@@ -232,20 +222,24 @@ img.ad_logo {
   font-size: 9em;
   color: #1d1d1d; }
 
+.ap1_accent .key_feature_title {
+  color: #ffffff; }
+
 /* ADVERT 2 & APLUS 2*/
-.ad2 .disclaimer_text {
+.ad2, .ap2 {
+  background-image: url("../images/rs_ad2.png");
+  color: #ffffff; }
+
+.advert.ad2 {
+  background-position-x: -341px;
+  background-size: 1617px; }
+
+.disclaimer_text {
   position: absolute;
   bottom: 60px;
   left: 100px;
   font-size: 1.6em;
   width: 20em; }
-
-.ad2, .ap2 {
-  background-image: url("../images/rs_ad2.png"); }
-
-.advert.ad2 {
-  background-position-x: -341px;
-  background-size: 1617px; }
 
 .ap2 .disclaimer_text {
   bottom: 90px; }
@@ -259,12 +253,14 @@ img.ad_logo {
   position: absolute;
   top: 401px;
   left: 170px;
+  color: #ffffff;
   font-size: 35px;
   line-height: 60px;
   font-family: "DIN 2014"; }
 
 .ad2 .ad_bullets_icons,
 .ap2 .ad_bullets_icons {
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -305,7 +301,8 @@ img.ad_logo {
 .ad3,
 .ap3 {
   background-size: 2720px;
-  background-position: top right; }
+  background-position: top right;
+  color: #ffffff; }
 
 .ad3 > h2,
 .ap3 > h2 {
@@ -319,7 +316,7 @@ img.ad_logo {
   left: 100px;
   width: 500px;
   height: 500px;
-  background-image: url("/templates/assets/images/fh/fh-certificate.svg");
+  background-image: url("/templates/assets/images/rs/rs-certificate.svg");
   background-repeat: none;
   background-size: cover;
   text-align: center; }
@@ -367,8 +364,8 @@ img.ad_logo {
 /* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
-  background-position: -40px -40px;
-  background-size: 1750px; }
+  background-position: -90px -40px;
+  background-size: 2170px; }
 
 .ad4 .logos {
   position: absolute;
@@ -597,11 +594,11 @@ body.Recovery .features {
   width: 300px; }
 
 .ad6 {
-  /* background-image: url("/stock/rs_ad6.png"); */
+  background-image: url("/stock/rs_ad6.png");
   background-size: 1000px 1000px; }
 
 .ap6 {
-  /* background-image: url("/stock/rs_aplus6.png"); */
+  background-image: url("/stock/rs_aplus6.png");
   background-size: 2472px 1236px;
   background-position: -216px 0; }
 
@@ -610,11 +607,11 @@ body.Recovery .features {
   color: #ffffff; }
 
 .ad7 {
-  /* background-image: url("/stock/rs_ad7.png"); */
+  background-image: url("/stock/rs_ad7.png");
   background-size: 1000px 1000px; }
 
 .ap7 {
-  /* background-image:url("/stock/rs_aplus7.png"); */
+  background-image: url("/stock/rs_aplus7.png");
   background-size: 2472px 1236px; }
 
 .ad7 .rs_collection_logo,
@@ -654,11 +651,11 @@ body.Recovery .features {
   color: #ffffff; }
 
 .ad8 {
-  /* background-image: url("/stock/rs_ad8.png"); */
+  background-image: url("/stock/rs_ad8.png");
   background-size: 1000px 1000px; }
 
 .ap8 {
-  /* background-image: url("/stock/rs_aplus8.png"); */
+  background-image: url("/stock/rs_aplus8.png");
   background-size: 2472px 1236px; }
 
 .ad8 .rs_collection_logo,
@@ -698,11 +695,11 @@ body.Recovery .features {
   color: #ffffff; }
 
 .ad9 {
-  /* background-image: url("/stock/rs_ad9.png"); */
+  background-image: url("/stock/rs_ad9.png");
   background-size: 1000px 1000px; }
 
 .ap9 {
-  /* background-image: url("/stock/rs_aplus9.png"); */
+  background-image: url("/stock/rs_aplus9.png");
   background-size: 2472px 1236px; }
 
 .ad9 .rs_collection_logo,
