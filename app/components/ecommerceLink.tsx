@@ -10,6 +10,7 @@ interface EcommerceLinkProps {
   identifiers: string; // Array of ASINs or identifiers
   country: string;
   icon: IconProp; // FontAwesome icon for the platform
+  link: string;
 }
 
 const EcommerceLink: React.FC<EcommerceLinkProps> = ({ platform, countryCode, identifiers, country, icon }) => {

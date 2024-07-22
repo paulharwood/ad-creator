@@ -7,6 +7,7 @@ interface GenerateImagesProps {
   sku: string;
   content: string;
   langs: string[];
+  addMessage: (message: string) => void;
 }
 
 const GenerateImages: React.FC<GenerateImagesProps> = ({ sku, content, langs }) => {

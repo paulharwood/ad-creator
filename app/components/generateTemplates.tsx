@@ -9,6 +9,7 @@ interface GenerateTemplatesProps {
   tpl: string;
   numLang: number;
   content: string;
+  addMessage: (message: string) => void;
 }
 
 const GenerateTemplates: React.FC<GenerateTemplatesProps> = ({ sku, tpl, numLang, content }) => {
