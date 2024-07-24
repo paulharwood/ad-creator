@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileImport } from '@fortawesome/free-solid-svg-icons'; 
-import { useActivityFeed } from '../lib/context/ActivityFeedContext'; // Add this import
+import { faFileImport } from '@fortawesome/free-solid-svg-icons';
+import { useActivityFeed } from '../lib/context/ActivityFeedContext';
 
 interface GenerateImagesProps {
   sku: string;
@@ -13,22 +13,27 @@ interface GenerateImagesProps {
 const GenerateImages: React.FC<GenerateImagesProps> = ({ sku, content, langs }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<any>(null);
-  const { addMessage } = useActivityFeed(); // Use the activity feed context
+  const { addMessage } = useActivityFeed();
 
   const imageGenerate = async () => {
-    const url = `/api/generate?sku=${sku}&content=${content}&langs=${langs}`;
+    const url = `/api/generate?sku=${sku}&content=${content}&langs=${langs.join(',')}`;
     console.log('Generating adverts for ' + url);
 
     try {
       setIsLoading(true);
       addMessage(`Attempting to generate ${content} template for ${sku}`);
       const res = await fetch(url);
+
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status} ${res.statusText}`);
+      }
+
       const data = await res.json();
       setResponse(data);
-      addMessage(`✓ Generated ${content} images for ${sku}`); // Add message to activity feed
+      addMessage(`✓ Generated ${content} images for ${sku}`);
     } catch (error: any) {
       console.error('Error fetching data:', error);
-      addMessage(`Error generating images for ${sku}: ${error.message}`); // Log error to activity feed
+      addMessage(`Error generating images for ${sku}: ${error.message}`);
     } finally {
       setIsLoading(false);
     }

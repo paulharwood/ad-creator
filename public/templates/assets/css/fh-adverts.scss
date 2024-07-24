@@ -39,7 +39,6 @@ img.ad_logo {
   font-size: 2.5em;
 }
 
-
 /* conditional */
 
   .is_vegan,
@@ -49,6 +48,43 @@ img.ad_logo {
   .is_gmo_free,
   .is_organic { display: none}
 
+
+.advert {
+  position:relative;
+  width: 1000px;
+  height: 1000px;
+  margin: 0 3em;
+  background-color: #ffffff;
+  color: #1d1d1d;
+}
+
+.advert.featured {
+  width: 1000px;
+  height: 1483px;
+  background-size: 2537px;
+  background-position: -852px -65px;
+}
+
+.aplus {
+  position: relative;
+  width: 2000px;
+  height: 1236px;
+  margin: 0 2em;
+  background-color: #ffffff;
+
+  .divider-vertical-center {
+  position: absolute;
+  top: 0;
+  left: 970px;
+  width: 60px;
+  height: 100%;
+  background-color: #fff;
+  }
+}
+/* slabs */
+.slab {
+  opacity:0.2;
+}
 
 /* Bullet Icons */
 .bullet-icon {
@@ -65,179 +101,76 @@ img.ad_logo {
 }
 .bullet {
   width:230px;
-  position : absolute;
-  color:#1B1B1B;
 }
-.aplus .bullet {
-  width: 440px;
-}
-
+.aplus 
+ {
+  .bullet {
+    width: 150px;
+    height: 280px;
+    position:relative;
+    background-image: url('/templates/assets/images/fh/circle01.svg');
+    background-repeat: no-repeat;
+  }
+  .bullet::before {
+    width: 100px;
+    height: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    top: -4px;
+    left: -4px;
+  }
+   svg {
+    width:100%;
+    z-index: 2;
+    position: absolute;
+    top:3px;
+    left:3px;
+    
+    path {
+      display: none;
+    }    
+  }
+ }
 .bullet::before {
   content: '';
   position: absolute;
-  top:0;
-  left:0;
-  width: 230px;
-  height: 230px;
-  -moz-border-radius: 230px;
-  -webkit-border-radius: 230px;
-  border-radius: 230px;
-  background-color:#ffffff;
-  z-index:1;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  z-index: 1;
 }
-
-.aplus .bullet::before {
-  width: 440px;
-  height: 440px;
-  -moz-border-radius: 440px;
-  -webkit-border-radius: 440px;
-  border-radius: 440px;
-  top: -4px;
-  left: -4px;
-}
-
-
-.bullet svg {
-  width:100%;
-  z-index: 2;
-  position: absolute;
-  top:3px;
-  left:3px;
-}
-
-.ad2 .bullet-0 {
-  top: 100px;
-  left: 100px
-}
-
-.ad2 .bullet-1 {
-  top: 222px;
-  left: 320px;
-}
-
-.ad2 .bullet-2 {
-  top: 353px;
-  left: 100px;
-}
-
-.ad2 .bullet-3 {
-  top: 479px;
-  left: 320px;
-}
-
-.ad2 .bullet-4 {
-  top: 600px;
-  left: 100px;
-}
-
-/* aplus */
-.ap2 .bullet-0 {
-  top: 170px;
-  left: 100px
-}
-
-.ap2 .bullet-1 {
-  top: 600px;
-  left: 350px;
-}
-
-.ap2 .bullet-2 {
-  top: 170px;
-  left: 600px;
-}
-
-.ap2 .bullet-3 {
-  top: 600px;
-  left: 850px;
-}
-
-.ap2 .bullet-4 {
-  top: 170px;
-  left: 1100px;
-}
-
-
-.advert {
-  width: 1000px;
-  height: 1000px;
-  margin: 0 3em;
-  background-color: #ffffff;
-  color: #1d1d1d;
-}
-.advert.featured {
-  width: 1000px;
-  height: 1483px;
-  background-size: 2537px;
-  background-position: -852px -65px;
-}
-.aplus {
-  width: 2000px;
-  height: 1236px;
-  margin: 0 2em;
-  background-color: #ffffff;
-}
-
-.aplus .divider-vertical-center {
-  position:absolute;
-  top:0;
-  left: 970px;
-  width:60px;
-  height:100%;
-  background-color: #fff;
-}
-
 /* ADVERTS AND APLUS */
 
 .aplus,
 .advert {
   position: relative;
-  background-size: 3236px 2000px;
-  margin-bottom:4em;
-  border-radius: 6em;
-}
-.aplus h1,
-.advert h1 {
-  font-size: 10em;
-  position: absolute;
-  font-family: "New York";
-  font-weight: 700;
-  letter-spacing: -0.07em;
-  line-height: 0.86;
-}
-.aplus h2,
-.advert h2,
-.aplus .key_feature_title,
-.advert .key_feature_title {
-  font-size: 7.7em;
-  position: absolute;
-  font-family: "New York";
-  font-weight: 700;
-  letter-spacing: -0.07em;
-  line-height: 0.86;
-}
-.aplus h2,
-.advert h2,
-.aplus .key_feature_subtitle,
-.advert .key_feature_subtitle {
-  font-size: 7.7em;
-  position: absolute;
-  font-family: "New York";
-  font-weight: 700;
-  letter-spacing: -0.07em;
-  line-height: 0.86;
-}
-.aplus h3,
-.advert h3 {
-  font-size: 2.95em;
-  position: absolute;
-  font-family: "DIN 2014", monospace;
-  font-weight: 400;
-  /* letter-spacing: -0.07em; */
-  line-height: 1.2;
+  margin-bottom: 4em;
+  border: 1px solid red;
+
+  h1 {
+    font-size: 10em;
+    position: absolute;
+    font-family: "New York";
+    font-weight: 700;
+    letter-spacing: -0.07em;
+    line-height: 0.86;
+  }
+  h3 {
+    font-size: 2.95em;
+    position: absolute;
+    font-family: "DIN 2014", monospace;
+    font-weight: 400;
+    /* letter-spacing: -0.07em; */
+    line-height: 1.2;
+  }
 }
 
-
-/* ADVERT 1 & APLUS 1*/
+/* ad1 and ap1 ==================================== */
 .ad1,
 .ad1_accent {
   background-image: url("../images/rs_ad1.png");
@@ -249,49 +182,175 @@ img.ad_logo {
 .ap1,
 .ap1_accent {
   background-image: url("../images/rs_aplus1.png");
-  background-position: -50px -20px;
+  background-position: 0 0;
   background-repeat: no-repeat;
-  background-size: 2051px;
+  background-size: 100%;
 }
 
-.ap1 .key_feature_title,
-.ap1_accent .key_feature_title {
-  width: 740px;
-  left: 1140px;
-  top: 190px;
-  font-size: 9em;
-  color: #1d1d1d;
+
+.ap1 {
+  .key_feature_title {
+    position: absolute;
+    font-family: "New York";
+    font-weight: 500;
+    letter-spacing: -0.07em;
+    line-height: 0.86;
+    width: 780px;
+    left: 1160px;
+    top: 560px;
+    z-index:2;
+    font-size: 11em;
+  }
+  .key_feature_subtitle {
+    position: absolute;
+    top: 730px;
+    left: 1160px;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 2;
+  }
+  .slab02 {
+    position: absolute;
+    top: 320px;
+    right: 130px;
+    width: 710px;
+    z-index: 1;
+  }
 }
-.ap1_accent  .key_feature_title{
+
+
+.ad2 
+{
+  .bullet-0 {
+    top: 100px;
+    left: 100px
+  }
+
+  .bullet-1 {
+    top: 222px;
+    left: 320px;
+  }
+
+  .bullet-2 {
+    top: 353px;
+    left: 100px;
+  }
+
+  .bullet-3 {
+    top: 479px;
+    left: 320px;
+  }
+
+  .bullet-4 {
+    top: 600px;
+    left: 100px;
+  }
+
+}
+
+
+/* ad2 and ap2 ==================================== */
+
+.ad2,
+.ap2 {
+  background-image: url("../images/rs_ad2.png");
+}
+
+.ap2 
+{
+  .bullets {
+    display: flex;
+    position: absolute;
+    top:800px;
+    left: 100px;
+    right: 100px;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .bullet-description {
+    text-align: center;
+    font-size:2em;
+    margin-top:180px;
+  }
+  svg text {
+    display: none;
+  }
+
+  .product_subtitle {
+    text-transform: uppercase;
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    font-size: 2.7em;
+    letter-spacing: 0.2em;
+    width: 690px;
+    line-height: 1.7;
+    z-index: 2;
+  }
+  
+  .product_description {
+    position: absolute;
+    top: 360px;
+    left: 300px;
+    font-size: 2em;
+    width: 690px;
+    line-height: 1.5;
+    z-index: 2;
+  }
+
+  .key_feature_subtitle {
+    position: absolute;
+    left: 1158px;
+    top: 400px;
+    text-transform: uppercase;
+    font-size: 3em;
+    letter-spacing: 0.2em;
+  }
+  .feature_art_container {
+    position: absolute;
+    top: 20px;
+    right: 130px;
+    width: 750px;
+  }
+
+  .disclaimer_text {
+    position: absolute;
+    bottom: 40px;
+    left:0;
+    right:0;
+    text-align: center;
+  }
+
+  .slab03 {
+    position: absolute;
+      top: 50px;
+      left: 90px;
+      width: 710px;
+      z-index: 1;
+  }
 
 }
 
 /* ADVERT 2 & APLUS 2*/
 .ad2 {
   .disclaimer_text {
-      position: absolute;
-      bottom: 60px;
-      left: 100px;
-      font-size: 1.6em;
-      width: 20em;
-    }
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    font-size: 1.6em;
+    width: 20em;
+  }
 }
 
 
-.ad2, .ap2 {
-  background-image: url("../images/rs_ad2.png");
 
-}
 .advert.ad2 {
   background-position-x: -341px;
-  background-size: 1617px;  
+  background-size: 1617px;
 }
 
-
- 
-.ap2 .disclaimer_text {
-  bottom:90px;
-}
 
 .ad2 h2 {
   top: 27px;
@@ -351,29 +410,105 @@ img.ad_logo {
 }
 
 
-/* ADVERT 3 & APLUS 3*/
+/* ad3 and ap3 ==================================== */
 .ad3 {
   background-image: url("../images/rs_ad3.png");
 }
 
 .ap3 {
   background-image: url("../images/rs_aplus3.png");
+  background-size: 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  .bullet {
+    position: absolute;
+    height: 120px;
+    width:120px;
+  }
+  .bullet.bullet1 {
+    top: 200px;
+    left: 670px;
+    transform: rotate(13deg);
+  }
+
+  .bullet.bullet2 {
+
+    top: 230px;
+    left: 1180px;
+    height: 150px;
+    transform: rotate(63deg);
+  }
+
+  .bullet.bullet3 {
+    top: 730px;
+    left: 670px;
+    height: 150px;
+    transform: rotate(292deg);
+  }
+
+  .bullet.bullet4 {
+    top: 800px;
+    left: 1200px;
+    transform: rotate(212deg);
+  }
+
+
+  .feature {
+    width:400px;
+    height:400px;
+    position:absolute;
+
+  .feature_copy {
+      max-width: 13em;
+      font-size: 1.8em;
+      padding-top: 4em;
+      padding-left: 1.5em;
+    
+      h2 {
+        font-size:1em;
+        font-weight:700;
+      }
+    }
+  }
+
+
+  .feature.feature1 {
+    top: 100px;
+    left: 310px;
+   }
+  .feature.feature2 {
+    top: 130px;
+    left: 1300px;
+        .feature_copy {
+            padding-left: 2.5em;
+          }
+  }
+  .feature.feature3 {
+    top: 640px;
+    left: 270px;
+    .feature_copy {
+      padding-left: 3.5em;
+    }
+  }
+  .feature.feature4 {
+    top: 660px;
+    left: 1290px;
+        .feature_copy {
+            padding-left: 3.5em;
+          }
+  }
 }
 
-.ad3,
-.ap3 {
-  background-size: 2720px;
-  background-position: top right;
 
-}
 
-.ad3 > h2,
-.ap3 > h2 {
+.ad3>h2,
+.ap3>h2 {
   bottom: 177px;
   left: 96px;
 }
 
-.ad3 .certificate, 
+.ad3 .certificate,
 .ap3 .certificate {
   position: absolute;
   top: 73px;
@@ -384,85 +519,67 @@ img.ad_logo {
   background-repeat: none;
   background-size: cover;
   text-align: center;
-}
-.ad3 .certificate h1,
-.ap3 .certificate h1 {
+
+  h1 {
   position: relative;
   font-size: 13em;
-  margin-bottom:0;
-}
-
-.ap3 .certificate h1 {
-  font-size: 15em;
-  margin-top: 150px;
-}
-
-.ad3 .certificate h2,
-.ap3 .certificate h2 {
+  margin-bottom: 0;
+  }
+  
+  h2 {
   position: relative;
-  font-size:6.5em;
+  font-size: 6.5em;
   margin: 0;
+  }
 }
 
+/* ad4 and ap4 ==================================== */
 
-
-.ad3 .bullet-0 {
-  top:90px;
-  left:670px;
-}
-.ad3 .bullet-1 {
-  top: 390px;
-  left: 670px;
-}
-.ad3 .bullet-2 {
-  top: 690px;
-  left: 670px;
-}
-
-
-.ap3 .bullet-0 {
-  top: 500px;
-  left: 547px;
-}
-
-.ap3 .bullet-1 {
-  top: 230px;
-  left: 1010px;
-}
-
-.ap3 .bullet-2 {
-  top: 500px;
-  left: 1470px;
-}
-
-
-/* ADVERT 4 & APLUS 4*/
 .ad4 {
   background-image: url("../images/rs_ad4.png");
   background-position: -40px -40px;
   background-size: 1750px;
 }
-.ad4 .logos {
-  position: absolute;
-  right: 82px;
-  bottom: 39px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-.ad4 .logos img {
-   width: 138px;
-}
 
-.ap4 .logos {
-  position: absolute;
-  left: 904px;
-  bottom: 46px;
-  display: flex;
-  flex-direction: column-reverse;
-}
-.ap4 .logos img {
-  width: 130px;
-  margin-right: 40px;
+.ap4 {
+  .safe_headline {
+      font-family: "New York";
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      font-size: 11em;
+      font-weight: 500;
+      letter-spacing: -0.07em;
+      line-height: 0.86;
+    }
+    .safe_copy {
+        position: absolute;
+        top: 590px;
+        left: 210px;
+        width: 20em;
+        font-size: 3em;
+     }
+    .logos {
+      position: absolute;
+      left: 904px;
+      bottom: 46px;
+      display: flex;
+      flex-direction: row;
+      /* align-content: flex-start; */
+      align-items: flex-start;
+    }
+    .logos img {
+      width: 130px;
+    }
+
+    .hero {
+      position:absolute;
+      top:200px;
+      right:200px;
+      width:700px;
+      height:600px;
+      background-image: url("/templates/assets/images/fh/circle03.svg");
+    }
 }
 
 .guarantee_text {
@@ -485,10 +602,7 @@ img.ad_logo {
   left: 106px;
 }
 
-.ap4 {
-  background-image: url("../images/rs_aplus4.png");
-  background-position: -240px 0px;
-}
+
 
 /* ADVERT 5 & APLUS 5*/
 

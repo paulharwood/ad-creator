@@ -24,13 +24,17 @@
 
   </script>
 
+
   <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
   <!-- conditional/inline styles -->
   <style>
+      .slab svg rect {
+        fill:{{brand_colour}}
+      }
    .keyword_title {
         font-size:{{keyword_title_size}}pt;
       }
-      .ad1 {
+      .ad1, .ap3 {
         background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
       }
       .ap1 {
@@ -42,7 +46,7 @@
       .ad3, .ap3 {
         {{!-- background-image: url("/stock/shutterstock_2146195251.jpg"); --}}
       }
-      .ad4, .ap4 {
+      .ad4 {
         background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
       }
       .ad5, .ap5  {
@@ -62,7 +66,7 @@
   </style>
 </head>
 
-<body class="{{rs_collection}}">
+<body>
   <div id="google_translate_element"></div>
   <div class="content">
     <h2>Adverts</h2>
@@ -72,7 +76,12 @@
       <div class="advert ad1">
       </div>
       <div class="advert ad2">
-        {{{AD_BULLETS_HTML}}}
+        <div class="feature_art_container">
+          <img src="/templates/assets/images/fh/feature-art-{{feature_image_code}}.svg" class="feature_art" />
+        </div>
+        <div class="bullets">
+          {{{AD_BULLETS_HTML}}}
+        </div>
         <div class="disclaimer_text">
           <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits
             above.</p>
@@ -118,38 +127,154 @@
       <div class="advert ad9">
       </div>
     </div>
+    
     <h2>A+ Content</h2>
+
     <div class="aplus_content">
       <div class="aplus ap1">
         <div class="key_feature_title">{{keyword_title}}</div>
-        <div class="key_featture_subtitle">{{keyword_subtitle}}</div>
+        <div class="key_feature_subtitle">{{keyword_subtitle}}</div>
+        <div class="slab slab02">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab02)" />
+            <defs>
+              <mask id="slab02">
+                <image href="/templates/assets/images/fh/slab02.svg" x="0" y="0" width="200" height="200" />
+              </mask>
+            </defs>
+          </svg>
+        </div>
+
+
       </div>
       <div class="aplus ap2">
-        {{{AD_BULLETS_HTML}}}
+        <div class="product_subtitle">{{label_title}}</div>      
+        <div class="product_description">{{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}</div>
+        <div class="slab slab03">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
+            <defs>
+              <mask id="slab03">
+                <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
+              </mask>
+            </defs>
+          </svg>
+        </div>
+        <div class="feature_art_container">
+          <img src="/templates/assets/images/fh/feature-art-{{feature_image_code}}.svg" class="feature_art" />
+        </div>
+        <div class="bullets">
+          {{{AD_BULLETS_HTML}}}
+        </div>
         <div class="disclaimer_text">
           <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits
             above.</p>
         </div>
       </div>
       <div class="aplus ap3">
-        <h2>Quality<br />assured.</h2>
-        <div class="certificate">
-          <h1>100%</h1>
-          <h2>Satisfaction</h2>
-        </div>
-        {{{CUSTOM_BULLETS_HTML}}}
-        <div class="guarantee_text">
-          <p>We are confident that you will be happy with your purchase from us.</p>
-          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
-        </div>
+          <div class="bullets">
+            <div class="bullet bullet1"></div>
+            <div class="bullet bullet2"></div>
+            <div class="bullet bullet3"></div>
+            <div class="bullet bullet4"></div>
+            <div class="feature feature1">
+              <div class="feature_copy">
+                <h2>Feature Copy Title</h2>
+                {{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}
+              </div>
+              <div class="slab slab04">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                  <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
+                  <defs>
+                    <mask id="slab03">
+                      <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
+                    </mask>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="feature feature2">
+              <div class="feature_copy">
+                <h2>Feature Copy Title</h2>
+                {{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}
+              </div>
+              <div class="slab slab04">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                  <rect width="200" height="200" fill="#eeeeee" mask="url(#slab04)" />
+                  <defs>
+                    <mask id="slab04">
+                      <image href="/templates/assets/images/fh/slab04.svg" x="0" y="0" width="200" height="200" />
+                    </mask>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="feature feature3">
+              <div class="feature_copy">
+                <h2>Feature Copy Title</h2>
+                {{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}
+              </div>
+              <div class="slab slab07">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                  <rect width="200" height="200" fill="#eeeeee" mask="url(#slab07)" />
+                  <defs>
+                    <mask id="slab07">
+                      <image href="/templates/assets/images/fh/slab07.svg" x="0" y="0" width="200" height="200" />
+                    </mask>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div class="feature feature4">
+              <div class="feature_copy">
+                <h2>Feature Copy Title</h2>
+                {{KEY_FEATURE_COPY}}{{KEY_FEATURE_COPY}}
+              </div>
+              <div class="slab slab06">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+                  <rect width="200" height="200" fill="#eeeeee" mask="url(#slab06)" />
+                  <defs>
+                    <mask id="slab06">
+                      <image href="/templates/assets/images/fh/slab06.svg" x="0" y="0" width="200" height="200" />
+                    </mask>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
       </div>
       <div class="aplus ap4">
+          <div class="safe_headline">
+            Safe, effective<br> and simple<br> to take.
+          </div>
+          <div class="safe_copy">
+            Our tablets and capsules are responsibly sourced, they meet our high safety standards and are sized as small as possible for effective dosage. Their convenient form
+            makes them simple to incorporate into any daily routine.
+          </div>
+          <div class="quality">
+            <h2>Quality<br />assured.</h2>
+            <div class="certificate">
+              <h1>100%</h1>
+              <h2>Satisfaction</h2>
+            </div>
+            <div class="guarantee_text">
+              <p>We are confident that you will be happy with your purchase from us.</p>
+              <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+            </div>
+          </div>
+         <div class="hero">
+            <div class="hero_photo"></div>
+         </div>
         <div class="logos">
+          <img class="made_in_britain" src="/templates/assets/images/fh/made_in_britain.svg" />
+          <img class="haccp" src="/templates/assets/images/fh/haccp.svg" />
           <!-- conditional -->
           <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
           <img class="is_vegan" src="images/vegan-logo.svg" />
           <img class="is_halal" src="images/halal-logo.svg" />
           <img class="is_kosher" src="images/kosher-logo.svg" />
+          <img lass="food_supplement" src="/templates/assets/images/fh/food-supplement.svg"  />
+          <img lass="fh_logo_black" src="/templates/assets/images/fh/fh-logo-black.svg"  />
         </div>
       </div>
       <div class="aplus ap5">
@@ -160,6 +285,8 @@
         </div>
       </div>
       <div class="aplus ap6">
+                {{{CUSTOM_BULLETS_HTML}}}
+
       </div>
     </div>
     <pre>
@@ -200,6 +327,7 @@
 
     </pre>
   </div>
+
 </body>
 
 </html>

@@ -86,14 +86,14 @@ const CategorySelectorRow: React.FC<Props> = ({
         )}
       </td>
       <td className='align-top px-6 py-3'>
-        <GenerateTemplates sku={product.sku} addMessage={addMessage}tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='front' />
-        <GenerateTemplates sku={product.sku} addMessage={addMessage}tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='back' />
-        <GenerateTemplates sku={product.sku} addMessage={addMessage}tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='adverts' />
+        <GenerateTemplates sku={product.sku} addMessage={addMessage} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='front' />
+        <GenerateTemplates sku={product.sku} addMessage={addMessage} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='back' />
+        <GenerateTemplates sku={product.sku} addMessage={addMessage} tpl={getMetaField(product.meta_data, 'three_d_template')} numLang={5} content='adverts' />
       </td>
-      <td className='align-top px-6 py-3'>
-        <GenerateImages sku={product.sku} addMessage={addMessage}content='front' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
-        <GenerateImages sku={product.sku} addMessage={addMessage}content='back' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
-        <GenerateImages sku={product.sku} addMessage={addMessage}content='adverts' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} />
+      <td className='align-top px-6 py-3'>                 
+        <GenerateImages sku={product.sku}  content='front' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} addMessage={addMessage} />
+        <GenerateImages sku={product.sku}  content='back' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} addMessage={addMessage} />
+        <GenerateImages sku={product.sku}  content='adverts' langs={['en', 'de', 'es', 'it', 'fr', 'pl', 'nl', 'se']} addMessage={addMessage} />
       </td>
       <td className='align-top px-6 py-3'>
         {featureIconsArray.map((icon, index) => (

@@ -1,14 +1,12 @@
 
 import * as puppeteer from 'puppeteer';
-import { promises as fs } from 'fs';
-import { resolve, join } from 'path';
 
 const Label_Capture = async ( sku: string, content: string) => {
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    const url = `http://localhost:57538/sku/${sku}/${sku}.${content}.en`;
+    const url = `http://localhost:57538/sku/${sku}/${sku}.${content}.en.html`;
 
     console.log(url);
 
@@ -19,6 +17,7 @@ const Label_Capture = async ( sku: string, content: string) => {
 
     // generate a png for the render
     const label = await page.$$('.label');
+    console.log(label);
     await label[0].screenshot({ path:`public/sku/${sku}/${sku}_label_${content}.png` , omitBackground: true });
 
     // generate a pdf for the printer

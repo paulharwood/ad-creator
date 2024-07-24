@@ -44,6 +44,7 @@ const Bullets: React.FC<BulletsProps> = ({ bullets_text, icons }) => {
                         ${iconElement}
                     </foreignObject>
                 </svg>
+                <div class="bullet-description">${line}</div>
           </div>
         `;
     };
