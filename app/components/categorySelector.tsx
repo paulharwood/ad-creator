@@ -38,7 +38,7 @@ const CategorySelector: React.FC = () => {
   const fetchProducts = useCallback(async () => {
     if (selectedCategory !== null) {
       setLoading(true);
-      const perPage = 50;
+      const perPage = 100;
       try {
         const { products, pagination } = await getProductsByCategory(selectedCategory, currentPage, perPage);
         setProducts(products);

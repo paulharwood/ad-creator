@@ -1,0 +1,7 @@
+sku,template,type,shape,colour,size,numLang,rs_colour
+S_GARLC-SG_2MG_120_40MG_M,fh-captab,SG,RO,#e3c102,7,5,
+S_HMP-O-SG_1000MG_60_100G_M,fh-captab,SG,,#e3c102,26,5,
+S_OMG-3-SG_1000MG_60_95G_M,fh-captab,SG,OV,#e3c102,26,5,
+S_VIT-D3-SG_10000IU_120_50G_M,fh-captab,SG,OV,#e3c102,12,5,
+S_VIT-D3-SG_2000IU_120_30G_M,fh-captab,SG,OV,#e3c102,12,5,
+S_VIT-E-SG_100IU_60_50G_M,fh-captab,SG,OV,#e3c102,10,5,

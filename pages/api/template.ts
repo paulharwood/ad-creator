@@ -8,6 +8,9 @@ import translate from "translate";
 
 // template helpers
 import Bullets from '@/app/lib/template_helpers/bullets';
+import Features from '@/app/lib/template_helpers/features';
+import ProductDescription from '@/app/lib/template_helpers/productDescription';
+
 
 handlebars.registerHelper('eq', function (a, b) {
   return a === b;
@@ -15,7 +18,7 @@ handlebars.registerHelper('eq', function (a, b) {
 
 translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
 // translate.key = process.env.DEEPL_KEY;
-translate.key = "6d6577df-6c4e-4e2a-924e-3d5b29c67d74:fx";
+translate.key = "6df78c7a-1def-4d2f-a7ed-b0e3a2217524";
 
 // Assuming the structure of the product data
 interface ProductData {
@@ -73,7 +76,7 @@ async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
 
   try {
     const skuData: SkuData = await getSkuData(wcData); // Call the getSkuData function with the SKU parameter
-    console.log(skuData.message); // Log the message returned by the function
+    // console.log(skuData.message); // Log the message returned by the function
 
     // convert the wordpress format to k/v object
     const transformedData: ProductData = {};
@@ -83,9 +86,9 @@ async function fetchSkuData(wcData: SkuData): Promise<SkuData> {
     skuData.product.meta_data = transformedData;
 
     if (skuData.template) {
-      console.log("Template:", skuData.template); // Log the template if available
+      // console.log("Template:", skuData.template); // Log the template if available
     }
-    console.log(skuData);
+    // console.log(skuData);
 
     return skuData; // Return the skuData object
   } catch (error) {
@@ -113,7 +116,6 @@ function convertTrue(obj: { [key: string]: string }): { [key: string]: string } 
 }
 
 const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuData) => {
-  // const { tpl = 'demo',  sku = 'S_RASP-KET-CP_1000MG_120_80G_M', content = front|back|adverts  } = req.query; // Template name from query parameter
 
   // #TODO refactor the actions to handle this better 
   const { tpl, sku, content} = req.query;
@@ -162,10 +164,25 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // convert TRUE to block for display:block
       const metaData = convertTrue(wcRet.product.meta_data);
       
-      console.log(metaData);
+      // console.log(metaData);
       // pull in some wc specifics
       metaData.sku = wcRet.product.sku;
       metaData.product_id = wcRet.product.id;
+      metaData.description = wcRet.product.description;
+
+      const minWords = 30;
+
+      metaData.product_description = ProductDescription({ description: metaData.description, minWords }) as string;
+
+      
+      const featuresArr = Features({ description: metaData.description }) as string[];
+
+      if (featuresArr.length > 0) {
+        metaData.feature_one = featuresArr[0];
+        metaData.feature_two = featuresArr[1];
+        metaData.feature_three = featuresArr[2];
+        metaData.feature_four = featuresArr[3];
+      }
 
       if (metaData.feature_image_code !== undefined && metaData.feature_image_code !== null && metaData.feature_image_code !== '') {
           // Ensure feature_image_code is a string before checking length
@@ -174,8 +191,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
           }
       }
 
-
-      
         // Define the type for translations object
         type Translations = {
           [key: string]: {
@@ -185,10 +200,10 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
         const translations: Translations = {};
 
-
       // Define the type for langData object
       type LangData = {
         suggested_use: string;
+        description: string[];
         ingredients: string;
         label_title: string;
         keyword_title: string;
@@ -203,6 +218,7 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // extract the metadata we need, translatable
       const langData = {
         suggested_use: metaData.suggested_use,
+        description: metaData.description,
         ingredients: metaData.ingredients,
         label_title: metaData.label_title,
         keyword_title: metaData.keyword_title,
@@ -212,7 +228,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
         ALLERGENS_EN: metaData.ALLERGENS_EN || 'None',
         keyword_subtitle:  metaData.keyword_subtitle
       }
-
         // Loop through each language in the languages array
         for (const language of languages) {
           translations[language] = {};
@@ -223,7 +238,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
             translations[language][key] = translatedValue;
           }
         }
-
 
       const units = metaData.units_in_pack.split(" ");
 
@@ -257,8 +271,6 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
       // // copy the images directory over
       await fs.cp(cssDir, publicDir + '/css/', {recursive: true});  
       
-
-
         //collect the languages into one 
         languages.forEach( async (language) => {
          if (language !== 'en') { // dont need english
@@ -300,11 +312,10 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
           icons = iconsText.split(',');
 
           metaData.CUSTOM_BULLETS_HTML = Bullets({ bullets_text, icons}) as string;
-
           metaData.language = language;
 
 
-          console.log('language', metaData.language);
+          // console.log('language', metaData.language);
           // Render the template with the product data and save it to the public folder
           const finalHTML = template(metaData);
           const publicPath = join(publicDir, `${sku}.${content}.${language}.html`);
@@ -314,12 +325,10 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 
         });
 
-     
       // Respond to the request indicating success
       res.status(200).json({ message: 'Template rendered and saved to disk', templateSource });
     } else {
       res.status(500).json({ message: 'Product meta_data not present' });
-
     }
   } catch (error) {
     console.error(error);
@@ -328,3 +337,5 @@ const Template = async (req: NextApiRequest, res: NextApiResponse, wcData: SkuDa
 };
 
 export default Template;
+
+
