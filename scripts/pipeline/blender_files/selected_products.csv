@@ -1,8 +1,0 @@
-sku,template,type,shape,colour,size,numLang,rs_colour
-RS_AAKG-CP_500MG_60_50G_M,rs-captab,CP,OB,#ffffff,20,5,Performance
-RS_COL-BOV-CP_400MG_60_60G_M,rs-captab,CP,OB,#faf8bb,20,5,Recovery
-RS_CREAT-CP_750MG_60_50G_M,rs-captab,CP,OB,#ffffff,23,5,Maintenance
-RS_L-ARG-CP_500MG_60_60G_M,rs-captab,CP,OB,#ffffff,20,5,Performance
-RS_RASP-KET-CP_1000MG_60_40G_M,rs-captab,CP,OB,#ffffff,20,5,Maintenance
-RS_TONG-CP_620MG_60_65G_M,rs-captab,CP,OB,#cfb68c,23,5,Performance
-RS_TRIB-CP_6750MG_60_65G_M,rs-captab,CP,OB,#6b4207,20,5,Performance

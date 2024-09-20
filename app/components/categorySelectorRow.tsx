@@ -57,7 +57,7 @@ const CategorySelectorRow: React.FC<Props> = ({
       </td>
       <td>
         <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat rotate-180`} style={{ backgroundImage: `url('/sku/${product.sku}/${product.sku}_label_front.png')` }}></div>
-        <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{ backgroundImage: `url('/ads/${product.sku}/p/en/${product.sku}_advert_0.en.png')` }}></div>
+        <div className={`inline-block h-20 w-20 bg-contain bg-center bg-no-repeat`} style={{ backgroundImage: `url('/ads/${product.sku}/en/${product.sku}_advert_0.en.png')` }}></div>
       </td>
       <td className='align-top px-6 py-3'>
         <Link href={`https://inventory.fitnesshealth.co/?product=${product.sku}`} target='_blank'>

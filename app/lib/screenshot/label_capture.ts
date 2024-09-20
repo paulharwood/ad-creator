@@ -6,7 +6,7 @@ const Label_Capture = async ( sku: string, content: string) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    const url = `http://localhost:57538/sku/${sku}/${sku}.${content}.en.html`;
+    const url = `http://localhost:57538/sku/${sku}/${sku}.${content}.en`;
 
     console.log(url);
 
