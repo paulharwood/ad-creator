@@ -40,12 +40,6 @@
       .ap1, .ad2 {
         background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
       }
-      .ad2, .ap2 {
-        /*background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");*/
-      }
-      .ad3, .ap3 {
-        {{!-- background-image: url("/stock/shutterstock_2146195251.jpg"); --}}
-      }
       .ad8 {
         background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
       }
@@ -57,15 +51,10 @@
       .is_kosher { display: {{kosher}};}
       .is_gmo_free { display: {{gmo_free}};}
       .is_organic { display: {{organic}};}
-
-      .ad5 .rs_logos img.{{rs_collection}},
-      .ap5 .rs_logos img.{{rs_collection}} {
-        display:block
-      }
   </style>
 </head>
 
-<body>
+<body class="{{three_d_template}}"> 
   <div id="google_translate_element"></div>
   <div class="content">
     <h2>Adverts</h2>
@@ -254,6 +243,8 @@
                     <p>{{three_d_size}}
                       {{three_d_type}}
                       {{three_d_shape}}</p>
+                      <div class="captab_guide" style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2*{{three_d_size}}mm)">
+                      </div>
                   </div>
                 </td>
               </tr>
@@ -490,6 +481,9 @@
                     <p>{{three_d_size}}
                     {{three_d_type}}
                     {{three_d_shape}}</p>
+                    <div class="captab_guide"
+                      style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2.5*{{three_d_size}}mm)">
+                    </div>
                   </div>                
                 </td>
               </tr>

@@ -29,21 +29,11 @@
   <!-- conditional/inline styles -->
   <style>
     .slab svg rect {
-      fill: {
-          {
-          brand_colour
-        }
-      }
+      fill: {{brand_colour}}
     }
 
     .keyword_title {
-      font-size: {
-          {
-          keyword_title_size
-        }
-      }
-
-      pt;
+      font-size: {{keyword_title_size}}pt;
     }
 
     .ad1,
@@ -57,108 +47,21 @@
       background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
     }
 
-    .ad2,
-    .ap2 {
-      /*background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");*/
-    }
-
-    .ad3,
-    .ap3 {
-        {
-          {
-          !-- background-image: url("/stock/shutterstock_2146195251.jpg");
-          --
-        }
-      }
-    }
-
     .ad8 {
       background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
     }
 
-    .ad5,
-    .ap5 {}
+    .is_vegan { display: {{is_vegan}};}
+    .is_vegetarian { display: {{is_vegetarian}};}
+    .is_halal { display: {{halal}};}
+    .is_kosher { display: {{kosher}};}
+    .is_gmo_free { display: {{gmo_free}};}
+    .is_organic { display: {{organic}};}
 
-    .is_vegan {
-      display: {
-          {
-          is_vegan
-        }
-      }
-
-      ;
-    }
-
-    .is_vegetarian {
-      display: {
-          {
-          is_vegetarian
-        }
-      }
-
-      ;
-    }
-
-    .is_halal {
-      display: {
-          {
-          halal
-        }
-      }
-
-      ;
-    }
-
-    .is_kosher {
-      display: {
-          {
-          kosher
-        }
-      }
-
-      ;
-    }
-
-    .is_gmo_free {
-      display: {
-          {
-          gmo_free
-        }
-      }
-
-      ;
-    }
-
-    .is_organic {
-      display: {
-          {
-          organic
-        }
-      }
-
-      ;
-    }
-
-    .ad5 .rs_logos img. {
-        {
-        rs_collection
-      }
-    }
-
-    ,
-    .ap5 .rs_logos img. {
-        {
-        rs_collection
-      }
-    }
-
-      {
-      display: block
-    }
   </style>
 </head>
 
-<body>
+<body class="{{three_d_template}}">
   <div id="google_translate_element"></div>
   <div class="content">
     <h2>Adverts</h2>
@@ -345,6 +248,12 @@
                 <td colspan="2">
                   <div class="size">
                     <h3>Size Guide</h3>
+                    <p>{{three_d_size}}
+                      {{three_d_type}}
+                      {{three_d_shape}}</p>
+                    <div class="captab_guide"
+                      style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2*{{three_d_size}}mm)">
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -383,7 +292,7 @@
             like you.</h2>
           <p>A family run company, we were inspired to help people all around the world by our late mother and mentor
             Jenny.
-            Trained as a nurse, working with natural remedies for over 40 years, Jenny inspired our journey to help
+            Trained as a nurse and working with natural remedies for over 40 years, Jenny inspired our journey to help
             people help
             themselves feel better and live their best life.</p>
           <p>Our standards for quality are driven by our desire to treat each and every customer with care and respect,
@@ -589,6 +498,12 @@
                 <td>
                   <div class="size">
                     <h3>Size Guide</h3>
+                    <p>{{three_d_size}}
+                      {{three_d_type}}
+                      {{three_d_shape}}</p>
+                    <div class="captab_guide"
+                      style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2.5*{{three_d_size}}mm)">
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -604,8 +519,8 @@
             of people just
             like you.</h2>
           <p>A family run company, we were inspired to help people all around the world by our late mother and mentor
-            Jenny. Trained as a nurse, working with natural remedies for over 40 years, Jenny inspired our journey to
-            help people help themselves feel better and live their best life.</p>
+            Jenny. Trained as a nurse and working daily with natural remedies for over 40 years, Jenny inspired our
+            journey to help people help themselves feel better and live their best life.</p>
           <p>Our standards for quality are driven by our desire to treat each and every customer with care and respect,
             as she did and would.</p>
         </div>

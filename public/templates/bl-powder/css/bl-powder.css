@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+body {
+  color: #222222;
+}
+.b_logo path,
+.b_icon path {
+  fill: #222222;
+}
+
+
+.label {
+/*border:1px solid #333;
+background-image: url('/templates/fh-captab/images/guide.png');
+background-size: cover; */
+color: inherit;
+font-family: 'Comfortaa', sans-serif;
+overflow: hidden;
+}
+
+.label_background_top,
+.label_background_bottom {
+/* background-color:transparent */
+}
+
+.b_icon_container {
+  position: absolute;
+  top: 41mm;
+  left: 0;
+  right: 0;
+  height: 6mm;
+  text-align: center;
+}
+
+.b_icon {
+  width:34mm;
+  height:14mm;
+  margin:auto;
+  padding:2mm;
+}
+
+.feature_art_container {
+  position:absolute;
+  text-align: center;
+  top:62mm;
+  width:100%;
+}
+.feature_art_container::before {
+  content: "";
+  background-color: rgba(200,200,200,0.5);
+  font-weight: bold;
+  position:absolute;
+  left:50%;
+  margin-left:-47mm;
+  top:20mm;
+  width:94mm;
+  height:94mm;
+  border-radius:130mm;
+
+}
+.feature_art {
+  position:relative;
+  width:130mm;
+  height:130mm;
+  /* border:1px solid red; */
+}
+
+.keyword_title {
+  font-family:'Comfortaa',sans-serif;
+  text-transform: lowercase;
+  font-feature-settings: "liga";
+  font-variant-ligatures: common-ligatures;
+  font-weight:500;
+  top:220px;
+  left:0px;
+  width:100%;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.keyword_subtitle {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  letter-spacing: 1mm;
+  font-style: normal;
+  /* text-transform: uppercase; */
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  left: 0;
+  top: 330px;
+  border:0;
+}
+
+.units_in_pack {
+    top: 186mm;
+    left: 50%;
+    font-family: "Comfortaa", sans-serif;
+    transform: translate(-50%, -0%);
+    text-align: center;
+    text-transform: uppercase;
+    border:0;
+}
+
+.units_in_pack,
+.units_in_pack span {
+  font-size:3.5mm;
+  letter-spacing: 1mm;
+}
+
+.units_in_pack::after {
+  content: '\00212E';
+  display:none;
+}
+
+
+.title {
+  top: 196mm;
+  left: 50%;
+  font-family: "Comfortaa", sans-serif;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight:300;
+  font-size: 3.2mm;
+  letter-spacing:1mm;
+  width:70%;
+  line-height:1.6;
+}
+
+/* .title::after {
+  content: url(/templates/assets/images/bl/blends-bg.svg);
+  width: 165mm;
+  position: absolute;
+  top: -300px;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index: -1;
+  opacity: 1;
+} */
+
+.b_logo {
+  position: absolute;
+  top: 100mm;
+  width: 35%;
+  z-index: 2;
+  left: 51%;
+  transform: translate(-50%, 0%);
+}
+
+.logos{
+  bottom: 6mm;
+  left: 50%;
+  height: 11.5mm;
+  transform: translate(-50%, -50%);
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid #222222;
+  background-color: #222222;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  right: initial;
+  border-radius: 30mm;
+}
+
+.logos img {
+  margin: 1mm;
+}
+
+.title_header,
+.footer_text {
+  display: none;
+}
+
+.barcode {
+  position: absolute;
+  bottom: 17mm;
+  left: 5.5mm;
+}
+
+.batch_number {
+  left: 44mm;
+}

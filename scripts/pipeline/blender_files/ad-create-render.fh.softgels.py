@@ -140,7 +140,7 @@ def process_sku(row):
             return
 
     # Change the material color for a specified material (e.g., 'capsule_contents.002')
-    set_material_color('calcium.001', colour)  # Change 'capsule_contents.002' to the actual material name
+    # set_material_color('calcium.001', colour)  # Change 'capsule_contents.002' to the actual material name
 
     # Run the script using the environment variable provided SKU
     activated_gpus = enable_gpus(default_device_type, sku=sku)

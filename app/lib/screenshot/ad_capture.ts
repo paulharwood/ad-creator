@@ -13,7 +13,7 @@ const Ad_Capture = async (sku: string, content: string, langs: string[]) => {
         await page.setViewport({ width: 2880, height: 1800, deviceScaleFactor: 2 });
 
         for (const lang of langs) {
-            let url = `http://localhost:57538/sku/${sku}/${sku}.${content}.${lang}.html`;
+            let url = `http://localhost:57538/sku/${sku}/${sku}.${content}.${lang}`;
             console.log(url);
 
             try {

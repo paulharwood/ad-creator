@@ -177,7 +177,7 @@ img.ad_logo {
   left: 1160px;
   top: 760px;
   z-index: 2;
-  font-size: 10em; }
+  font-size: 9em; }
 
 .ap1 .key_feature_subtitle {
   position: absolute;
@@ -194,6 +194,15 @@ img.ad_logo {
   right: 130px;
   width: 710px;
   z-index: 1; }
+
+.fh-powder .ap1 .key_feature_title {
+  top: 470px; }
+
+.fh-powder .ap1 .key_feature_subtitle {
+  top: 660px; }
+
+.fh-powder .ap1 > .slab02 {
+  top: 240px; }
 
 /* ad2 and ap2 ==================================== */
 .ad2 {
@@ -315,10 +324,12 @@ img.ad_logo {
   right: 100px;
   flex-direction: row;
   justify-content: space-evenly; }
+  .ad3 .bullets .bullet {
+    width: 135px; }
 
 .ad3 .bullet-description {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.7em;
   margin-top: 180px; }
 
 .ad3 svg text {
@@ -398,7 +409,7 @@ img.ad_logo {
 
 /* ad4 and ap4 ==================================== */
 .ad4 {
-  background-position: -100px 170px;
+  background-position: -100px 110px;
   background-size: 1200px;
   background-repeat: no-repeat; }
   .ad4 .slab {
@@ -413,7 +424,7 @@ img.ad_logo {
     height: 80px;
     width: 80px; }
   .ad4 .bullet.bullet1 {
-    top: 280px;
+    top: 300px;
     left: 270px;
     transform: rotate(13deg); }
   .ad4 .bullet.bullet2 {
@@ -599,6 +610,14 @@ img.ad_logo {
   letter-spacing: 0.1em;
   font-size: 1.5em; }
 
+.ap5 .captab_guide {
+  position: absolute;
+  width: 183px;
+  height: 210px;
+  bottom: 250px;
+  background-repeat: no-repeat;
+  background-position: bottom right; }
+
 .ap5 .information {
   position: absolute;
   top: 30px;
@@ -629,7 +648,7 @@ img.ad_logo {
 
 .ap5 .dosage .dosage_copy {
   padding: 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 1.65; }
 
 .ap5 .size {
@@ -656,6 +675,14 @@ img.ad_logo {
   font-weight: 500;
   letter-spacing: 0.1em;
   font-size: 1.5em; }
+
+.ad6 .captab_guide {
+  position: absolute;
+  width: 143px;
+  height: 210px;
+  bottom: 241px;
+  background-repeat: no-repeat;
+  background-position: bottom right; }
 
 .ad6 .information {
   position: absolute;

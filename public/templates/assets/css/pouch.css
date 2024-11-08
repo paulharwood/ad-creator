@@ -389,13 +389,6 @@ body {
   font-size: 1.2em;
 }
 
-.batch_number {
-  position: absolute;
-  bottom: 28mm;
-  left: 54mm;
-  font-size: 0.7em;
-}
-
 .barcode {
   position: absolute;
   bottom: 17mm;
@@ -403,14 +396,19 @@ body {
 }
 
 .use_by_date,
-.sku {
+.sku,
+.batch_number {
   border-radius: 4mm;
   border: 1px solid #1b1b1b;
   padding: 2px 9px;
   display: inline-block;
   font-size: 0.8em;
 }
-
+/* .batch_number {
+  position: absolute;
+  bottom: 26mm;
+  left:44mm;
+} */
 .sku {
   right: 0
 }
