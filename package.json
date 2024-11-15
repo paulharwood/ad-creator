@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "P Harwood",
+  "type": "module",
   "description": "An ecommerce listing management app",
   "main": "main/main.mjs",
   "scripts": {
