@@ -16,7 +16,7 @@ handlebars.registerHelper('eq', function (a, b) {
   return a === b;
 });
 
-translate.engine = "deepl"; // "google", "yandex", "libre", "deepl"
+translate.engine = "google"; // "google", "yandex", "libre", "deepl"
 // translate.key = process.env.DEEPL_KEY;
 translate.key = "6df78c7a-1def-4d2f-a7ed-b0e3a2217524";
 

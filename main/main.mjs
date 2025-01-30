@@ -13,8 +13,8 @@ const createWindow = () => {
   const win = new BrowserWindow({
     titleBarStyle: 'hidden',
     trafficLightPosition: { x: 10, y: 10 },
-    width: 1280,
-    height: 1024,
+    width: 1680,
+    height: 1224,
     nodeIntegration: true,
     webPreferences: {
       preload: join(__dirname, "main/preload.mjs")

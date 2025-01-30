@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "author": "P Harwood",
-  "type": "module",
-  "description": "An ecommerce listing management app",
+    "description": "An ecommerce listing management app",
   "main": "main/main.mjs",
   "scripts": {
-    "dev": "concurrently -n \"NEXT,ELECTRON,WEB,SCSS\" -c \"yellow,blue,green,red\" --kill-others \"next dev\" \"electron .\" \"serve -l 57538 public\" \"node process-scss.js\"",
+    "dev": "concurrently -n \"NEXT,ELECTRON,WEB,SCSS\" -c \"yellow,blue,green,red\" --kill-others \"next dev\" \"electron .\" \"serve -l 57538 public\" \"node process-scss.mjs\"",
     "build": "next build && electron-builder",
     "start": "next start",
     "render": "ts-node scripts/blender-render.ts",

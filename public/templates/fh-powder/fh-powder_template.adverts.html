@@ -1,544 +1,248 @@
 <html>
+  <head>
+    <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
+    <link rel="stylesheet" type="text/css" href="/templates/assets/css/adverts.css">
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<head>
-  <script src="https://kit.fontawesome.com/f4b7200dd7.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/templates/assets/css/template_ux.css">
-  <link rel="stylesheet" type="text/css" href="/templates/assets/css/fh-adverts.css">
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,{{language}}',
+        }, 'google_translate_element');
+        setTimeout(function () {
+          // Set the default language to Spanish
+          var selectElement = document.querySelector('#google_translate_element select');
+          selectElement.value = '{{language}}';
+          selectElement.dispatchEvent(new Event('change'));
+        }, 500);
+      }
 
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,{{language}}',
-      }, 'google_translate_element');
-      setTimeout(function () {
-        // Set the default language to Spanish
-        var selectElement = document.querySelector('#google_translate_element select');
-        selectElement.value = '{{language}}';
-        selectElement.dispatchEvent(new Event('change'));
-      }, 500);
-    }
+    </script>
 
-  </script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
+    <!-- conditional/inline styles -->
+    <style>
+      .keyword_title {
+        font-size:{{keyword_title_size}}pt;
+      }
+      .ad1, .ap1 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00000.jpg");
+      }
+      .ad1_accent, .ap1_accent {
+        background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
+      }
+      .ad2, .ap2 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
+      }
+      .ad3, .ap3 {
+        background-image: url("/stock/shutterstock_2146195251.jpg");
+      }
+      .ad4, .ap4 {
+        background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
+      }
+      .ad5, .ap5  {
+        background-image: url("/renders/{{sku}}/{{sku}}_00004.jpg");
+      }
+      .is_vegan { display: {{is_vegan}};}
+      .is_vegetarian { display: {{is_vegetarian}};}
+      .is_halal { display: {{halal}};}
+      .is_kosher { display: {{kosher}};}
+      .is_gmo_free { display: {{gmo_free}};}
+      .is_organic { display: {{organic}};}
+
+      .ad5 .rs_logos img.{{rs_collection}},
+      .ap5 .rs_logos img.{{rs_collection}} {
+        display:block
+      }
 
 
-  <!-- <link rel="stylesheet" type="text/css" href="css/rs-captab.css"> -->
-  <!-- conditional/inline styles -->
-  <style>
-    .slab svg rect {
-      fill: {{brand_colour}}
-    }
-
-    .keyword_title {
-      font-size: {{keyword_title_size}}pt;
-    }
-
-    .ad1,
-    .ap3,
-    .ad4 {
-      background-image: url("/renders/{{sku}}/{{sku}}_00001.jpg");
-    }
-
-    .ap1,
-    .ad2 {
-      background-image: url("/renders/{{sku}}/{{sku}}_00002.jpg");
-    }
-
-    .ad8 {
-      background-image: url("/renders/{{sku}}/{{sku}}_00003.jpg");
-    }
-
-    .is_vegan { display: {{is_vegan}};}
-    .is_vegetarian { display: {{is_vegetarian}};}
-    .is_halal { display: {{halal}};}
-    .is_kosher { display: {{kosher}};}
-    .is_gmo_free { display: {{gmo_free}};}
-    .is_organic { display: {{organic}};}
-
-  </style>
-</head>
-
-<body class="{{three_d_template}}">
-  <div id="google_translate_element"></div>
-  <div class="content">
+    </style>
+    </head>
+  <body class="{{rs_collection}}">
+    <div id="google_translate_element"></div>
+    <div class="content">
     <h2>Adverts</h2>
     <div class="advert_content">
-      <small>ad1 featured</small>
       <div class="advert ad1 featured">
-      </div>
-      <small>ad1</small>
+      </div> 
       <div class="advert ad1">
       </div>
-      <small>ad2</small>
+      <div class="advert ad1_accent">
+      </div> 
       <div class="advert ad2">
-        <div class="product_subtitle">{{label_title}}</div>
-        <div class="product_description">{{{product_description}}}</div>
-        <div class="slab slab03">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
-            <defs>
-              <mask id="slab03">
-                <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      <small>ad3</small>
-      <div class="advert ad3">
-        <div class="red_logo">
-          <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-white.svg" />
-        </div>
-        <div class="slab slab04">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab04)" />
-            <defs>
-              <mask id="slab04">
-                <image href="/templates/assets/images/fh/slab04.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
-        </div>
-        <div class="feature_art_container">
-          <img src="/templates/assets/images/fh/feature-art-{{feature_image_code}}.svg" class="feature_art" />
-        </div>
-        <div class="bullets">
-          {{{AD_BULLETS_HTML}}}
-        </div>
+        {{{AD_BULLETS_HTML}}}
         <div class="disclaimer_text">
-          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits
-            above.</p>
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
         </div>
       </div>
-      <small>ad4</small>
+      <div class="advert ad3">
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction</h2><h2>guarantee.</h2>
+        </div>          
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+      </div>
       <div class="advert ad4">
-        <div class="bullets">
-          <div class="bullet bullet1"></div>
-          <div class="bullet bullet2"></div>
-          <div class="bullet bullet3"></div>
-          <div class="bullet bullet4"></div>
-          <div class="feature feature1">
-            <div class="feature_copy">
-              {{{feature_one}}}
-            </div>
-            <div class="slab slab04">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
-                <defs>
-                  <mask id="slab03">
-                    <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
-          <div class="feature feature2">
-            <div class="feature_copy">
-              {{{feature_two}}}
-            </div>
-            <div class="slab slab04">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab04)" />
-                <defs>
-                  <mask id="slab04">
-                    <image href="/templates/assets/images/fh/slab04.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="feature feature3">
-            <div class="feature_copy">
-              {{{feature_three}}}
-            </div>
-            <div class="slab slab07">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab07)" />
-                <defs>
-                  <mask id="slab07">
-                    <image href="/templates/assets/images/fh/slab07.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="feature feature4">
-            <div class="feature_copy">
-              {{{feature_four}}}
-            </div>
-            <div class="slab slab06">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab06)" />
-                <defs>
-                  <mask id="slab06">
-                    <image href="/templates/assets/images/fh/slab06.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-        </div>
       </div>
-      <small>ad5</small>
       <div class="advert ad5">
-        <div class="safe_headline">
-          Safe, effective<br> and simple<br> to take.
-        </div>
-        <div class="safe_copy">
-          Our tablets and capsules are responsibly sourced, they meet our high safety standards and are sized as small
-          as
-          possible for effective dosage. Their convenient form
-          makes them simple to incorporate into any daily routine.
-        </div>
-        <div class="quality">
-          <h2>Quality<br />assured.</h2>
-          <div class="certificate">
-            <h1>100%</h1>
-            <h2>Satisfaction</h2>
+          <h2>{{KEY_FEATURE_TITLE}}</h2>
+          <div class="features">
+            <p>{{KEY_FEATURE_COPY}}</p>
           </div>
-          <div class="guarantee_text">
-            <p>We are confident that you will be happy with your purchase from us.</p>
-            <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+          <div class="rs_logos">
+            <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+            <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+            <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
           </div>
-        </div>
-        <div class="hero">
-          <div class="hero_photo"></div>
-        </div>
-        <div class="logos">
-          <img class="made_in_britain" src="/templates/assets/images/fh/made_in_britain.svg" />
-          <img class="haccp" src="/templates/assets/images/fh/haccp.svg" />
-          <!-- conditional -->
-          <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
-          <img class="is_vegan" src="images/vegan-logo.svg" />
-          <img class="is_halal" src="images/halal-logo.svg" />
-          <img class="is_kosher" src="images/kosher-logo.svg" />
-          <img class="food_supplement" src="/templates/assets/images/fh/food-supplement.svg" />
-          <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-black.svg" />
-        </div>
+
       </div>
-      <small>ad6</small>
       <div class="advert ad6">
-        <div class="slab slab05">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab05)" />
-            <defs>
-              <mask id="slab05">
-                <image href="/templates/assets/images/fh/slab05.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
-        </div>
-        <div class="information">
-          <table>
-            <tbody>
-              <tr>
-                <td class="product">
-                  <h3>Product</h3>
-                  <h4>{{label_title}}</h4>
-                </td>
-                <td class="quantity">
-                  <h3>Quantity</h3>
-                  <h4>{{units_in_pack}}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <div class="size">
-                    <h3>Size Guide</h3>
-                    <p>{{three_d_size}}
-                      {{three_d_type}}
-                      {{three_d_shape}}</p>
-                    <div class="captab_guide"
-                      style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2*{{three_d_size}}mm)">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
         </div>
       </div>
-      <small>ad7</small>
       <div class="advert ad7">
-        <div class="quality">
-          <h2>Quality<br />assured.</h2>
-          <div class="certificate">
-            <h1>100%</h1>
-            <h2>Satisfaction</h2>
-            <h2>guarantee.</h2>
-          </div>
-          <div class="guarantee_text">
-            <p>We are confident that you will be happy with your purchase from us.</p>
-            <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
-          </div>
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
         </div>
-        <div class="bullets">
-          {{{CUSTOM_BULLETS_HTML}}}
-        </div>
+          <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
-      <small>ad8</small>
       <div class="advert ad8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
-      <small>ad9</small>
       <div class="advert ad9">
-        <div class="helping_you">
-          <h2>For 13 years,<br>
-            a family business
-            helping millions
-            of people just
-            like you.</h2>
-          <p>A family run company, we were inspired to help people all around the world by our late mother and mentor
-            Jenny.
-            Trained as a nurse and working with natural remedies for over 40 years, Jenny inspired our journey to help
-            people help
-            themselves feel better and live their best life.</p>
-          <p>Our standards for quality are driven by our desire to treat each and every customer with care and respect,
-            as she
-            did and would.</p>
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense workouts.</p>
         </div>
-        <div class="slab slab09">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <mask id="slab09">
-                <image href="/templates/assets/images/fh/slab06.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-            <image href="/templates/assets/images/fh/people.jpg" x="-100" y="-75" width="340" height="350"
-              mask="url(#slab09)">
-            </image>
-          </svg>
-          <div class="fh_logo">
-            <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-black.svg" />
-          </div>
-        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
       </div>
     </div>
-
     <h2>A+ Content</h2>
-
     <div class="aplus_content">
       <div class="aplus ap1">
-        <div class="red_logo">
-          <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-white.svg" />
-        </div>
-        <div class="key_feature_title">{{keyword_title}}</div>
-        <div class="key_feature_subtitle">{{keyword_subtitle}}</div>
-        <div class="slab slab02">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab02)" />
-            <defs>
-              <mask id="slab02">
-                <image href="/templates/assets/images/fh/slab02.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
-        </div>
+        <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
+      </div>
+      <div class="aplus ap1_accent">
+        <div class="divider-vertical-center"></div>
+        <div class="key_feature_title">{{KEY_FEATURE_TITLE}}</div>
       </div>
       <div class="aplus ap2">
-        <div class="product_subtitle">{{label_title}}</div>
-        <div class="product_description">{{{product_description}}}</div>
-        <div class="slab slab03">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
-            <defs>
-              <mask id="slab03">
-                <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
-        </div>
-        <div class="feature_art_container">
-          <img src="/templates/assets/images/fh/feature-art-{{feature_image_code}}.svg" class="feature_art" />
-        </div>
-        <div class="bullets">
-          {{{AD_BULLETS_HTML}}}
-        </div>
+        {{{AD_BULLETS_HTML}}}
         <div class="disclaimer_text">
-          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits
-            above.</p>
-        </div>
-      </div>
-      <div class="aplus ap3">
-        <div class="bullets">
-          <div class="bullet bullet1"></div>
-          <div class="bullet bullet2"></div>
-          <div class="bullet bullet3"></div>
-          <div class="bullet bullet4"></div>
-          <div class="feature feature1">
-            <div class="feature_copy">
-              {{{feature_one}}}
-            </div>
-            <div class="slab slab04">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab03)" />
-                <defs>
-                  <mask id="slab03">
-                    <image href="/templates/assets/images/fh/slab03.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="feature feature2">
-            <div class="feature_copy">
-              {{{feature_two}}}
-            </div>
-            <div class="slab slab04">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab04)" />
-                <defs>
-                  <mask id="slab04">
-                    <image href="/templates/assets/images/fh/slab04.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="feature feature3">
-            <div class="feature_copy">
-              {{{feature_three}}}
-            </div>
-            <div class="slab slab07">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab07)" />
-                <defs>
-                  <mask id="slab07">
-                    <image href="/templates/assets/images/fh/slab07.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="feature feature4">
-            <div class="feature_copy">
-              {{{feature_four}}}
-            </div>
-            <div class="slab slab06">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-                <rect width="200" height="200" fill="#eeeeee" mask="url(#slab06)" />
-                <defs>
-                  <mask id="slab06">
-                    <image href="/templates/assets/images/fh/slab06.svg" x="0" y="0" width="200" height="200" />
-                  </mask>
-                </defs>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="aplus ap4">
-        <div class="safe_headline">
-          Safe, effective<br> and simple<br> to take.
-        </div>
-        <div class="safe_copy">
-          Our tablets and capsules are responsibly sourced, they meet our high safety standards and are sized as small
-          as possible for effective dosage. Their convenient form
-          makes them simple to incorporate into any daily routine.
-        </div>
-        <div class="quality">
-          <h2>Quality<br />assured.</h2>
-          <div class="certificate">
-            <h1>100%</h1>
-            <h2>Satisfaction</h2>
-          </div>
-          <div class="guarantee_text">
-            <p>We are confident that you will be happy with your purchase from us.</p>
-            <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
-          </div>
-        </div>
-        <div class="hero">
-          <div class="hero_photo"></div>
-        </div>
-        <div class="logos">
-          <img class="made_in_britain" src="/templates/assets/images/fh/made_in_britain.svg" />
-          <img class="haccp" src="/templates/assets/images/fh/haccp.svg" />
-          <!-- conditional -->
-          <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
-          <img class="is_vegan" src="images/vegan-logo.svg" />
-          <img class="is_halal" src="images/halal-logo.svg" />
-          <img class="is_kosher" src="images/kosher-logo.svg" />
-          <img class="food_supplement" src="/templates/assets/images/fh/food-supplement.svg" />
-          <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-black.svg" />
+          <p>While we cannot make specific health claims "{{keyword_title}}" is often associated with the benefits above.</p>
         </div>
       </div>
       <div class="aplus ap5">
-        <div class="slab slab05">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <rect width="200" height="200" fill="#eeeeee" mask="url(#slab05)" />
-            <defs>
-              <mask id="slab05">
-                <image href="/templates/assets/images/fh/slab05.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-          </svg>
+        <div class="divider-vertical-center"></div>
+        <h2>{{label_title}}</h2>
+        <div class="features">
+          <p>{{KEY_FEATURE_COPY}}</p>
         </div>
-        <div class="information">
-          <table>
-            <tbody>
-              <tr>
-                <td class="product">
-                  <h3>Product</h3>
-                  <h4>{{label_title}}</h4>
-                </td>
-                <td class="quantity">
-                  <h3>Quantity</h3>
-                  <h4>{{units_in_pack}}</h4>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="dosage">
-                    <h3>Dosage</h3>
-                    <div class="dosage_copy">{{{suggested_use}}}</div>
-                  </div>
-                </td>
-                <td>
-                  <div class="size">
-                    <h3>Size Guide</h3>
-                    <p>{{three_d_size}}
-                      {{three_d_type}}
-                      {{three_d_shape}}</p>
-                    <div class="captab_guide"
-                      style="background-image: url(/templates/assets/images/fh/{{three_d_type}}{{three_d_shape}}.svg);height:calc(2.5*{{three_d_size}}mm)">
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+        <div class="rs_logos">
+          <img class="rs_collection Maintenance" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection Performance" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection Recovery" src="/templates/assets/images/rs/rs-recovery.svg" />
         </div>
       </div>
-      <div class="aplus ap6">
-        <div class="helping_you">
-          <h2>For 13 years,<br>
-            a family business
-            helping millions
-            of people just
-            like you.</h2>
-          <p>A family run company, we were inspired to help people all around the world by our late mother and mentor
-            Jenny. Trained as a nurse and working daily with natural remedies for over 40 years, Jenny inspired our
-            journey to help people help themselves feel better and live their best life.</p>
-          <p>Our standards for quality are driven by our desire to treat each and every customer with care and respect,
-            as she did and would.</p>
+      {{#if (eq rs_collection 'Performance')}}
+      <div class="aplus ap7">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+        <div class="ad_copy">
+          <h2>Push your limits.</h2>
+          <p>Our Performance supplements help you push your limits and reach new heights.</p>
         </div>
-        <div class="slab slab09">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <mask id="slab09">
-                <image href="/templates/assets/images/fh/slab06.svg" x="0" y="0" width="200" height="200" />
-              </mask>
-            </defs>
-            <image href="/templates/assets/images/fh/people.jpg" x="-100" y="-75" width="340" height="350"
-              mask="url(#slab09)"></image>
-          </svg>
-          <div class="fh_logo">
-            <img class="fh_logo_black" src="/templates/assets/images/fh/fh-logo-black.svg" />
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      {{#if (eq rs_collection 'Maintenance')}}
+      <div class="aplus ap8">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+        <div class="ad_copy">
+          <h2>Keep Going.</h2>
+          <p>Our Maintenance supplements focus on sustaining and fine-tuning your hard-earned progress, ensuring long-term
+            success.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      {{#if (eq rs_collection 'Recovery')}}
+      <div class="aplus ap9">
+        <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
+        <div class="ad_copy">
+          <h2>Recover well.</h2>
+          <p>Recovery supplements support rest and rejuvenation, allowing your body to heal and grow stronger after intense
+            workouts.</p>
+        </div>
+        <img class="ad_logo" src="images/rs-header-motif-white.svg" />
+      </div>
+      {{/if}}
+      <div class="aplus ap3">
+      <h2>Quality<br />assured.</h2>
+        <div class="certificate">
+          <h1>100%</h1>
+          <h2>Satisfaction</h2>
+        </div>
+        {{{CUSTOM_BULLETS_HTML}}}
+        <div class="guarantee_text">
+          <p>We are confident that you will be happy with your purchase from us.</p>
+          <p>We will provide a refund if the product is not to your satisfaction, or not as described.</p>
+        </div>
+      </div>
+      {{!-- <div class="aplus ap4">
+          <div class="logos">
+            <!-- conditional -->
+            <img class="is_vegetarian" src="images/vegetarian-logo.svg" />
+            <img class="is_vegan" src="images/vegan-logo.svg" />
+            <img class="is_halal" src="images/halal-logo.svg" />
+            <img class="is_kosher" src="images/kosher-logo.svg" />
           </div>
+      </div> --}}
+
+      <div class="aplus ap6">
+        <h1>3</h1>
+        <h2>Simple steps to<br>
+          build strength<br>
+          quickly</h2>
+        <div class="rs_collection_group">
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-performance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-maintenance.svg" />
+          <img class="rs_collection_logo" src="/templates/assets/images/rs/rs-recovery.svg" />
         </div>
       </div>
+
 
     </div>
     <pre>
@@ -576,10 +280,8 @@
     <p>BUL: {{BULLETS_FR}}</p>
     <p>TIT: {{TITLE_FR}}</p>
     <p>COP: {{COPY_FR}}</p>
-    {{{CUSTOM_BULLETS_HTML}}}
+
     </pre>
-  </div>
-
-</body>
-
+    </div>
+  </body>
 </html>

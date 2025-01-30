@@ -404,11 +404,11 @@ body {
   display: inline-block;
   font-size: 0.8em;
 }
-/* .batch_number {
+.batch_number {
   position: absolute;
   bottom: 26mm;
-  left:44mm;
-} */
+  left:53mm;
+}
 .sku {
   right: 0
 }

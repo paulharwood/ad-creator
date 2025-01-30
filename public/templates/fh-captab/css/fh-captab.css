@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/new-york-extra-large');
+
+body {
+  color: #000000;
+}
+
+.label {
+/*border:1px solid #333;
+background-image: url('/templates/fh-captab/images/guide.png');
+background-size: cover; */
+color: inherit;
+overflow: hidden;
+}
+
+.label_background_top,
+.label_background_bottom {
+/* background-color:transparent */
+}
+
+.fh_icon_container {
+  position:absolute;
+  top:3mm;
+  left:0;
+  right:0;
+  height:6mm;
+  text-align: center;
+}
+
+.fh_icon {
+  /* background-color: #cd1a00; */
+  width:14mm;
+  height:14mm;
+  margin:auto;
+  padding:2mm;
+}
+
+
+.feature_art_container {
+  position:absolute;
+  text-align: center;
+  top:62mm;
+  width:100%;
+}
+.feature_art_container::before {
+  content: "";
+  background-color: rgba(200,200,200,0.5);
+  font-weight: bold;
+  position:absolute;
+  left:50%;
+  margin-left:-47mm;
+  top:20mm;
+  width:94mm;
+  height:94mm;
+  border-radius:130mm;
+
+}
+.feature_art {
+  position:relative;
+  width:130mm;
+  height:130mm;
+  /* border:1px solid red; */
+}
+
+.keyword_title {
+  font-family:'New York Large',sans-serif;
+  font-weight:300;
+  top:140px;
+  left:0px;
+  width:100%;
+  text-align: center;
+}
+.keyword_subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  letter-spacing: 1mm;
+  font-style: normal;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  left: 0;
+  top: 245px;
+  border:0;
+}
+
+.units_in_pack {
+    top: 186mm;
+    left: 50%;
+    font-family: "Montserrat", sans-serif;
+    transform: translate(-50%, -0%);
+    text-align: center;
+    text-transform: uppercase;
+    border:0;
+}
+
+.units_in_pack,
+.units_in_pack span {
+  font-size:3.5mm;
+  letter-spacing: 1mm;
+}
+
+.units_in_pack::after {
+  content: '\00212E';
+  display:none;
+}
+
+
+.title {
+  top: 196mm;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight:300;
+  font-size: 3.2mm;
+  letter-spacing:1mm;
+  width:70%;
+  line-height:1.6;
+}
+
+.title::after {
+  content: url(/templates/assets/images/fh/title-bg.svg);
+  width:70mm;
+  height:16.9mm;
+  position:absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  z-index:-1;
+  opacity:0.2;
+}
+
+
+.logos{
+    bottom: 1mm;
+    left: 50%;
+    height: 11.5mm;
+    transform: translate(-50%, -50%);
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    right: initial;
+    border-radius: 30mm;
+}
+
+.logos img {
+  margin: 1mm;
+}
+
+.title_header,
+.footer_text {
+  display: none;
+}
+
+.barcode {
+  position: absolute;
+  bottom: 17mm;
+  left: 5.5mm;
+}
+
+.batch_number {
+    left: 0mm;
+    bottom: 19.5mm;
+}
+
+.quantity {
+    position: absolute;
+    bottom: -2mm;
+    right: 17mm;
+    font-size: 1.7em;
+}

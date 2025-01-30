@@ -26,7 +26,7 @@
     </style>
     </head>
   <body>
-    <div class="labels {{rs_collection}}">
+    <div class="labels">
       <div class="label back">
       <div class="safety_panel">
         <div class="safety_information">
@@ -66,12 +66,15 @@
           {{sku}}
           </div>
           <div class="batch_number">
-            BN: {{current_batch_number}}
+            BN: {{current_batch_number}}  
+          </div>
+          <div class="quantity">
+            <span>{{units_count}}</span> {{units_type}} &#8494;
           </div>
         </div>
           <div class="qr_code_text"><h2>Save on your next order!</h2>To get a discount on your next order, scan the QR code above with your mobile phone to order this item directly from our store.</div>
         <div class="qr_code">
-          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Frapidstrength.co" title="Link to Rapid Strength" />
+          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Ffitnesshealth.co" title="Link to Rapid Strength" />
         </div>
           <svg class="barcode"
             jsbarcode-height="30"

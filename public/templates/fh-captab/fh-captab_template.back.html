@@ -4,7 +4,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/templates/assets/css/pouch.css">
     <link rel="stylesheet" type="text/css" href="/templates/fh-captab/css/fh-captab.css">
-
+    
     <!-- conditional/inline styles -->
     <style>
       .is_vegan { display: {{is_vegan}};}
@@ -15,6 +15,7 @@
       .is_organic { display: {{organic}};}
       .bottom_bar {
         opacity:0.2;
+        border-radius:5em;
         background-color: {{brand_colour}};
       }
       .ingredients,
@@ -57,7 +58,7 @@
         </div>
         <div class="bottom_bar"></div>
         <div class="bottom_panel">
-        <img style="float:right" src="images/fh-logo-black.svg"  width="50" height="50" />
+        <img style="float:right" src="/templates/assets/images/fh/fh-logo-black.svg"  width="50" height="50" />
           <div class="use_by_date">
             Best Before: {{use_by_date}}
           </div>
@@ -65,12 +66,15 @@
           {{sku}}
           </div>
           <div class="batch_number">
-            BN: {{current_batch_number}}
+            BN: {{current_batch_number}}  
+          </div>
+          <div class="quantity">
+            <span>{{units_count}}</span> {{units_type}}
           </div>
         </div>
           <div class="qr_code_text"><h2>Save on your next order!</h2>To get a discount on your next order, scan the QR code above with your mobile phone to order this item directly from our store.</div>
         <div class="qr_code">
-          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Frapidstrength.co" title="Link to Rapid Strength" />
+          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Ffitnesshealth.co" title="Link to Rapid Strength" />
         </div>
           <svg class="barcode"
             jsbarcode-height="30"
